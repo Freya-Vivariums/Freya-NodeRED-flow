@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.1.15",
+        "label": "Freya-v0.1.16",
         "disabled": false,
         "info": "",
         "env": []
@@ -230,8 +230,8 @@
         "name": "spacer",
         "group": "065b86780da2c47f",
         "order": 3,
-        "width": 1,
-        "height": 1
+        "width": "6",
+        "height": "1"
     },
     {
         "id": "136be5538479f081",
@@ -250,8 +250,8 @@
         "name": "spacer",
         "group": "3a2a0cfe4ff01890",
         "order": 3,
-        "width": 1,
-        "height": 1
+        "width": "6",
+        "height": "1"
     },
     {
         "id": "93869b02738cc142",
@@ -644,7 +644,7 @@
         "type": "system actuators",
         "z": "c0a854f2e62226f7",
         "name": "Auxilary Lights",
-        "actuator": "",
+        "actuator": "auxLighting",
         "channel": "6",
         "mode": "digital",
         "x": 960,
@@ -1414,11 +1414,11 @@
         "z": "c0a854f2e62226f7",
         "name": "",
         "group": "3a2a0cfe4ff01890",
-        "order": 4,
-        "width": "6",
+        "order": 5,
+        "width": "3",
         "height": "1",
         "passthru": false,
-        "label": "Test",
+        "label": "Test Main",
         "tooltip": "",
         "color": "#292B2D",
         "bgcolor": "#A2CA6F",
@@ -1428,69 +1428,11 @@
         "payloadType": "json",
         "topic": "topic",
         "topicType": "msg",
-        "x": 330,
+        "x": 320,
         "y": 1000,
         "wires": [
             [
                 "aaefdcb537938d87"
-            ]
-        ]
-    },
-    {
-        "id": "d3ad415135309532",
-        "type": "inject",
-        "z": "c0a854f2e62226f7",
-        "name": "On",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            },
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "set",
-        "payload": "{\"lighting\":\"on\"}",
-        "payloadType": "json",
-        "x": 790,
-        "y": 860,
-        "wires": [
-            [
-                "a030ee2f8804a863"
-            ]
-        ]
-    },
-    {
-        "id": "c41f0f2407d23d90",
-        "type": "inject",
-        "z": "c0a854f2e62226f7",
-        "name": "Off",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            },
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "set",
-        "payload": "{\"lighting\":\"off\"}",
-        "payloadType": "json",
-        "x": 790,
-        "y": 900,
-        "wires": [
-            [
-                "a030ee2f8804a863"
             ]
         ]
     },
@@ -1551,7 +1493,7 @@
         "id": "aaefdcb537938d87",
         "type": "function",
         "z": "c0a854f2e62226f7",
-        "name": "Toggle lights",
+        "name": "Toggle main lights",
         "func": "// Toggle output each time a message arrives\nlet mainLights = context.get('mainLights') || false;  // get previous state, default false\n\nmainLights = !mainLights;              // flip the state\ncontext.set('mainLights', mainLights); // remember it\n\nreturn { payload:{lighting: mainLights?\"on\":\"off\"} };   // send true/false (on/off)",
         "outputs": 1,
         "timeout": 0,
@@ -1559,7 +1501,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
+        "x": 510,
         "y": 1000,
         "wires": [
             [
@@ -1584,6 +1526,54 @@
         "wires": [
             [
                 "0c6df0b11131a8c9"
+            ]
+        ]
+    },
+    {
+        "id": "4c6b2e8277ea7a30",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Toggle aux lights",
+        "func": "// Toggle output each time a message arrives\nlet auxLights = context.get('auxLights') || false;  // get previous state, default false\n\nauxLights = !auxLights;              // flip the state\ncontext.set('mainLights', auxLights); // remember it\n\nreturn { payload:{auxLighting: auxLights?\"on\":\"off\"} };   // send true/false (on/off)",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1040,
+        "wires": [
+            [
+                "a5ee427c8f782dfc"
+            ]
+        ]
+    },
+    {
+        "id": "58985b59a734e3fd",
+        "type": "ui_button",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "group": "3a2a0cfe4ff01890",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "Test Aux",
+        "tooltip": "",
+        "color": "#292B2D",
+        "bgcolor": "#A2CA6F",
+        "className": "",
+        "icon": "",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 1040,
+        "wires": [
+            [
+                "4c6b2e8277ea7a30"
             ]
         ]
     }
