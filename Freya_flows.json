@@ -1534,7 +1534,7 @@
         "type": "function",
         "z": "c0a854f2e62226f7",
         "name": "Toggle aux lights",
-        "func": "// Toggle output each time a message arrives\nlet auxLights = context.get('auxLights') || false;  // get previous state, default false\n\nauxLights = !auxLights;              // flip the state\ncontext.set('mainLights', auxLights); // remember it\n\nreturn { payload:{auxLighting: auxLights?\"on\":\"off\"} };   // send true/false (on/off)",
+        "func": "// Toggle output each time a message arrives\nlet auxLights = context.get('auxLights') || false;  // get previous state, default false\n\nauxLights = !auxLights;              // flip the state\ncontext.set('auxLights', auxLights); // remember it\n\nreturn { payload:{auxLighting: auxLights?\"on\":\"off\"} };   // send true/false (on/off)",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
