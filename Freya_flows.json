@@ -777,7 +777,8 @@
         "wires": [
             [
                 "80a6fee06bad3a98",
-                "adfbd547841167e4"
+                "adfbd547841167e4",
+                "e7274d3a41f1f1fb"
             ]
         ]
     },
@@ -853,7 +854,8 @@
         "wires": [
             [
                 "706121d25167f537",
-                "d53e4abac86221b8"
+                "d53e4abac86221b8",
+                "a30bb48351e7d448"
             ]
         ]
     },
@@ -898,7 +900,8 @@
         "y": 120,
         "wires": [
             [
-                "0c6df0b11131a8c9"
+                "0c6df0b11131a8c9",
+                "f133454d9ec41ce7"
             ]
         ]
     },
@@ -1067,7 +1070,8 @@
         "y": 1000,
         "wires": [
             [
-                "a030ee2f8804a863"
+                "a030ee2f8804a863",
+                "849cd6ed49a1fdb6"
             ]
         ]
     },
@@ -1431,7 +1435,7 @@
         "value": "payload",
         "valueType": "msg",
         "width": 2,
-        "height": 4,
+        "height": 3,
         "gtype": "gauge-34",
         "gstyle": "rounded",
         "title": "",
@@ -1535,7 +1539,7 @@
         "value": "payload",
         "valueType": "msg",
         "width": 2,
-        "height": 4,
+        "height": 3,
         "gtype": "gauge-34",
         "gstyle": "rounded",
         "title": "",
@@ -1639,7 +1643,7 @@
         "value": "payload",
         "valueType": "msg",
         "width": 2,
-        "height": 4,
+        "height": 3,
         "gtype": "gauge-34",
         "gstyle": "rounded",
         "title": "",
@@ -1733,7 +1737,7 @@
         "value": "payload",
         "valueType": "msg",
         "width": 2,
-        "height": 4,
+        "height": 3,
         "gtype": "gauge-34",
         "gstyle": "rounded",
         "title": "",
@@ -1865,5 +1869,101 @@
                 "c1cdcfccad7409d6"
             ]
         ]
+    },
+    {
+        "id": "f133454d9ec41ce7",
+        "type": "ui-text",
+        "z": "c0a854f2e62226f7",
+        "group": "58721ee298d6b49c",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 710,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "849cd6ed49a1fdb6",
+        "type": "ui-text",
+        "z": "c0a854f2e62226f7",
+        "group": "a9908ab557174656",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload.lighting",
+        "valueType": "msg",
+        "x": 710,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "a30bb48351e7d448",
+        "type": "ui-text",
+        "z": "c0a854f2e62226f7",
+        "group": "8ff445038f0d559b",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 710,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "e7274d3a41f1f1fb",
+        "type": "ui-text",
+        "z": "c0a854f2e62226f7",
+        "group": "cd300b67147963fd",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 710,
+        "y": 340,
+        "wires": []
     }
 ]
