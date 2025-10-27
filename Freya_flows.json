@@ -1839,7 +1839,7 @@
         "name": "Identify",
         "label": "Identify Vivarium",
         "order": 1,
-        "width": 0,
+        "width": 3,
         "height": 0,
         "emulateClick": false,
         "tooltip": "",
@@ -1965,5 +1965,57 @@
         "x": 710,
         "y": 340,
         "wires": []
+    },
+    {
+        "id": "b953255c7a8b8342",
+        "type": "ui-control",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "ui": "f89d7eddcc8eaeda",
+        "events": "all",
+        "x": 1300,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e79bbef708ea3dd7",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "Editor",
+        "label": "Editor",
+        "order": 2,
+        "width": 1,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "pencil",
+        "iconPosition": "left",
+        "payload": "{\"url\":\"/\",\"target\":\"_self\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 1170,
+        "y": 60,
+        "wires": [
+            [
+                "b953255c7a8b8342"
+            ]
+        ]
     }
 ]
