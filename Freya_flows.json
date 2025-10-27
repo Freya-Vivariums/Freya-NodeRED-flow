@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.0",
+        "label": "Freya-v0.2.1",
         "disabled": false,
         "info": "",
         "env": []
@@ -1996,7 +1996,7 @@
         "className": "",
         "icon": "pencil",
         "iconPosition": "left",
-        "payload": "{\"url\":\"/\",\"target\":\"_self\"}",
+        "payload": "{\"url\":\"/editor\",\"target\":\"_self\"}",
         "payloadType": "json",
         "topic": "topic",
         "topicType": "msg",
