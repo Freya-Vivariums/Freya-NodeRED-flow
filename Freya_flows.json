@@ -2,30 +2,10 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.1",
+        "label": "Freya-v0.2.4",
         "disabled": false,
         "info": "",
         "env": []
-    },
-    {
-        "id": "f89d7eddcc8eaeda",
-        "type": "ui-base",
-        "name": "Freya",
-        "path": "/dashboard",
-        "appIcon": "https://raw.githubusercontent.com/Freya-Vivariums/.github/refs/heads/main/brand/Freya_logo.png",
-        "includeClientData": true,
-        "acceptsClientConfig": [
-            "ui-notification",
-            "ui-control"
-        ],
-        "showPathInSidebar": false,
-        "headerContent": "page",
-        "navigationStyle": "none",
-        "titleBarStyle": "default",
-        "showReconnectNotification": true,
-        "notificationDisplayTime": 1,
-        "showDisconnectNotification": true,
-        "allowInstall": true
     },
     {
         "id": "816a31ac4184d09a",
@@ -47,10 +27,30 @@
         }
     },
     {
+        "id": "686c46360e79bd75",
+        "type": "ui-base",
+        "name": "Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": true
+    },
+    {
         "id": "4dd404b8d16154d5",
         "type": "ui-page",
         "name": "Freya Dashboard",
-        "ui": "f89d7eddcc8eaeda",
+        "ui": "686c46360e79bd75",
         "path": "/",
         "icon": "leaf",
         "layout": "grid",
@@ -79,8 +79,36 @@
         ],
         "order": 1,
         "className": "",
-        "visible": true,
-        "disabled": false
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "type": "ui-group",
+        "name": "UV Settings",
+        "page": "4dd404b8d16154d5",
+        "width": 3,
+        "height": "8",
+        "order": 7,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
+        "type": "ui-group",
+        "name": "UVB Monitor",
+        "page": "4dd404b8d16154d5",
+        "width": 9,
+        "height": 1,
+        "order": 8,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
     },
     {
         "id": "70e72a51ea68dfb2",
@@ -89,7 +117,7 @@
         "page": "4dd404b8d16154d5",
         "width": 3,
         "height": 1,
-        "order": 7,
+        "order": 9,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -187,7 +215,7 @@
         "page": "4dd404b8d16154d5",
         "width": 9,
         "height": 1,
-        "order": 8,
+        "order": 10,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -201,7 +229,7 @@
         "page": "4dd404b8d16154d5",
         "width": 12,
         "height": 1,
-        "order": 9,
+        "order": 11,
         "showTitle": false,
         "className": "",
         "visible": "true",
@@ -253,6 +281,72 @@
         "className": ""
     },
     {
+        "id": "c0e2700bc5258b28",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 3,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "5ff8494f6a16f03e",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 4,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "563c255bc63125b3",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 5,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "5a3046c954fe3883",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 6,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "ca75d6cdb912a6b5",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 7,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "aba6f91273fa44b1",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 8,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
         "id": "f012f8b348309bb5",
         "type": "inject",
         "z": "c0a854f2e62226f7",
@@ -273,8 +367,8 @@
         "topic": "",
         "payload": "{\"info\":{\"name\":\"Freya\",\"version\":\"v0.0.1\",\"description\":\"Freya wired up in Node-RED\"}}",
         "payloadType": "json",
-        "x": 1360,
-        "y": 160,
+        "x": 1180,
+        "y": 140,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -302,8 +396,8 @@
         "topic": "",
         "payload": "{\"status\":{\"level\":\"ok\"}}",
         "payloadType": "json",
-        "x": 1350,
-        "y": 200,
+        "x": 1170,
+        "y": 180,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -331,8 +425,8 @@
         "topic": "",
         "payload": "{\"status\":{\"level\":\"warning\"}}",
         "payloadType": "json",
-        "x": 1360,
-        "y": 240,
+        "x": 1180,
+        "y": 220,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -360,8 +454,8 @@
         "topic": "identify",
         "payload": "{\"blub\":\"zeemeermin\"}",
         "payloadType": "json",
-        "x": 1370,
-        "y": 120,
+        "x": 1190,
+        "y": 100,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -380,8 +474,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1330,
-        "y": 280,
+        "x": 1150,
+        "y": 260,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -393,8 +487,8 @@
         "type": "humidity controller",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 750,
-        "y": 500,
+        "x": 570,
+        "y": 480,
         "wires": [
             [
                 "8a52bc9eba3c0ada"
@@ -412,8 +506,8 @@
         "minimumTemperature": "10",
         "maximumTemperature": "50",
         "kp": "10",
-        "x": 760,
-        "y": 260,
+        "x": 580,
+        "y": 240,
         "wires": [
             [
                 "0c6df0b11131a8c9",
@@ -429,8 +523,8 @@
         "type": "lighting controller",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 750,
-        "y": 940,
+        "x": 570,
+        "y": 920,
         "wires": [
             [
                 "a030ee2f8804a863",
@@ -446,8 +540,8 @@
         "type": "precipitation controller",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 740,
-        "y": 660,
+        "x": 560,
+        "y": 640,
         "wires": [
             [
                 "38417f951ba2e8cf"
@@ -462,8 +556,8 @@
         "type": "circadian core",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 500,
-        "y": 260,
+        "x": 320,
+        "y": 240,
         "wires": [
             [
                 "144a01e7f0dd298d"
@@ -478,8 +572,8 @@
         "type": "circadian core",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 500,
-        "y": 500,
+        "x": 320,
+        "y": 480,
         "wires": [
             [
                 "d44fa9863bcdba16"
@@ -494,8 +588,8 @@
         "type": "circadian core",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 500,
-        "y": 940,
+        "x": 320,
+        "y": 920,
         "wires": [
             [
                 "eac6b1e0a11d0689"
@@ -510,8 +604,8 @@
         "type": "circadian core",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 500,
-        "y": 660,
+        "x": 320,
+        "y": 640,
         "wires": [
             [
                 "5c23dfdcc1dc077c"
@@ -526,8 +620,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Temperature Status",
-        "x": 990,
-        "y": 340,
+        "x": 810,
+        "y": 320,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -542,8 +636,8 @@
         "name": "Temperature Sensor",
         "variable": "temperature",
         "sampleinterval": "",
-        "x": 290,
-        "y": 180,
+        "x": 110,
+        "y": 160,
         "wires": [
             [
                 "8315c5acdf23410d",
@@ -563,8 +657,8 @@
         "actuator": "cooler",
         "channel": "5",
         "mode": "digital",
-        "x": 950,
-        "y": 280,
+        "x": 770,
+        "y": 260,
         "wires": [
             [
                 "00cfd341d4986698"
@@ -576,8 +670,8 @@
         "type": "system actuators",
         "z": "c0a854f2e62226f7",
         "name": "Humidifier",
-        "x": 940,
-        "y": 480,
+        "x": 760,
+        "y": 460,
         "wires": [
             [
                 "65ec410c37b483e8"
@@ -592,8 +686,8 @@
         "actuator": "lighting",
         "channel": "1",
         "mode": "digital",
-        "x": 950,
-        "y": 900,
+        "x": 770,
+        "y": 880,
         "wires": [
             [
                 "2f6bd800c9979c6c"
@@ -608,8 +702,8 @@
         "actuator": "auxLighting",
         "channel": "6",
         "mode": "digital",
-        "x": 960,
-        "y": 960,
+        "x": 780,
+        "y": 940,
         "wires": [
             [
                 "2f6bd800c9979c6c"
@@ -624,8 +718,8 @@
         "actuator": "rain",
         "channel": "3",
         "mode": "digital",
-        "x": 950,
-        "y": 640,
+        "x": 770,
+        "y": 620,
         "wires": [
             [
                 "edff2574530c85bb"
@@ -640,8 +734,8 @@
         "actuator": "heater",
         "channel": "1",
         "mode": "digital",
-        "x": 950,
-        "y": 220,
+        "x": 770,
+        "y": 200,
         "wires": [
             [
                 "00cfd341d4986698"
@@ -655,8 +749,8 @@
         "name": "Humidity Sensor",
         "variable": "humidity",
         "sampleinterval": "",
-        "x": 300,
-        "y": 420,
+        "x": 120,
+        "y": 400,
         "wires": [
             [
                 "d44fa9863bcdba16",
@@ -674,8 +768,8 @@
         "z": "c0a854f2e62226f7",
         "name": "Light Sensor",
         "variable": "light",
-        "x": 310,
-        "y": 860,
+        "x": 130,
+        "y": 840,
         "wires": [
             [
                 "eac6b1e0a11d0689",
@@ -692,8 +786,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Humidity Status",
-        "x": 960,
-        "y": 560,
+        "x": 780,
+        "y": 540,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -706,8 +800,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Lighting Status",
-        "x": 960,
-        "y": 1040,
+        "x": 780,
+        "y": 1020,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -720,8 +814,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Precipitation Status",
-        "x": 970,
-        "y": 720,
+        "x": 790,
+        "y": 700,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -734,8 +828,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "System Status",
-        "x": 1240,
-        "y": 640,
+        "x": 1060,
+        "y": 620,
         "wires": [
             [],
             []
@@ -752,8 +846,8 @@
         "syntax": "mustache",
         "template": "{{payload.temperature}}",
         "output": "str",
-        "x": 480,
-        "y": 160,
+        "x": 300,
+        "y": 140,
         "wires": [
             [
                 "673deaaa902483da",
@@ -772,8 +866,8 @@
         "syntax": "mustache",
         "template": "{{payload.humidity}}",
         "output": "str",
-        "x": 480,
-        "y": 400,
+        "x": 300,
+        "y": 380,
         "wires": [
             [
                 "80a6fee06bad3a98",
@@ -793,8 +887,8 @@
         "syntax": "mustache",
         "template": "{{payload.light}}",
         "output": "str",
-        "x": 480,
-        "y": 840,
+        "x": 300,
+        "y": 820,
         "wires": [
             [
                 "869cea4cfd17e8cd",
@@ -809,8 +903,8 @@
         "name": "Pressure",
         "variable": "pressure",
         "sampleinterval": "",
-        "x": 320,
-        "y": 1140,
+        "x": 140,
+        "y": 1120,
         "wires": [
             [
                 "c6e680047593b7a6"
@@ -830,8 +924,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
-        "y": 800,
+        "x": 300,
+        "y": 780,
         "wires": [
             [
                 "c1382f268f08be54"
@@ -849,8 +943,8 @@
         "syntax": "mustache",
         "template": "{{payload.pressure}}",
         "output": "str",
-        "x": 480,
-        "y": 1140,
+        "x": 300,
+        "y": 1120,
         "wires": [
             [
                 "706121d25167f537",
@@ -876,8 +970,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 480,
-        "y": 560,
+        "x": 300,
+        "y": 540,
         "wires": [
             [
                 "38417f951ba2e8cf"
@@ -896,8 +990,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 120,
+        "x": 310,
+        "y": 100,
         "wires": [
             [
                 "0c6df0b11131a8c9",
@@ -917,8 +1011,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 1040,
+        "x": 330,
+        "y": 1020,
         "wires": [
             [
                 "a5ee427c8f782dfc"
@@ -956,8 +1050,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 330,
-        "y": 120,
+        "x": 150,
+        "y": 100,
         "wires": [
             [
                 "54fe9e766a5c5396"
@@ -969,8 +1063,8 @@
         "type": "edgeberry",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 1570,
-        "y": 200,
+        "x": 1390,
+        "y": 180,
         "wires": [
             [
                 "dae89fffad3b4d41"
@@ -989,8 +1083,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1310,
-        "y": 340,
+        "x": 1130,
+        "y": 320,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -1009,8 +1103,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1330,
-        "y": 380,
+        "x": 1150,
+        "y": 360,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -1029,8 +1123,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1330,
-        "y": 420,
+        "x": 1150,
+        "y": 400,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -1050,8 +1144,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1770,
-        "y": 200,
+        "x": 1590,
+        "y": 180,
         "wires": []
     },
     {
@@ -1066,8 +1160,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 1000,
+        "x": 330,
+        "y": 980,
         "wires": [
             [
                 "a030ee2f8804a863",
@@ -1106,8 +1200,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 330,
-        "y": 320,
+        "x": 150,
+        "y": 300,
         "wires": [
             [
                 "144a01e7f0dd298d"
@@ -1145,8 +1239,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 330,
-        "y": 560,
+        "x": 150,
+        "y": 540,
         "wires": [
             [
                 "1a2e480989bed771"
@@ -1184,8 +1278,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 320,
-        "y": 1000,
+        "x": 140,
+        "y": 980,
         "wires": [
             [
                 "7c33142b8ae8c86b"
@@ -1223,8 +1317,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 320,
-        "y": 1040,
+        "x": 140,
+        "y": 1020,
         "wires": [
             [
                 "4c6b2e8277ea7a30"
@@ -1256,8 +1350,8 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "spinner": "default",
-        "x": 320,
-        "y": 240,
+        "x": 140,
+        "y": 220,
         "wires": [
             [
                 "1589282f12a5c631"
@@ -1289,8 +1383,8 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "spinner": "default",
-        "x": 310,
-        "y": 280,
+        "x": 130,
+        "y": 260,
         "wires": [
             [
                 "1589282f12a5c631"
@@ -1322,8 +1416,8 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "spinner": "default",
-        "x": 320,
-        "y": 480,
+        "x": 140,
+        "y": 460,
         "wires": [
             [
                 "6f2821f6469e2e25"
@@ -1355,8 +1449,8 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "spinner": "default",
-        "x": 320,
-        "y": 520,
+        "x": 140,
+        "y": 500,
         "wires": [
             [
                 "6f2821f6469e2e25"
@@ -1419,8 +1513,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 730,
-        "y": 140,
+        "x": 550,
+        "y": 120,
         "wires": [
             []
         ]
@@ -1461,8 +1555,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 730,
-        "y": 180,
+        "x": 550,
+        "y": 160,
         "wires": [
             []
         ]
@@ -1523,8 +1617,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 730,
-        "y": 380,
+        "x": 550,
+        "y": 360,
         "wires": [
             []
         ]
@@ -1565,8 +1659,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 730,
-        "y": 420,
+        "x": 550,
+        "y": 400,
         "wires": [
             []
         ]
@@ -1627,8 +1721,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 730,
-        "y": 800,
+        "x": 550,
+        "y": 780,
         "wires": [
             []
         ]
@@ -1662,15 +1756,15 @@
             }
         ],
         "min": "0",
-        "max": "200000",
+        "max": "12000",
         "sizeThickness": 16,
         "sizeGap": 4,
         "sizeKeyThickness": 8,
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 730,
-        "y": 840,
+        "x": 550,
+        "y": 820,
         "wires": [
             []
         ]
@@ -1693,8 +1787,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 320,
-        "y": 920,
+        "x": 140,
+        "y": 900,
         "wires": [
             [
                 "16f818035533a75f"
@@ -1719,8 +1813,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 320,
-        "y": 960,
+        "x": 140,
+        "y": 940,
         "wires": [
             [
                 "16f818035533a75f"
@@ -1763,8 +1857,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 740,
-        "y": 1160,
+        "x": 560,
+        "y": 1140,
         "wires": [
             []
         ]
@@ -1825,8 +1919,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 740,
-        "y": 1120,
+        "x": 560,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -1862,8 +1956,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1160,
-        "y": 280,
+        "x": 980,
+        "y": 260,
         "wires": [
             [
                 "c1cdcfccad7409d6"
@@ -1890,8 +1984,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 710,
-        "y": 100,
+        "x": 530,
+        "y": 80,
         "wires": []
     },
     {
@@ -1914,8 +2008,8 @@
         "className": "",
         "value": "payload.lighting",
         "valueType": "msg",
-        "x": 710,
-        "y": 760,
+        "x": 530,
+        "y": 740,
         "wires": []
     },
     {
@@ -1938,8 +2032,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 710,
-        "y": 1080,
+        "x": 530,
+        "y": 1060,
         "wires": []
     },
     {
@@ -1962,8 +2056,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 710,
-        "y": 340,
+        "x": 530,
+        "y": 320,
         "wires": []
     },
     {
@@ -1971,10 +2065,10 @@
         "type": "ui-control",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "ui": "f89d7eddcc8eaeda",
+        "ui": "686c46360e79bd75",
         "events": "all",
-        "x": 1300,
-        "y": 60,
+        "x": 1120,
+        "y": 40,
         "wires": [
             []
         ]
@@ -2010,12 +2104,267 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1170,
-        "y": 60,
+        "x": 990,
+        "y": 40,
         "wires": [
             [
                 "b953255c7a8b8342"
             ]
+        ]
+    },
+    {
+        "id": "205b6bce-522f-46f9-9654-61feec61417c",
+        "type": "environment sensor",
+        "z": "c0a854f2e62226f7",
+        "name": "UVB Sensor",
+        "variable": "uvb",
+        "x": 130,
+        "y": 1240,
+        "wires": [
+            [
+                "237e81793bd0e731"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "159b6245-40d7-4ec7-b176-125a42997e9b",
+        "type": "ui-gauge",
+        "z": "c0a854f2e62226f7",
+        "name": "UVB monitor",
+        "group": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "3",
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "μW/m2",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#000000",
+                "text": "0",
+                "textType": "str"
+            },
+            {
+                "from": "0.5",
+                "color": "#640064",
+                "text": "1",
+                "textType": "str"
+            },
+            {
+                "from": "1",
+                "color": "#960096",
+                "text": "2",
+                "textType": "str"
+            },
+            {
+                "from": "2.6",
+                "color": "#b400b4",
+                "text": "3",
+                "textType": "str"
+            },
+            {
+                "from": "7.4",
+                "color": "#c800c8",
+                "text": "3",
+                "textType": "str"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": "16",
+        "sizeGap": "4",
+        "sizeKeyThickness": "8",
+        "className": "",
+        "x": 550,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "237e81793bd0e731",
+        "type": "template",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.uvb}}",
+        "output": "str",
+        "x": 300,
+        "y": 1260,
+        "wires": [
+            [
+                "159b6245-40d7-4ec7-b176-125a42997e9b",
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+            ]
+        ]
+    },
+    {
+        "id": "4842d55fc547be75",
+        "type": "environment sensor",
+        "z": "c0a854f2e62226f7",
+        "name": "All sensor values",
+        "variable": "all",
+        "sampleinterval": "",
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "4f6c381ea45deb9b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4f6c381ea45deb9b",
+        "type": "debug",
+        "z": "c0a854f2e62226f7",
+        "name": "Sensor values",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2",
+        "type": "ui-chart",
+        "z": "c0a854f2e62226f7",
+        "group": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
+        "name": "",
+        "label": "UV Spectrum",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": "",
+        "showLegend": false,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#a2ca6f",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "7",
+        "height": "4",
+        "className": "",
+        "interpolation": "smooth",
+        "x": 550,
+        "y": 1260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fbb67b3f83f961e6",
+        "type": "ui-switch",
+        "z": "c0a854f2e62226f7",
+        "name": "UVB required",
+        "label": "UVB required",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "line",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 120,
+        "y": 1300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "076c8671d746485a",
+        "type": "ui-switch",
+        "z": "c0a854f2e62226f7",
+        "name": "UVC alarm",
+        "label": "UVC alarm",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "line",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 110,
+        "y": 1360,
+        "wires": [
+            []
         ]
     }
 ]
