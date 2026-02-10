@@ -2,2033 +2,113 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.5",
+        "label": "Freya-v0.2.7",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "f012f8b348309bb5",
-        "type": "inject",
-        "z": "c0a854f2e62226f7",
-        "name": "App info",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
+        "id": "816a31ac4184d09a",
+        "type": "ui-theme",
+        "name": "Freya Theme",
+        "colors": {
+            "surface": "#292b2d",
+            "primary": "#a2ca6f",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#292b2d"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "8px",
+            "groupBorderRadius": "6px",
+            "widgetGap": "8px"
+        }
+    },
+    {
+        "id": "686c46360e79bd75",
+        "type": "ui-base",
+        "name": "Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"info\":{\"name\":\"Freya\",\"version\":\"v0.0.1\",\"description\":\"Freya wired up in Node-RED\"}}",
-        "payloadType": "json",
-        "x": 1180,
-        "y": 140,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "df6740b34a9af942",
-        "type": "inject",
-        "z": "c0a854f2e62226f7",
-        "name": "App status",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "10",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"status\":{\"level\":\"ok\"}}",
-        "payloadType": "json",
-        "x": 1170,
-        "y": 180,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "d4e7d495df8ea17c",
-        "type": "inject",
-        "z": "c0a854f2e62226f7",
-        "name": "App status",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"status\":{\"level\":\"warning\"}}",
-        "payloadType": "json",
-        "x": 1180,
-        "y": 220,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "52905bb10d745583",
-        "type": "inject",
-        "z": "c0a854f2e62226f7",
-        "name": "Identify",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            },
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "identify",
-        "payload": "{\"blub\":\"zeemeermin\"}",
-        "payloadType": "json",
-        "x": 1190,
-        "y": 100,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "c1cdcfccad7409d6",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Signal formatting",
-        "func": "if(msg.payload.identify){\n    msg.topic = \"identify\"\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1150,
-        "y": 260,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "d44fa9863bcdba16",
-        "type": "humidity controller",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "x": 570,
-        "y": 480,
-        "wires": [
-            [
-                "8a52bc9eba3c0ada"
-            ],
-            [
-                "65ec410c37b483e8"
-            ]
-        ]
-    },
-    {
-        "id": "144a01e7f0dd298d",
-        "type": "temperature controller",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "minimumTemperature": "10",
-        "maximumTemperature": "50",
-        "kp": "10",
-        "x": 580,
-        "y": 240,
-        "wires": [
-            [
-                "0c6df0b11131a8c9",
-                "c33f1595ae47213c"
-            ],
-            [
-                "00cfd341d4986698"
-            ]
-        ]
-    },
-    {
-        "id": "eac6b1e0a11d0689",
-        "type": "lighting controller",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "x": 570,
-        "y": 920,
-        "wires": [
-            [
-                "a030ee2f8804a863",
-                "a5ee427c8f782dfc"
-            ],
-            [
-                "2f6bd800c9979c6c"
-            ]
-        ]
-    },
-    {
-        "id": "5c23dfdcc1dc077c",
-        "type": "precipitation controller",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "x": 560,
-        "y": 640,
-        "wires": [
-            [
-                "38417f951ba2e8cf"
-            ],
-            [
-                "edff2574530c85bb"
-            ]
-        ]
-    },
-    {
-        "id": "1589282f12a5c631",
-        "type": "circadian core",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "x": 320,
-        "y": 240,
-        "wires": [
-            [
-                "144a01e7f0dd298d"
-            ],
-            [
-                "00cfd341d4986698"
-            ]
-        ]
-    },
-    {
-        "id": "6f2821f6469e2e25",
-        "type": "circadian core",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "x": 320,
-        "y": 480,
-        "wires": [
-            [
-                "d44fa9863bcdba16"
-            ],
-            [
-                "65ec410c37b483e8"
-            ]
-        ]
-    },
-    {
-        "id": "16f818035533a75f",
-        "type": "circadian core",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "x": 320,
-        "y": 920,
-        "wires": [
-            [
-                "eac6b1e0a11d0689"
-            ],
-            [
-                "2f6bd800c9979c6c"
-            ]
-        ]
-    },
-    {
-        "id": "e667d1e955769107",
-        "type": "circadian core",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "x": 320,
-        "y": 640,
-        "wires": [
-            [
-                "5c23dfdcc1dc077c"
-            ],
-            [
-                "edff2574530c85bb"
-            ]
-        ]
-    },
-    {
-        "id": "00cfd341d4986698",
-        "type": "status aggregator",
-        "z": "c0a854f2e62226f7",
-        "name": "Temperature Status",
-        "x": 810,
-        "y": 320,
-        "wires": [
-            [
-                "3a5104b6f4842907"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "62a46a47a709ceec",
-        "type": "environment sensor",
-        "z": "c0a854f2e62226f7",
-        "name": "Temperature Sensor",
-        "variable": "temperature",
-        "sampleinterval": "",
-        "x": 110,
-        "y": 160,
-        "wires": [
-            [
-                "8315c5acdf23410d",
-                "144a01e7f0dd298d",
-                "7fca6fbb863561ee"
-            ],
-            [
-                "00cfd341d4986698"
-            ]
-        ]
-    },
-    {
-        "id": "0c6df0b11131a8c9",
-        "type": "system actuators",
-        "z": "c0a854f2e62226f7",
-        "name": "Fans",
-        "actuator": "cooler",
-        "channel": "5",
-        "mode": "digital",
-        "x": 770,
-        "y": 260,
-        "wires": [
-            [
-                "00cfd341d4986698"
-            ]
-        ]
-    },
-    {
-        "id": "8a52bc9eba3c0ada",
-        "type": "system actuators",
-        "z": "c0a854f2e62226f7",
-        "name": "Humidifier",
-        "x": 760,
-        "y": 460,
-        "wires": [
-            [
-                "65ec410c37b483e8"
-            ]
-        ]
-    },
-    {
-        "id": "a030ee2f8804a863",
-        "type": "system actuators",
-        "z": "c0a854f2e62226f7",
-        "name": "Main Lights",
-        "actuator": "lighting",
-        "channel": "1",
-        "mode": "digital",
-        "x": 770,
-        "y": 880,
-        "wires": [
-            [
-                "2f6bd800c9979c6c"
-            ]
-        ]
-    },
-    {
-        "id": "a5ee427c8f782dfc",
-        "type": "system actuators",
-        "z": "c0a854f2e62226f7",
-        "name": "Auxilary Lights",
-        "actuator": "auxLighting",
-        "channel": "6",
-        "mode": "digital",
-        "x": 780,
-        "y": 940,
-        "wires": [
-            [
-                "2f6bd800c9979c6c"
-            ]
-        ]
-    },
-    {
-        "id": "38417f951ba2e8cf",
-        "type": "system actuators",
-        "z": "c0a854f2e62226f7",
-        "name": "Rain Pump",
-        "actuator": "rain",
-        "channel": "3",
-        "mode": "digital",
-        "x": 770,
-        "y": 620,
-        "wires": [
-            [
-                "edff2574530c85bb"
-            ]
-        ]
-    },
-    {
-        "id": "c33f1595ae47213c",
-        "type": "system actuators",
-        "z": "c0a854f2e62226f7",
-        "name": "Heater",
-        "actuator": "heater",
-        "channel": "1",
-        "mode": "digital",
-        "x": 770,
-        "y": 200,
-        "wires": [
-            [
-                "00cfd341d4986698"
-            ]
-        ]
-    },
-    {
-        "id": "aa2c64349df313c4",
-        "type": "environment sensor",
-        "z": "c0a854f2e62226f7",
-        "name": "Humidity Sensor",
-        "variable": "humidity",
-        "sampleinterval": "",
-        "x": 120,
-        "y": 400,
-        "wires": [
-            [
-                "d44fa9863bcdba16",
-                "e5b848f06ac6a762",
-                "c041d181d85f3f63"
-            ],
-            [
-                "65ec410c37b483e8"
-            ]
-        ]
-    },
-    {
-        "id": "f5bca2f1b7480420",
-        "type": "environment sensor",
-        "z": "c0a854f2e62226f7",
-        "name": "Light Sensor",
-        "variable": "light",
-        "x": 130,
-        "y": 840,
-        "wires": [
-            [
-                "eac6b1e0a11d0689",
-                "19459d7ed75c5df5",
-                "d85c98c981f083c8"
-            ],
-            [
-                "2f6bd800c9979c6c"
-            ]
-        ]
-    },
-    {
-        "id": "65ec410c37b483e8",
-        "type": "status aggregator",
-        "z": "c0a854f2e62226f7",
-        "name": "Humidity Status",
-        "x": 780,
-        "y": 540,
-        "wires": [
-            [
-                "3a5104b6f4842907"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "2f6bd800c9979c6c",
-        "type": "status aggregator",
-        "z": "c0a854f2e62226f7",
-        "name": "Lighting Status",
-        "x": 780,
-        "y": 1020,
-        "wires": [
-            [
-                "3a5104b6f4842907"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "edff2574530c85bb",
-        "type": "status aggregator",
-        "z": "c0a854f2e62226f7",
-        "name": "Precipitation Status",
-        "x": 790,
-        "y": 700,
-        "wires": [
-            [
-                "3a5104b6f4842907"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "3a5104b6f4842907",
-        "type": "status aggregator",
-        "z": "c0a854f2e62226f7",
-        "name": "System Status",
-        "x": 1060,
-        "y": 620,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "8315c5acdf23410d",
-        "type": "template",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.temperature}}",
-        "output": "str",
-        "x": 300,
-        "y": 140,
-        "wires": [
-            [
-                "673deaaa902483da",
-                "d6fe66756f3e89f4"
-            ]
-        ]
-    },
-    {
-        "id": "e5b848f06ac6a762",
-        "type": "template",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.humidity}}",
-        "output": "str",
-        "x": 300,
-        "y": 380,
-        "wires": [
-            [
-                "80a6fee06bad3a98",
-                "adfbd547841167e4",
-                "e7274d3a41f1f1fb"
-            ]
-        ]
-    },
-    {
-        "id": "19459d7ed75c5df5",
-        "type": "template",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.light}}",
-        "output": "str",
-        "x": 300,
-        "y": 820,
-        "wires": [
-            [
-                "869cea4cfd17e8cd",
-                "d56b71c2375d7c0b"
-            ]
-        ]
-    },
-    {
-        "id": "68778245ec10f3ab",
-        "type": "environment sensor",
-        "z": "c0a854f2e62226f7",
-        "name": "Pressure",
-        "variable": "pressure",
-        "sampleinterval": "",
-        "x": 140,
-        "y": 1120,
-        "wires": [
-            [
-                "c6e680047593b7a6"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "869cea4cfd17e8cd",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "ui_control",
-        "func": "// msg.payload = your normal data (e.g. a number or {series[], data[][], labels[]})\n/*msg.ui_control = {\n    options: {\n        scales: {\n            yAxes: [{\n                type: 'logarithmic',       // switch to log scale\n                scaleLabel: {\n                    display: true,\n                    labelString: 'Value (log)'\n                },\n                min: 0.05,                 // hard lower bound (moonlight)\n                max: 120000,               // hard upper bound (bright daylight)\n            }]\n        }\n    }\n};*/\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 300,
-        "y": 780,
-        "wires": [
-            [
-                "c1382f268f08be54"
-            ]
-        ]
-    },
-    {
-        "id": "c6e680047593b7a6",
-        "type": "template",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.pressure}}",
-        "output": "str",
-        "x": 300,
-        "y": 1120,
-        "wires": [
-            [
-                "706121d25167f537",
-                "d53e4abac86221b8",
-                "a30bb48351e7d448"
-            ]
-        ]
-    },
-    {
-        "id": "1a2e480989bed771",
-        "type": "trigger",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "op1": "{\"rain\":\"on\"}",
-        "op2": "{\"rain\":\"off\"}",
-        "op1type": "json",
-        "op2type": "json",
-        "duration": "5",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 300,
-        "y": 540,
-        "wires": [
-            [
-                "38417f951ba2e8cf"
-            ]
-        ]
-    },
-    {
-        "id": "54fe9e766a5c5396",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Toggle fans",
-        "func": "// Toggle output each time a message arrives\nlet fans = context.get('fans') || false;  // get previous state, default false\n\nfans = !fans;              // flip the state\ncontext.set('fans', fans); // remember it\n\nreturn { payload:{cooler: fans?\"on\":\"off\"} };   // send true/false (on/off)",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 310,
-        "y": 100,
-        "wires": [
-            [
-                "0c6df0b11131a8c9",
-                "f133454d9ec41ce7"
-            ]
-        ]
-    },
-    {
-        "id": "4c6b2e8277ea7a30",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Toggle aux lights",
-        "func": "// Toggle output each time a message arrives\nlet auxLights = context.get('auxLights') || false;  // get previous state, default false\n\nauxLights = !auxLights;              // flip the state\ncontext.set('auxLights', auxLights); // remember it\n\nreturn { payload:{auxLighting: auxLights?\"on\":\"off\"} };   // send true/false (on/off)",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 1020,
-        "wires": [
-            [
-                "a5ee427c8f782dfc"
-            ]
-        ]
-    },
-    {
-        "id": "1ee1b80395c36f00",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "70e72a51ea68dfb2",
-        "name": "Test",
-        "label": "Test",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"test\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 150,
-        "y": 100,
-        "wires": [
-            [
-                "54fe9e766a5c5396"
-            ]
-        ]
-    },
-    {
-        "id": "b657230ce10b8863",
-        "type": "edgeberry",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "x": 1390,
-        "y": 180,
-        "wires": [
-            [
-                "dae89fffad3b4d41"
-            ]
-        ]
-    },
-    {
-        "id": "7fca6fbb863561ee",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Temperature formatting",
-        "func": "msg.topic = \"telemetry\"\nmsg.payload.variable = \"temperature\"\nmsg.payload.value = msg.payload.temperature\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1130,
-        "y": 320,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "c041d181d85f3f63",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Humidity formatting",
-        "func": "msg.topic = \"telemetry\"\nmsg.payload.variable = \"humidity\"\nmsg.payload.value = msg.payload.humidity\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1150,
-        "y": 360,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "d85c98c981f083c8",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Lighting formatting",
-        "func": "msg.topic = \"telemetry\"\nmsg.payload.variable = \"light\"\nmsg.payload.value = msg.payload.light\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1150,
-        "y": 400,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "dae89fffad3b4d41",
-        "type": "debug",
-        "z": "c0a854f2e62226f7",
-        "name": "from Device Hub",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1590,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "7c33142b8ae8c86b",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Toggle main lights",
-        "func": "if( msg.payload.test ){\n    let mainLights = context.get('mainLights');\n    mainLights = !mainLights;\n    context.set('mainLights', mainLights);\n    return { payload:{lighting: mainLights?\"on\":\"off\"} }; \n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 330,
-        "y": 980,
-        "wires": [
-            [
-                "a030ee2f8804a863",
-                "849cd6ed49a1fdb6"
-            ]
-        ]
-    },
-    {
-        "id": "95590828cab9d6b0",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "b2841a82074a7645",
-        "name": "Test",
-        "label": "Test",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"test\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 150,
-        "y": 300,
-        "wires": [
-            [
-                "144a01e7f0dd298d"
-            ]
-        ]
-    },
-    {
-        "id": "2ac7767dcf65f9d4",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "f5e57c98baa75735",
-        "name": "Test",
-        "label": "Test",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"test\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 150,
-        "y": 540,
-        "wires": [
-            [
-                "1a2e480989bed771"
-            ]
-        ]
-    },
-    {
-        "id": "cbcca632970ed674",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "02b81bca1b8536a8",
-        "name": "Test Main",
-        "label": "Test Main",
-        "order": 5,
-        "width": 1,
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"test\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 140,
-        "y": 980,
-        "wires": [
-            [
-                "7c33142b8ae8c86b"
-            ]
-        ]
-    },
-    {
-        "id": "b83642dbe2726d61",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "02b81bca1b8536a8",
-        "name": "Test Aux",
-        "label": "Test Aux",
-        "order": 4,
-        "width": 1,
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"test\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 140,
-        "y": 1020,
-        "wires": [
-            [
-                "4c6b2e8277ea7a30"
-            ]
-        ]
-    },
-    {
-        "id": "5117121a42594b22",
-        "type": "ui-number-input",
-        "z": "c0a854f2e62226f7",
-        "group": "b2841a82074a7645",
-        "name": "Min Temp",
-        "label": "Minimum Temperature",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "topic": "topic",
-        "topicType": "msg",
-        "min": "-10",
-        "max": "80",
-        "step": "0.5",
-        "tooltip": "The absolute minimum temperature",
-        "passthru": true,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "spinner": "default",
-        "x": 140,
-        "y": 220,
-        "wires": [
-            [
-                "1589282f12a5c631"
-            ]
-        ]
-    },
-    {
-        "id": "0881a22599596138",
-        "type": "ui-number-input",
-        "z": "c0a854f2e62226f7",
-        "group": "b2841a82074a7645",
-        "name": "Max Temp",
-        "label": "Maximum Temperature",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "topic": "topic",
-        "topicType": "msg",
-        "min": "-10",
-        "max": "80",
-        "step": "0.5",
-        "tooltip": "The absolute maximum temperature",
-        "passthru": true,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "spinner": "default",
-        "x": 130,
-        "y": 260,
-        "wires": [
-            [
-                "1589282f12a5c631"
-            ]
-        ]
-    },
-    {
-        "id": "2aee6582bf4df2ff",
-        "type": "ui-number-input",
-        "z": "c0a854f2e62226f7",
-        "group": "f5e57c98baa75735",
-        "name": "Min Hum",
-        "label": "Minimum Humidity",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "topic": "topic",
-        "topicType": "msg",
-        "min": "0",
-        "max": "100",
-        "step": "0.5",
-        "tooltip": "The absolute minimum Humidity",
-        "passthru": true,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "spinner": "default",
-        "x": 140,
-        "y": 460,
-        "wires": [
-            [
-                "6f2821f6469e2e25"
-            ]
-        ]
-    },
-    {
-        "id": "03e7c674cf6767aa",
-        "type": "ui-number-input",
-        "z": "c0a854f2e62226f7",
-        "group": "f5e57c98baa75735",
-        "name": "Max Hum",
-        "label": "Maximum Humidity",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "topic": "topic",
-        "topicType": "msg",
-        "min": "0",
-        "max": "100",
-        "step": "0.5",
-        "tooltip": "The absolute maximum humidity",
-        "passthru": true,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "spinner": "default",
-        "x": 140,
-        "y": 500,
-        "wires": [
-            [
-                "6f2821f6469e2e25"
-            ]
-        ]
-    },
-    {
-        "id": "673deaaa902483da",
-        "type": "ui-chart",
-        "z": "c0a854f2e62226f7",
-        "group": "58721ee298d6b49c",
-        "name": "Temp Chart",
-        "label": "",
-        "order": 2,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "auto",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "false",
-        "pointRadius": 4,
-        "showLegend": false,
-        "removeOlder": "36",
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#a2ca6f",
-            "#ff0000",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#292b2d"
-        ],
-        "textColorDefault": false,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": 7,
-        "height": 4,
-        "className": "",
-        "interpolation": "smooth",
-        "x": 550,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d6fe66756f3e89f4",
-        "type": "ui-gauge",
-        "z": "c0a854f2e62226f7",
-        "name": "Temp Gauge",
-        "group": "58721ee298d6b49c",
-        "order": 1,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 2,
-        "height": 3,
-        "gtype": "gauge-34",
-        "gstyle": "rounded",
-        "title": "",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "°C",
-        "segments": [
-            {
-                "from": "-10",
-                "color": "#a2ca6f",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "-10",
-        "max": "85",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 550,
-        "y": 160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "80a6fee06bad3a98",
-        "type": "ui-chart",
-        "z": "c0a854f2e62226f7",
-        "group": "cd300b67147963fd",
-        "name": "Hum Chart",
-        "label": "",
-        "order": 2,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "auto",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "false",
-        "pointRadius": 4,
-        "showLegend": false,
-        "removeOlder": "36",
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#a2ca6f",
-            "#ff0000",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#292b2d"
-        ],
-        "textColorDefault": false,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": 7,
-        "height": 4,
-        "className": "",
-        "interpolation": "smooth",
-        "x": 550,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "adfbd547841167e4",
-        "type": "ui-gauge",
-        "z": "c0a854f2e62226f7",
-        "name": "Hum Gauge",
-        "group": "cd300b67147963fd",
-        "order": 1,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 2,
-        "height": 3,
-        "gtype": "gauge-34",
-        "gstyle": "rounded",
-        "title": "",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "%",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#a2ca6f",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "0",
-        "max": "100",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 550,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c1382f268f08be54",
-        "type": "ui-chart",
-        "z": "c0a854f2e62226f7",
-        "group": "a9908ab557174656",
-        "name": "Light Chart",
-        "label": "",
-        "order": 2,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "auto",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "false",
-        "pointRadius": 4,
-        "showLegend": false,
-        "removeOlder": "36",
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#a2ca6f",
-            "#ff0000",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#292b2d"
-        ],
-        "textColorDefault": false,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": 7,
-        "height": 4,
-        "className": "",
-        "interpolation": "smooth",
-        "x": 550,
-        "y": 780,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d56b71c2375d7c0b",
-        "type": "ui-gauge",
-        "z": "c0a854f2e62226f7",
-        "name": "Light Gauge",
-        "group": "a9908ab557174656",
-        "order": 1,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 2,
-        "height": 3,
-        "gtype": "gauge-34",
-        "gstyle": "rounded",
-        "title": "",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "Lux",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#a2ca6f",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "0",
-        "max": "12000",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 550,
-        "y": 820,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6e2483b21fb8a7df",
-        "type": "ui-template",
-        "z": "c0a854f2e62226f7",
-        "group": "02b81bca1b8536a8",
-        "page": "",
-        "ui": "",
-        "name": "Sunrise",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n<!-- Lighting Settings -->\n<div style=\"display:flex;flex-direction:column;gap:6px;\">\n    <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <label for=\"sunrise\">Sunrise</label>\n        <input id=\"sunrise\" type=\"time\" lang=\"en-GB\" step=\"60\"\n           style=\"border:none;background:transparent;text-align:right;\"\n           oninput=\"sendTime('sunrise', this.value)\">\n    </div>\n</div>\n\n<script>\n    (function(scope) {\n    scope.sendTime = function(label, value) {\n        scope.send({ topic: label, payload: value });\n        localStorage.setItem(`lighting_${label}`, value);\n    };\n\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n        ['sunrise', 'sunset'].forEach(id => {\n            const el = document.getElementById(id);\n            if (!el) return;\n            const stored = localStorage.getItem(`lighting_${id}`);\n            if (msg.topic === id && /^([01]\\d|2[0-3]):([0-5]\\d)$/.test(msg.payload)) {\n                el.value = msg.payload;\n                localStorage.setItem(`lighting_${id}`, msg.payload);\n            } else if (!msg.topic && stored) {\n                el.value = stored;\n            }\n        });\n    });\n})(scope);\n</script>\n</style>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 140,
-        "y": 900,
-        "wires": [
-            [
-                "16f818035533a75f"
-            ]
-        ]
-    },
-    {
-        "id": "d1f3dc1aa92c6035",
-        "type": "ui-template",
-        "z": "c0a854f2e62226f7",
-        "group": "02b81bca1b8536a8",
-        "page": "",
-        "ui": "",
-        "name": "Sunset",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n<!-- Lighting Settings -->\n<div style=\"display:flex;flex-direction:column;gap:6px;\">\n    <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <label for=\"sunrise\">Sunrise</label>\n        <input id=\"sunrise\" type=\"time\" lang=\"en-GB\" step=\"60\"\n           style=\"border:none;background:transparent;text-align:right;\"\n           oninput=\"sendTime('sunrise', this.value)\">\n    </div>\n</div>\n\n<script>\n    (function(scope) {\n    scope.sendTime = function(label, value) {\n        scope.send({ topic: label, payload: value });\n        localStorage.setItem(`lighting_${label}`, value);\n    };\n\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n        ['sunrise', 'sunset'].forEach(id => {\n            const el = document.getElementById(id);\n            if (!el) return;\n            const stored = localStorage.getItem(`lighting_${id}`);\n            if (msg.topic === id && /^([01]\\d|2[0-3]):([0-5]\\d)$/.test(msg.payload)) {\n                el.value = msg.payload;\n                localStorage.setItem(`lighting_${id}`, msg.payload);\n            } else if (!msg.topic && stored) {\n                el.value = stored;\n            }\n        });\n    });\n})(scope);\n</script>\n</style>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 140,
-        "y": 940,
-        "wires": [
-            [
-                "16f818035533a75f"
-            ]
-        ]
-    },
-    {
-        "id": "d53e4abac86221b8",
-        "type": "ui-gauge",
-        "z": "c0a854f2e62226f7",
-        "name": "Pressure Gauge",
-        "group": "8ff445038f0d559b",
-        "order": 1,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 2,
-        "height": 3,
-        "gtype": "gauge-34",
-        "gstyle": "rounded",
-        "title": "",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "hPa",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#a2ca6f",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "750",
-        "max": "1040",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 560,
-        "y": 1140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "706121d25167f537",
-        "type": "ui-chart",
-        "z": "c0a854f2e62226f7",
-        "group": "8ff445038f0d559b",
-        "name": "Pressure Chart",
-        "label": "",
-        "order": 2,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "auto",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "false",
-        "pointRadius": 4,
-        "showLegend": false,
-        "removeOlder": "36",
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#a2ca6f",
-            "#ff0000",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#292b2d"
-        ],
-        "textColorDefault": false,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": 7,
-        "height": 4,
-        "className": "",
-        "interpolation": "smooth",
-        "x": 560,
-        "y": 1100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "df994372cb11191c",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "name": "Identify",
-        "label": "Identify Vivarium",
-        "order": 1,
-        "width": 3,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"identify\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 980,
-        "y": 260,
-        "wires": [
-            [
-                "c1cdcfccad7409d6"
-            ]
-        ]
-    },
-    {
-        "id": "f133454d9ec41ce7",
-        "type": "ui-text",
-        "z": "c0a854f2e62226f7",
-        "group": "58721ee298d6b49c",
-        "order": 3,
-        "width": 2,
-        "height": "1",
-        "name": "",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 530,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "849cd6ed49a1fdb6",
-        "type": "ui-text",
-        "z": "c0a854f2e62226f7",
-        "group": "a9908ab557174656",
-        "order": 3,
-        "width": 2,
-        "height": "1",
-        "name": "",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload.lighting",
-        "valueType": "msg",
-        "x": 530,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "a30bb48351e7d448",
-        "type": "ui-text",
-        "z": "c0a854f2e62226f7",
-        "group": "8ff445038f0d559b",
-        "order": 3,
-        "width": 2,
-        "height": "1",
-        "name": "",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 530,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "e7274d3a41f1f1fb",
-        "type": "ui-text",
-        "z": "c0a854f2e62226f7",
-        "group": "cd300b67147963fd",
-        "order": 3,
-        "width": 2,
-        "height": "1",
-        "name": "",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 530,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "b953255c7a8b8342",
-        "type": "ui-control",
-        "z": "c0a854f2e62226f7",
-        "name": "",
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": true
+    },
+    {
+        "id": "4dd404b8d16154d5",
+        "type": "ui-page",
+        "name": "Freya Dashboard",
         "ui": "686c46360e79bd75",
-        "events": "all",
-        "x": 1120,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e79bbef708ea3dd7",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "name": "Editor",
-        "label": "Editor",
-        "order": 2,
-        "width": 1,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "pencil",
-        "iconPosition": "left",
-        "payload": "{\"url\":\"/editor\",\"target\":\"_self\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 990,
-        "y": 40,
-        "wires": [
-            [
-                "b953255c7a8b8342"
-            ]
-        ]
-    },
-    {
-        "id": "205b6bce-522f-46f9-9654-61feec61417c",
-        "type": "environment sensor",
-        "z": "c0a854f2e62226f7",
-        "name": "UVB Sensor",
-        "variable": "uvb",
-        "x": 130,
-        "y": 1240,
-        "wires": [
-            [
-                "237e81793bd0e731"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "159b6245-40d7-4ec7-b176-125a42997e9b",
-        "type": "ui-gauge",
-        "z": "c0a854f2e62226f7",
-        "name": "UVB Gauge",
-        "group": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
-        "order": 1,
-        "value": "payload",
-        "valueType": "msg",
-        "width": "2",
-        "height": "3",
-        "gtype": "gauge-34",
-        "gstyle": "rounded",
-        "title": "",
-        "alwaysShowTitle": false,
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "μW/m2",
-        "segments": [
+        "path": "/",
+        "icon": "leaf",
+        "layout": "grid",
+        "theme": "816a31ac4184d09a",
+        "breakpoints": [
             {
-                "from": "0",
-                "color": "#000000",
-                "text": "0",
-                "textType": "str"
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
             },
             {
-                "from": "0.5",
-                "color": "#640064",
-                "text": "1",
-                "textType": "str"
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
             },
             {
-                "from": "1",
-                "color": "#960096",
-                "text": "2",
-                "textType": "str"
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
             },
             {
-                "from": "2.6",
-                "color": "#b400b4",
-                "text": "3",
-                "textType": "str"
-            },
-            {
-                "from": "7.4",
-                "color": "#c800c8",
-                "text": "3",
-                "textType": "str"
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
             }
         ],
-        "min": 0,
-        "max": 10,
-        "sizeThickness": "16",
-        "sizeGap": "4",
-        "sizeKeyThickness": "8",
-        "className": "",
-        "x": 550,
-        "y": 1300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "237e81793bd0e731",
-        "type": "template",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.uvb}}",
-        "output": "str",
-        "x": 300,
-        "y": 1260,
-        "wires": [
-            [
-                "159b6245-40d7-4ec7-b176-125a42997e9b",
-                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
-            ]
-        ]
-    },
-    {
-        "id": "4842d55fc547be75",
-        "type": "environment sensor",
-        "z": "c0a854f2e62226f7",
-        "name": "All sensor values",
-        "variable": "all",
-        "sampleinterval": "",
-        "x": 120,
-        "y": 40,
-        "wires": [
-            [
-                "4f6c381ea45deb9b"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "4f6c381ea45deb9b",
-        "type": "debug",
-        "z": "c0a854f2e62226f7",
-        "name": "Sensor values",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 320,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2",
-        "type": "ui-chart",
-        "z": "c0a854f2e62226f7",
-        "group": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
-        "name": "UV Chart",
-        "label": "",
-        "order": 2,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "{HH}:{mm}",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
-        "bins": "",
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "false",
-        "pointRadius": "",
-        "showLegend": false,
-        "removeOlder": "36",
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#a2ca6f",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#666666"
-        ],
-        "textColorDefault": true,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": "7",
-        "height": "4",
-        "className": "",
-        "interpolation": "smooth",
-        "x": 540,
-        "y": 1260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "fbb67b3f83f961e6",
-        "type": "ui-switch",
-        "z": "c0a854f2e62226f7",
-        "name": "UVB required",
-        "label": "UVB required",
-        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
         "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
         "className": "",
-        "layout": "row-spread",
-        "clickableArea": "line",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 120,
-        "y": 1300,
-        "wires": [
-            []
-        ]
+        "visible": "true",
+        "disabled": "false"
     },
     {
-        "id": "076c8671d746485a",
-        "type": "ui-switch",
-        "z": "c0a854f2e62226f7",
-        "name": "UVC alarm",
-        "label": "UVC alarm",
-        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
+        "id": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "type": "ui-group",
+        "name": "UV Settings",
+        "page": "4dd404b8d16154d5",
+        "width": 3,
+        "height": "8",
+        "order": 7,
+        "showTitle": true,
         "className": "",
-        "layout": "row-spread",
-        "clickableArea": "line",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 130,
-        "y": 1360,
-        "wires": [
-            []
-        ]
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
+        "type": "ui-group",
+        "name": "UVB Monitor",
+        "page": "4dd404b8d16154d5",
+        "width": 9,
+        "height": 1,
+        "order": 8,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
     },
     {
         "id": "70e72a51ea68dfb2",
@@ -2157,106 +237,2447 @@
         "groupType": "default"
     },
     {
-        "id": "686c46360e79bd75",
-        "type": "ui-base",
-        "name": "Dashboard",
-        "path": "/dashboard",
-        "appIcon": "",
-        "includeClientData": true,
-        "acceptsClientConfig": [
-            "ui-notification",
-            "ui-control"
-        ],
-        "showPathInSidebar": false,
-        "headerContent": "page",
-        "navigationStyle": "default",
-        "titleBarStyle": "default",
-        "showReconnectNotification": true,
-        "notificationDisplayTime": 1,
-        "showDisconnectNotification": true,
-        "allowInstall": true
-    },
-    {
-        "id": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
-        "type": "ui-group",
-        "name": "UVB Monitor",
-        "page": "4dd404b8d16154d5",
-        "width": 9,
-        "height": 1,
-        "order": 8,
-        "showTitle": true,
-        "className": "",
-        "visible": "true",
-        "disabled": "false",
-        "groupType": "default"
-    },
-    {
-        "id": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
-        "type": "ui-group",
-        "name": "UV Settings",
-        "page": "4dd404b8d16154d5",
+        "id": "9b9b60395ac0debf",
+        "type": "ui-spacer",
+        "group": "b2841a82074a7645",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 3,
         "width": 3,
-        "height": "8",
-        "order": 7,
-        "showTitle": true,
-        "className": "",
-        "visible": "true",
-        "disabled": "false",
-        "groupType": "default"
+        "height": 1,
+        "className": ""
     },
     {
-        "id": "4dd404b8d16154d5",
-        "type": "ui-page",
-        "name": "Freya Dashboard",
-        "ui": "686c46360e79bd75",
-        "path": "/",
-        "icon": "leaf",
-        "layout": "grid",
-        "theme": "816a31ac4184d09a",
-        "breakpoints": [
+        "id": "f261049d39c48629",
+        "type": "ui-spacer",
+        "group": "70e72a51ea68dfb2",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "className": ""
+    },
+    {
+        "id": "a0ae4eaea4fee556",
+        "type": "ui-spacer",
+        "group": "f5e57c98baa75735",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "c8798923d9b9e3e0",
+        "type": "ui-spacer",
+        "group": "02b81bca1b8536a8",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "c0e2700bc5258b28",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 3,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "5ff8494f6a16f03e",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 4,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "563c255bc63125b3",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 5,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "5a3046c954fe3883",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 6,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "ca75d6cdb912a6b5",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 7,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "aba6f91273fa44b1",
+        "type": "ui-spacer",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 8,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "5af9fc4d33e3d5ba",
+        "type": "location-config",
+        "name": "Leuven",
+        "latitude": 50.98,
+        "longitude": 4.32,
+        "timezone": "UTC+1",
+        "axialTilt": 23.44,
+        "orbitalPeriod": 365.25,
+        "rotationalPeriod": 24
+    },
+    {
+        "id": "f012f8b348309bb5",
+        "type": "inject",
+        "z": "c0a854f2e62226f7",
+        "name": "App info",
+        "props": [
             {
-                "name": "Default",
-                "px": "0",
-                "cols": "3"
+                "p": "payload"
             },
             {
-                "name": "Tablet",
-                "px": "576",
-                "cols": "6"
-            },
-            {
-                "name": "Small Desktop",
-                "px": "768",
-                "cols": "9"
-            },
-            {
-                "name": "Desktop",
-                "px": "1024",
-                "cols": "12"
+                "p": "topic",
+                "vt": "str"
             }
         ],
-        "order": 1,
-        "className": "",
-        "visible": "true",
-        "disabled": "false"
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"info\":{\"name\":\"Freya\",\"version\":\"v0.0.1\",\"description\":\"Freya wired up in Node-RED\"}}",
+        "payloadType": "json",
+        "x": 1500,
+        "y": 160,
+        "wires": [
+            [
+                "b657230ce10b8863"
+            ]
+        ]
     },
     {
-        "id": "816a31ac4184d09a",
-        "type": "ui-theme",
-        "name": "Freya Theme",
-        "colors": {
-            "surface": "#292b2d",
-            "primary": "#a2ca6f",
-            "bgPage": "#eeeeee",
-            "groupBg": "#ffffff",
-            "groupOutline": "#292b2d"
-        },
-        "sizes": {
-            "density": "default",
-            "pagePadding": "12px",
-            "groupGap": "8px",
-            "groupBorderRadius": "6px",
-            "widgetGap": "8px"
-        }
+        "id": "df6740b34a9af942",
+        "type": "inject",
+        "z": "c0a854f2e62226f7",
+        "name": "App status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"status\":{\"level\":\"ok\"}}",
+        "payloadType": "json",
+        "x": 1490,
+        "y": 200,
+        "wires": [
+            [
+                "b657230ce10b8863"
+            ]
+        ]
+    },
+    {
+        "id": "d4e7d495df8ea17c",
+        "type": "inject",
+        "z": "c0a854f2e62226f7",
+        "name": "App status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"status\":{\"level\":\"warning\"}}",
+        "payloadType": "json",
+        "x": 1500,
+        "y": 240,
+        "wires": [
+            [
+                "b657230ce10b8863"
+            ]
+        ]
+    },
+    {
+        "id": "52905bb10d745583",
+        "type": "inject",
+        "z": "c0a854f2e62226f7",
+        "name": "Identify",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "identify",
+        "payload": "{\"blub\":\"zeemeermin\"}",
+        "payloadType": "json",
+        "x": 1510,
+        "y": 120,
+        "wires": [
+            [
+                "b657230ce10b8863"
+            ]
+        ]
+    },
+    {
+        "id": "c1cdcfccad7409d6",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Signal formatting",
+        "func": "if(msg.payload.identify){\n    msg.topic = \"identify\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 280,
+        "wires": [
+            [
+                "b657230ce10b8863"
+            ]
+        ]
+    },
+    {
+        "id": "d44fa9863bcdba16",
+        "type": "humidity controller",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "x": 890,
+        "y": 500,
+        "wires": [
+            [
+                "8a52bc9eba3c0ada"
+            ],
+            [
+                "65ec410c37b483e8"
+            ]
+        ]
+    },
+    {
+        "id": "144a01e7f0dd298d",
+        "type": "temperature controller",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "minimumTemperature": "10",
+        "maximumTemperature": "50",
+        "kp": "10",
+        "x": 900,
+        "y": 260,
+        "wires": [
+            [
+                "0c6df0b11131a8c9",
+                "c33f1595ae47213c"
+            ],
+            [
+                "00cfd341d4986698"
+            ]
+        ]
+    },
+    {
+        "id": "eac6b1e0a11d0689",
+        "type": "lighting controller",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "x": 890,
+        "y": 940,
+        "wires": [
+            [
+                "a030ee2f8804a863",
+                "a5ee427c8f782dfc"
+            ],
+            [
+                "2f6bd800c9979c6c"
+            ]
+        ]
+    },
+    {
+        "id": "5c23dfdcc1dc077c",
+        "type": "precipitation controller",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "x": 880,
+        "y": 660,
+        "wires": [
+            [
+                "38417f951ba2e8cf"
+            ],
+            [
+                "edff2574530c85bb"
+            ]
+        ]
+    },
+    {
+        "id": "1589282f12a5c631",
+        "type": "circadian core",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "locationConfig": "5af9fc4d33e3d5ba",
+        "timeScale": "",
+        "x": 640,
+        "y": 260,
+        "wires": [
+            [
+                "144a01e7f0dd298d"
+            ],
+            [
+                "00cfd341d4986698"
+            ]
+        ]
+    },
+    {
+        "id": "6f2821f6469e2e25",
+        "type": "circadian core",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "locationConfig": "5af9fc4d33e3d5ba",
+        "timeScale": "",
+        "x": 640,
+        "y": 500,
+        "wires": [
+            [
+                "d44fa9863bcdba16"
+            ],
+            [
+                "65ec410c37b483e8"
+            ]
+        ]
+    },
+    {
+        "id": "16f818035533a75f",
+        "type": "circadian core",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "locationConfig": "5af9fc4d33e3d5ba",
+        "timeScale": "",
+        "x": 640,
+        "y": 940,
+        "wires": [
+            [
+                "eac6b1e0a11d0689"
+            ],
+            [
+                "2f6bd800c9979c6c"
+            ]
+        ]
+    },
+    {
+        "id": "e667d1e955769107",
+        "type": "circadian core",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "locationConfig": "5af9fc4d33e3d5ba",
+        "timeScale": "",
+        "x": 640,
+        "y": 660,
+        "wires": [
+            [
+                "5c23dfdcc1dc077c"
+            ],
+            [
+                "edff2574530c85bb"
+            ]
+        ]
+    },
+    {
+        "id": "00cfd341d4986698",
+        "type": "status aggregator",
+        "z": "c0a854f2e62226f7",
+        "name": "Temperature Status",
+        "x": 1130,
+        "y": 340,
+        "wires": [
+            [
+                "3a5104b6f4842907"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "62a46a47a709ceec",
+        "type": "environment sensor",
+        "z": "c0a854f2e62226f7",
+        "name": "Temperature Sensor",
+        "variable": "temperature",
+        "sampleinterval": "",
+        "x": 390,
+        "y": 180,
+        "wires": [
+            [
+                "8315c5acdf23410d",
+                "144a01e7f0dd298d",
+                "7fca6fbb863561ee"
+            ],
+            [
+                "00cfd341d4986698"
+            ]
+        ]
+    },
+    {
+        "id": "0c6df0b11131a8c9",
+        "type": "system actuators",
+        "z": "c0a854f2e62226f7",
+        "name": "Fans",
+        "actuator": "cooler",
+        "channel": "5",
+        "mode": "digital",
+        "x": 1090,
+        "y": 280,
+        "wires": [
+            [
+                "00cfd341d4986698"
+            ]
+        ]
+    },
+    {
+        "id": "8a52bc9eba3c0ada",
+        "type": "system actuators",
+        "z": "c0a854f2e62226f7",
+        "name": "Humidifier",
+        "x": 1080,
+        "y": 480,
+        "wires": [
+            [
+                "65ec410c37b483e8"
+            ]
+        ]
+    },
+    {
+        "id": "a030ee2f8804a863",
+        "type": "system actuators",
+        "z": "c0a854f2e62226f7",
+        "name": "Main Lights",
+        "actuator": "lighting",
+        "channel": "1",
+        "mode": "digital",
+        "x": 1090,
+        "y": 900,
+        "wires": [
+            [
+                "2f6bd800c9979c6c"
+            ]
+        ]
+    },
+    {
+        "id": "a5ee427c8f782dfc",
+        "type": "system actuators",
+        "z": "c0a854f2e62226f7",
+        "name": "Auxilary Lights",
+        "actuator": "auxLighting",
+        "channel": "6",
+        "mode": "digital",
+        "x": 1100,
+        "y": 960,
+        "wires": [
+            [
+                "2f6bd800c9979c6c"
+            ]
+        ]
+    },
+    {
+        "id": "38417f951ba2e8cf",
+        "type": "system actuators",
+        "z": "c0a854f2e62226f7",
+        "name": "Rain Pump",
+        "actuator": "rain",
+        "channel": "3",
+        "mode": "digital",
+        "x": 1090,
+        "y": 640,
+        "wires": [
+            [
+                "edff2574530c85bb"
+            ]
+        ]
+    },
+    {
+        "id": "c33f1595ae47213c",
+        "type": "system actuators",
+        "z": "c0a854f2e62226f7",
+        "name": "Heater",
+        "actuator": "heater",
+        "channel": "1",
+        "mode": "digital",
+        "x": 1090,
+        "y": 220,
+        "wires": [
+            [
+                "00cfd341d4986698"
+            ]
+        ]
+    },
+    {
+        "id": "aa2c64349df313c4",
+        "type": "environment sensor",
+        "z": "c0a854f2e62226f7",
+        "name": "Humidity Sensor",
+        "variable": "humidity",
+        "sampleinterval": "",
+        "x": 380,
+        "y": 420,
+        "wires": [
+            [
+                "d44fa9863bcdba16",
+                "e5b848f06ac6a762",
+                "c041d181d85f3f63"
+            ],
+            [
+                "65ec410c37b483e8"
+            ]
+        ]
+    },
+    {
+        "id": "f5bca2f1b7480420",
+        "type": "environment sensor",
+        "z": "c0a854f2e62226f7",
+        "name": "Light Sensor",
+        "variable": "light",
+        "x": 450,
+        "y": 860,
+        "wires": [
+            [
+                "eac6b1e0a11d0689",
+                "19459d7ed75c5df5",
+                "d85c98c981f083c8"
+            ],
+            [
+                "2f6bd800c9979c6c"
+            ]
+        ]
+    },
+    {
+        "id": "65ec410c37b483e8",
+        "type": "status aggregator",
+        "z": "c0a854f2e62226f7",
+        "name": "Humidity Status",
+        "x": 1100,
+        "y": 560,
+        "wires": [
+            [
+                "3a5104b6f4842907"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2f6bd800c9979c6c",
+        "type": "status aggregator",
+        "z": "c0a854f2e62226f7",
+        "name": "Lighting Status",
+        "x": 1100,
+        "y": 1040,
+        "wires": [
+            [
+                "3a5104b6f4842907"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "edff2574530c85bb",
+        "type": "status aggregator",
+        "z": "c0a854f2e62226f7",
+        "name": "Precipitation Status",
+        "x": 1110,
+        "y": 720,
+        "wires": [
+            [
+                "3a5104b6f4842907"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3a5104b6f4842907",
+        "type": "status aggregator",
+        "z": "c0a854f2e62226f7",
+        "name": "System Status",
+        "x": 1380,
+        "y": 640,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8315c5acdf23410d",
+        "type": "template",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.temperature}}",
+        "output": "str",
+        "x": 620,
+        "y": 160,
+        "wires": [
+            [
+                "673deaaa902483da",
+                "d6fe66756f3e89f4"
+            ]
+        ]
+    },
+    {
+        "id": "e5b848f06ac6a762",
+        "type": "template",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.humidity}}",
+        "output": "str",
+        "x": 620,
+        "y": 400,
+        "wires": [
+            [
+                "80a6fee06bad3a98",
+                "adfbd547841167e4",
+                "e7274d3a41f1f1fb"
+            ]
+        ]
+    },
+    {
+        "id": "19459d7ed75c5df5",
+        "type": "template",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.light}}",
+        "output": "str",
+        "x": 620,
+        "y": 840,
+        "wires": [
+            [
+                "869cea4cfd17e8cd",
+                "d56b71c2375d7c0b"
+            ]
+        ]
+    },
+    {
+        "id": "68778245ec10f3ab",
+        "type": "environment sensor",
+        "z": "c0a854f2e62226f7",
+        "name": "Pressure",
+        "variable": "pressure",
+        "sampleinterval": "",
+        "x": 460,
+        "y": 1140,
+        "wires": [
+            [
+                "c6e680047593b7a6"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "869cea4cfd17e8cd",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "ui_control",
+        "func": "// msg.payload = your normal data (e.g. a number or {series[], data[][], labels[]})\n/*msg.ui_control = {\n    options: {\n        scales: {\n            yAxes: [{\n                type: 'logarithmic',       // switch to log scale\n                scaleLabel: {\n                    display: true,\n                    labelString: 'Value (log)'\n                },\n                min: 0.05,                 // hard lower bound (moonlight)\n                max: 120000,               // hard upper bound (bright daylight)\n            }]\n        }\n    }\n};*/\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 800,
+        "wires": [
+            [
+                "c1382f268f08be54"
+            ]
+        ]
+    },
+    {
+        "id": "c6e680047593b7a6",
+        "type": "template",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.pressure}}",
+        "output": "str",
+        "x": 620,
+        "y": 1140,
+        "wires": [
+            [
+                "706121d25167f537",
+                "d53e4abac86221b8",
+                "a30bb48351e7d448"
+            ]
+        ]
+    },
+    {
+        "id": "1a2e480989bed771",
+        "type": "trigger",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "op1": "{\"rain\":\"on\"}",
+        "op2": "{\"rain\":\"off\"}",
+        "op1type": "json",
+        "op2type": "json",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 620,
+        "y": 560,
+        "wires": [
+            [
+                "38417f951ba2e8cf"
+            ]
+        ]
+    },
+    {
+        "id": "54fe9e766a5c5396",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Toggle fans",
+        "func": "// Toggle output each time a message arrives\nlet fans = context.get('fans') || false;  // get previous state, default false\n\nfans = !fans;              // flip the state\ncontext.set('fans', fans); // remember it\n\nreturn { payload:{cooler: fans?\"on\":\"off\"} };   // send true/false (on/off)",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 120,
+        "wires": [
+            [
+                "0c6df0b11131a8c9",
+                "f133454d9ec41ce7"
+            ]
+        ]
+    },
+    {
+        "id": "4c6b2e8277ea7a30",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Toggle aux lights",
+        "func": "// Toggle output each time a message arrives\nlet auxLights = context.get('auxLights') || false;  // get previous state, default false\n\nauxLights = !auxLights;              // flip the state\ncontext.set('auxLights', auxLights); // remember it\n\nreturn { payload:{auxLighting: auxLights?\"on\":\"off\"} };   // send true/false (on/off)",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1040,
+        "wires": [
+            [
+                "a5ee427c8f782dfc"
+            ]
+        ]
+    },
+    {
+        "id": "1ee1b80395c36f00",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "70e72a51ea68dfb2",
+        "name": "Test",
+        "label": "Test",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 250,
+        "y": 140,
+        "wires": [
+            [
+                "54fe9e766a5c5396"
+            ]
+        ]
+    },
+    {
+        "id": "b657230ce10b8863",
+        "type": "edgeberry",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "x": 1710,
+        "y": 200,
+        "wires": [
+            [
+                "dae89fffad3b4d41"
+            ]
+        ]
+    },
+    {
+        "id": "7fca6fbb863561ee",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Temperature formatting",
+        "func": "msg.topic = \"telemetry\"\nmsg.payload.variable = \"temperature\"\nmsg.payload.value = msg.payload.temperature\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1450,
+        "y": 340,
+        "wires": [
+            [
+                "b657230ce10b8863"
+            ]
+        ]
+    },
+    {
+        "id": "c041d181d85f3f63",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Humidity formatting",
+        "func": "msg.topic = \"telemetry\"\nmsg.payload.variable = \"humidity\"\nmsg.payload.value = msg.payload.humidity\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 380,
+        "wires": [
+            [
+                "b657230ce10b8863"
+            ]
+        ]
+    },
+    {
+        "id": "d85c98c981f083c8",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Lighting formatting",
+        "func": "msg.topic = \"telemetry\"\nmsg.payload.variable = \"light\"\nmsg.payload.value = msg.payload.light\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 420,
+        "wires": [
+            [
+                "b657230ce10b8863"
+            ]
+        ]
+    },
+    {
+        "id": "dae89fffad3b4d41",
+        "type": "debug",
+        "z": "c0a854f2e62226f7",
+        "name": "from Device Hub",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1910,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7c33142b8ae8c86b",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Toggle main lights",
+        "func": "if( msg.payload.test ){\n    let mainLights = context.get('mainLights');\n    mainLights = !mainLights;\n    context.set('mainLights', mainLights);\n    return { payload:{lighting: mainLights?\"on\":\"off\"} }; \n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 1000,
+        "wires": [
+            [
+                "a030ee2f8804a863",
+                "849cd6ed49a1fdb6"
+            ]
+        ]
+    },
+    {
+        "id": "95590828cab9d6b0",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "b2841a82074a7645",
+        "name": "Test",
+        "label": "Test",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 250,
+        "y": 340,
+        "wires": [
+            [
+                "144a01e7f0dd298d"
+            ]
+        ]
+    },
+    {
+        "id": "2ac7767dcf65f9d4",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "f5e57c98baa75735",
+        "name": "Test",
+        "label": "Test",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 250,
+        "y": 560,
+        "wires": [
+            [
+                "1a2e480989bed771"
+            ]
+        ]
+    },
+    {
+        "id": "cbcca632970ed674",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "02b81bca1b8536a8",
+        "name": "Test Main",
+        "label": "Test Main",
+        "order": 5,
+        "width": 1,
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 460,
+        "y": 1000,
+        "wires": [
+            [
+                "7c33142b8ae8c86b"
+            ]
+        ]
+    },
+    {
+        "id": "b83642dbe2726d61",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "02b81bca1b8536a8",
+        "name": "Test Aux",
+        "label": "Test Aux",
+        "order": 4,
+        "width": 1,
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 460,
+        "y": 1040,
+        "wires": [
+            [
+                "4c6b2e8277ea7a30"
+            ]
+        ]
+    },
+    {
+        "id": "5117121a42594b22",
+        "type": "ui-number-input",
+        "z": "c0a854f2e62226f7",
+        "group": "b2841a82074a7645",
+        "name": "Min Temp",
+        "label": "Minimum Temperature",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "topic": "minimumTemperature",
+        "topicType": "str",
+        "min": "-10",
+        "max": "80",
+        "step": "0.5",
+        "tooltip": "The absolute minimum temperature",
+        "passthru": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 260,
+        "y": 240,
+        "wires": [
+            [
+                "b431b73c3aee3936"
+            ]
+        ]
+    },
+    {
+        "id": "0881a22599596138",
+        "type": "ui-number-input",
+        "z": "c0a854f2e62226f7",
+        "group": "b2841a82074a7645",
+        "name": "Max Temp",
+        "label": "Maximum Temperature",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "topic": "maximumTemperature",
+        "topicType": "str",
+        "min": "-10",
+        "max": "80",
+        "step": "0.5",
+        "tooltip": "The absolute maximum temperature",
+        "passthru": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "30e986713b9cf221"
+            ]
+        ]
+    },
+    {
+        "id": "2aee6582bf4df2ff",
+        "type": "ui-number-input",
+        "z": "c0a854f2e62226f7",
+        "group": "f5e57c98baa75735",
+        "name": "Min Hum",
+        "label": "Minimum Humidity",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "topic": "minimumHumidity",
+        "topicType": "str",
+        "min": "0",
+        "max": "100",
+        "step": "0.5",
+        "tooltip": "The absolute minimum Humidity",
+        "passthru": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 260,
+        "y": 480,
+        "wires": [
+            [
+                "359a7caf307c7fe3"
+            ]
+        ]
+    },
+    {
+        "id": "03e7c674cf6767aa",
+        "type": "ui-number-input",
+        "z": "c0a854f2e62226f7",
+        "group": "f5e57c98baa75735",
+        "name": "Max Hum",
+        "label": "Maximum Humidity",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "topic": "maximumHumidity",
+        "topicType": "str",
+        "min": "0",
+        "max": "100",
+        "step": "0.5",
+        "tooltip": "The absolute maximum humidity",
+        "passthru": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 260,
+        "y": 520,
+        "wires": [
+            [
+                "47ce135c94534feb"
+            ]
+        ]
+    },
+    {
+        "id": "673deaaa902483da",
+        "type": "ui-chart",
+        "z": "c0a854f2e62226f7",
+        "group": "58721ee298d6b49c",
+        "name": "Temp Chart",
+        "label": "",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": "36",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#a2ca6f",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#292b2d"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 7,
+        "height": 4,
+        "className": "",
+        "interpolation": "smooth",
+        "x": 870,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d6fe66756f3e89f4",
+        "type": "ui-gauge",
+        "z": "c0a854f2e62226f7",
+        "name": "Temp Gauge",
+        "group": "58721ee298d6b49c",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "-10",
+                "color": "#a2ca6f",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "-10",
+        "max": "85",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 870,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "80a6fee06bad3a98",
+        "type": "ui-chart",
+        "z": "c0a854f2e62226f7",
+        "group": "cd300b67147963fd",
+        "name": "Hum Chart",
+        "label": "",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": "36",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#a2ca6f",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#292b2d"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 7,
+        "height": 4,
+        "className": "",
+        "interpolation": "smooth",
+        "x": 870,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "adfbd547841167e4",
+        "type": "ui-gauge",
+        "z": "c0a854f2e62226f7",
+        "name": "Hum Gauge",
+        "group": "cd300b67147963fd",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#a2ca6f",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 870,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c1382f268f08be54",
+        "type": "ui-chart",
+        "z": "c0a854f2e62226f7",
+        "group": "a9908ab557174656",
+        "name": "Light Chart",
+        "label": "",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": "36",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#a2ca6f",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#292b2d"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 7,
+        "height": 4,
+        "className": "",
+        "interpolation": "smooth",
+        "x": 870,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d56b71c2375d7c0b",
+        "type": "ui-gauge",
+        "z": "c0a854f2e62226f7",
+        "name": "Light Gauge",
+        "group": "a9908ab557174656",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "Lux",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#a2ca6f",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "12000",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 870,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6e2483b21fb8a7df",
+        "type": "ui-template",
+        "z": "c0a854f2e62226f7",
+        "group": "02b81bca1b8536a8",
+        "page": "",
+        "ui": "",
+        "name": "Sunrise",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n<!-- Lighting Settings -->\n<div style=\"display:flex;flex-direction:column;gap:6px;\">\n    <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <label for=\"sunrise\">Sunrise</label>\n        <input id=\"sunrise\" type=\"time\" lang=\"en-GB\" step=\"60\"\n           style=\"border:none;background:transparent;text-align:right;\"\n           oninput=\"sendTime('sunrise', this.value)\">\n    </div>\n</div>\n\n<script>\n    (function(scope) {\n    scope.sendTime = function(label, value) {\n        scope.send({ topic: label, payload: value });\n        localStorage.setItem(`lighting_${label}`, value);\n    };\n\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n        ['sunrise', 'sunset'].forEach(id => {\n            const el = document.getElementById(id);\n            if (!el) return;\n            const stored = localStorage.getItem(`lighting_${id}`);\n            if (msg.topic === id && /^([01]\\d|2[0-3]):([0-5]\\d)$/.test(msg.payload)) {\n                el.value = msg.payload;\n                localStorage.setItem(`lighting_${id}`, msg.payload);\n            } else if (!msg.topic && stored) {\n                el.value = stored;\n            }\n        });\n    });\n})(scope);\n</script>\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 460,
+        "y": 920,
+        "wires": [
+            [
+                "16f818035533a75f"
+            ]
+        ]
+    },
+    {
+        "id": "d1f3dc1aa92c6035",
+        "type": "ui-template",
+        "z": "c0a854f2e62226f7",
+        "group": "02b81bca1b8536a8",
+        "page": "",
+        "ui": "",
+        "name": "Sunset",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n<!-- Lighting Settings -->\n<div style=\"display:flex;flex-direction:column;gap:6px;\">\n    <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <label for=\"sunrise\">Sunrise</label>\n        <input id=\"sunrise\" type=\"time\" lang=\"en-GB\" step=\"60\"\n           style=\"border:none;background:transparent;text-align:right;\"\n           oninput=\"sendTime('sunrise', this.value)\">\n    </div>\n</div>\n\n<script>\n    (function(scope) {\n    scope.sendTime = function(label, value) {\n        scope.send({ topic: label, payload: value });\n        localStorage.setItem(`lighting_${label}`, value);\n    };\n\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n        ['sunrise', 'sunset'].forEach(id => {\n            const el = document.getElementById(id);\n            if (!el) return;\n            const stored = localStorage.getItem(`lighting_${id}`);\n            if (msg.topic === id && /^([01]\\d|2[0-3]):([0-5]\\d)$/.test(msg.payload)) {\n                el.value = msg.payload;\n                localStorage.setItem(`lighting_${id}`, msg.payload);\n            } else if (!msg.topic && stored) {\n                el.value = stored;\n            }\n        });\n    });\n})(scope);\n</script>\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 460,
+        "y": 960,
+        "wires": [
+            [
+                "16f818035533a75f"
+            ]
+        ]
+    },
+    {
+        "id": "d53e4abac86221b8",
+        "type": "ui-gauge",
+        "z": "c0a854f2e62226f7",
+        "name": "Pressure Gauge",
+        "group": "8ff445038f0d559b",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "hPa",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#a2ca6f",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "750",
+        "max": "1040",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 880,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "706121d25167f537",
+        "type": "ui-chart",
+        "z": "c0a854f2e62226f7",
+        "group": "8ff445038f0d559b",
+        "name": "Pressure Chart",
+        "label": "",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": "36",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#a2ca6f",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#292b2d"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 7,
+        "height": 4,
+        "className": "",
+        "interpolation": "smooth",
+        "x": 880,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "df994372cb11191c",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "Identify",
+        "label": "Identify Vivarium",
+        "order": 1,
+        "width": 3,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"identify\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 1300,
+        "y": 280,
+        "wires": [
+            [
+                "c1cdcfccad7409d6"
+            ]
+        ]
+    },
+    {
+        "id": "f133454d9ec41ce7",
+        "type": "ui-text",
+        "z": "c0a854f2e62226f7",
+        "group": "58721ee298d6b49c",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 850,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "849cd6ed49a1fdb6",
+        "type": "ui-text",
+        "z": "c0a854f2e62226f7",
+        "group": "a9908ab557174656",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload.lighting",
+        "valueType": "msg",
+        "x": 850,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "a30bb48351e7d448",
+        "type": "ui-text",
+        "z": "c0a854f2e62226f7",
+        "group": "8ff445038f0d559b",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 850,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "e7274d3a41f1f1fb",
+        "type": "ui-text",
+        "z": "c0a854f2e62226f7",
+        "group": "cd300b67147963fd",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 850,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b953255c7a8b8342",
+        "type": "ui-control",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "ui": "686c46360e79bd75",
+        "events": "all",
+        "x": 1440,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e79bbef708ea3dd7",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "Editor",
+        "label": "Editor",
+        "order": 2,
+        "width": 1,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "pencil",
+        "iconPosition": "left",
+        "payload": "{\"url\":\"/editor\",\"target\":\"_blank\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 1310,
+        "y": 60,
+        "wires": [
+            [
+                "b953255c7a8b8342"
+            ]
+        ]
+    },
+    {
+        "id": "205b6bce-522f-46f9-9654-61feec61417c",
+        "type": "environment sensor",
+        "z": "c0a854f2e62226f7",
+        "name": "UVB Sensor",
+        "variable": "uvb",
+        "x": 450,
+        "y": 1260,
+        "wires": [
+            [
+                "237e81793bd0e731"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "159b6245-40d7-4ec7-b176-125a42997e9b",
+        "type": "ui-gauge",
+        "z": "c0a854f2e62226f7",
+        "name": "UVB Gauge",
+        "group": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "3",
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "μW/m2",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#000000",
+                "text": "0",
+                "textType": "str"
+            },
+            {
+                "from": "0.5",
+                "color": "#640064",
+                "text": "1",
+                "textType": "str"
+            },
+            {
+                "from": "1",
+                "color": "#960096",
+                "text": "2",
+                "textType": "str"
+            },
+            {
+                "from": "2.6",
+                "color": "#b400b4",
+                "text": "3",
+                "textType": "str"
+            },
+            {
+                "from": "7.4",
+                "color": "#c800c8",
+                "text": "3",
+                "textType": "str"
+            }
+        ],
+        "min": 0,
+        "max": 10,
+        "sizeThickness": "16",
+        "sizeGap": "4",
+        "sizeKeyThickness": "8",
+        "className": "",
+        "x": 870,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "237e81793bd0e731",
+        "type": "template",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.uvb}}",
+        "output": "str",
+        "x": 620,
+        "y": 1280,
+        "wires": [
+            [
+                "159b6245-40d7-4ec7-b176-125a42997e9b",
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+            ]
+        ]
+    },
+    {
+        "id": "4842d55fc547be75",
+        "type": "environment sensor",
+        "z": "c0a854f2e62226f7",
+        "name": "All sensor values",
+        "variable": "all",
+        "sampleinterval": "",
+        "x": 440,
+        "y": 60,
+        "wires": [
+            [
+                "4f6c381ea45deb9b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4f6c381ea45deb9b",
+        "type": "debug",
+        "z": "c0a854f2e62226f7",
+        "name": "Sensor values",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2",
+        "type": "ui-chart",
+        "z": "c0a854f2e62226f7",
+        "group": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
+        "name": "UV Chart",
+        "label": "",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": "",
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": "",
+        "showLegend": false,
+        "removeOlder": "36",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#a2ca6f",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "7",
+        "height": "4",
+        "className": "",
+        "interpolation": "smooth",
+        "x": 860,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fbb67b3f83f961e6",
+        "type": "ui-switch",
+        "z": "c0a854f2e62226f7",
+        "name": "UVB required",
+        "label": "UVB required",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "uvbRequired",
+        "topicType": "str",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "line",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 280,
+        "y": 1320,
+        "wires": [
+            [
+                "fcbac3a4d9a38f65"
+            ]
+        ]
+    },
+    {
+        "id": "076c8671d746485a",
+        "type": "ui-switch",
+        "z": "c0a854f2e62226f7",
+        "name": "UVC alarm",
+        "label": "UVC alarm",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "uvcAlarm",
+        "topicType": "str",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "line",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 270,
+        "y": 1380,
+        "wires": [
+            [
+                "1a4e44df67a847c0"
+            ]
+        ]
+    },
+    {
+        "id": "b431b73c3aee3936",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload, \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 240,
+        "wires": [
+            [
+                "1589282f12a5c631",
+                "7d8a3b457a69e817"
+            ]
+        ]
+    },
+    {
+        "id": "30e986713b9cf221",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,   \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 280,
+        "wires": [
+            [
+                "1589282f12a5c631"
+            ]
+        ]
+    },
+    {
+        "id": "f85a613746667628",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.minimumTemperature\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "5117121a42594b22"
+            ]
+        ]
+    },
+    {
+        "id": "fe0ef62128b9cfcc",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.maximumTemperature\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "0881a22599596138"
+            ]
+        ]
+    },
+    {
+        "id": "492ace2f55cef324",
+        "type": "inject",
+        "z": "c0a854f2e62226f7",
+        "name": "Init pulse",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 80,
+        "wires": [
+            [
+                "f85a613746667628",
+                "fe0ef62128b9cfcc",
+                "15fb360ca76e8cb6",
+                "b6ae9fb9dc6d807f",
+                "7282fd7974418b81",
+                "ef2db5cf91e3c7f6"
+            ]
+        ]
+    },
+    {
+        "id": "15fb360ca76e8cb6",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.minimumHumidity\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 480,
+        "wires": [
+            [
+                "2aee6582bf4df2ff"
+            ]
+        ]
+    },
+    {
+        "id": "b6ae9fb9dc6d807f",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.maximumHumidity\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "03e7c674cf6767aa"
+            ]
+        ]
+    },
+    {
+        "id": "359a7caf307c7fe3",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 480,
+        "wires": [
+            [
+                "6f2821f6469e2e25"
+            ]
+        ]
+    },
+    {
+        "id": "47ce135c94534feb",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 520,
+        "wires": [
+            [
+                "6f2821f6469e2e25"
+            ]
+        ]
+    },
+    {
+        "id": "7d8a3b457a69e817",
+        "type": "debug",
+        "z": "c0a854f2e62226f7",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7282fd7974418b81",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.uvbRequired\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 1320,
+        "wires": [
+            [
+                "fbb67b3f83f961e6"
+            ]
+        ]
+    },
+    {
+        "id": "ef2db5cf91e3c7f6",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.uvcAlarm\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 1380,
+        "wires": [
+            [
+                "076c8671d746485a"
+            ]
+        ]
+    },
+    {
+        "id": "fcbac3a4d9a38f65",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a4e44df67a847c0",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1380,
+        "wires": [
+            []
+        ]
     }
 ]
