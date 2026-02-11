@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.7",
+        "label": "Freya-v0.2.8",
         "disabled": false,
         "info": "",
         "env": []
@@ -355,7 +355,8 @@
         "timezone": "UTC+1",
         "axialTilt": 23.44,
         "orbitalPeriod": 365.25,
-        "rotationalPeriod": 24
+        "rotationalPeriod": 24,
+        "timeScale": "1"
     },
     {
         "id": "f012f8b348309bb5",
@@ -378,7 +379,7 @@
         "topic": "",
         "payload": "{\"info\":{\"name\":\"Freya\",\"version\":\"v0.0.1\",\"description\":\"Freya wired up in Node-RED\"}}",
         "payloadType": "json",
-        "x": 1500,
+        "x": 1920,
         "y": 160,
         "wires": [
             [
@@ -407,7 +408,7 @@
         "topic": "",
         "payload": "{\"status\":{\"level\":\"ok\"}}",
         "payloadType": "json",
-        "x": 1490,
+        "x": 1910,
         "y": 200,
         "wires": [
             [
@@ -436,7 +437,7 @@
         "topic": "",
         "payload": "{\"status\":{\"level\":\"warning\"}}",
         "payloadType": "json",
-        "x": 1500,
+        "x": 1920,
         "y": 240,
         "wires": [
             [
@@ -465,7 +466,7 @@
         "topic": "identify",
         "payload": "{\"blub\":\"zeemeermin\"}",
         "payloadType": "json",
-        "x": 1510,
+        "x": 1930,
         "y": 120,
         "wires": [
             [
@@ -485,7 +486,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
+        "x": 1890,
         "y": 280,
         "wires": [
             [
@@ -498,8 +499,8 @@
         "type": "humidity controller",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 890,
-        "y": 500,
+        "x": 1030,
+        "y": 580,
         "wires": [
             [
                 "8a52bc9eba3c0ada"
@@ -514,11 +515,13 @@
         "type": "temperature controller",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "minimumTemperature": "10",
+        "deadband": "0.5",
+        "minimumTemperature": "-10",
         "maximumTemperature": "50",
-        "kp": "10",
-        "x": 900,
-        "y": 260,
+        "watchdogTimeout": "180",
+        "watchdogSeverity": "warning",
+        "x": 1140,
+        "y": 240,
         "wires": [
             [
                 "0c6df0b11131a8c9",
@@ -535,7 +538,7 @@
         "z": "c0a854f2e62226f7",
         "name": "",
         "x": 890,
-        "y": 940,
+        "y": 1060,
         "wires": [
             [
                 "a030ee2f8804a863",
@@ -551,8 +554,8 @@
         "type": "precipitation controller",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 880,
-        "y": 660,
+        "x": 1020,
+        "y": 640,
         "wires": [
             [
                 "38417f951ba2e8cf"
@@ -568,12 +571,16 @@
         "z": "c0a854f2e62226f7",
         "name": "",
         "locationConfig": "5af9fc4d33e3d5ba",
-        "timeScale": "",
-        "x": 640,
+        "phaseShift": "30",
+        "diurnalSwing": 1,
+        "seasonalSwing": 1,
+        "tickInterval": "20",
+        "decimals": "1",
+        "x": 760,
         "y": 260,
         "wires": [
             [
-                "144a01e7f0dd298d"
+                "7af7491042c2835c"
             ],
             [
                 "00cfd341d4986698"
@@ -586,9 +593,13 @@
         "z": "c0a854f2e62226f7",
         "name": "",
         "locationConfig": "5af9fc4d33e3d5ba",
-        "timeScale": "",
-        "x": 640,
-        "y": 500,
+        "phaseShift": "180",
+        "diurnalSwing": 1,
+        "seasonalSwing": 1,
+        "tickInterval": "20",
+        "decimals": "1",
+        "x": 740,
+        "y": 620,
         "wires": [
             [
                 "d44fa9863bcdba16"
@@ -604,9 +615,13 @@
         "z": "c0a854f2e62226f7",
         "name": "",
         "locationConfig": "5af9fc4d33e3d5ba",
-        "timeScale": "",
+        "phaseShift": "0",
+        "diurnalSwing": 1,
+        "seasonalSwing": 1,
+        "tickInterval": "",
+        "decimals": "",
         "x": 640,
-        "y": 940,
+        "y": 1060,
         "wires": [
             [
                 "eac6b1e0a11d0689"
@@ -622,9 +637,13 @@
         "z": "c0a854f2e62226f7",
         "name": "",
         "locationConfig": "5af9fc4d33e3d5ba",
-        "timeScale": "",
-        "x": 640,
-        "y": 660,
+        "phaseShift": "",
+        "diurnalSwing": 1,
+        "seasonalSwing": 1,
+        "tickInterval": "",
+        "decimals": "",
+        "x": 740,
+        "y": 680,
         "wires": [
             [
                 "5c23dfdcc1dc077c"
@@ -639,8 +658,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Temperature Status",
-        "x": 1130,
-        "y": 340,
+        "x": 1410,
+        "y": 380,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -655,13 +674,13 @@
         "name": "Temperature Sensor",
         "variable": "temperature",
         "sampleinterval": "",
-        "x": 390,
+        "x": 750,
         "y": 180,
         "wires": [
             [
                 "8315c5acdf23410d",
-                "144a01e7f0dd298d",
-                "7fca6fbb863561ee"
+                "7fca6fbb863561ee",
+                "3236fd72cef32005"
             ],
             [
                 "00cfd341d4986698"
@@ -676,7 +695,7 @@
         "actuator": "cooler",
         "channel": "5",
         "mode": "digital",
-        "x": 1090,
+        "x": 1350,
         "y": 280,
         "wires": [
             [
@@ -689,8 +708,8 @@
         "type": "system actuators",
         "z": "c0a854f2e62226f7",
         "name": "Humidifier",
-        "x": 1080,
-        "y": 480,
+        "x": 1360,
+        "y": 580,
         "wires": [
             [
                 "65ec410c37b483e8"
@@ -706,7 +725,7 @@
         "channel": "1",
         "mode": "digital",
         "x": 1090,
-        "y": 900,
+        "y": 1020,
         "wires": [
             [
                 "2f6bd800c9979c6c"
@@ -722,7 +741,7 @@
         "channel": "6",
         "mode": "digital",
         "x": 1100,
-        "y": 960,
+        "y": 1080,
         "wires": [
             [
                 "2f6bd800c9979c6c"
@@ -737,7 +756,7 @@
         "actuator": "rain",
         "channel": "3",
         "mode": "digital",
-        "x": 1090,
+        "x": 1370,
         "y": 640,
         "wires": [
             [
@@ -751,9 +770,9 @@
         "z": "c0a854f2e62226f7",
         "name": "Heater",
         "actuator": "heater",
-        "channel": "1",
+        "channel": "2",
         "mode": "digital",
-        "x": 1090,
+        "x": 1350,
         "y": 220,
         "wires": [
             [
@@ -768,8 +787,8 @@
         "name": "Humidity Sensor",
         "variable": "humidity",
         "sampleinterval": "",
-        "x": 380,
-        "y": 420,
+        "x": 740,
+        "y": 540,
         "wires": [
             [
                 "d44fa9863bcdba16",
@@ -788,7 +807,7 @@
         "name": "Light Sensor",
         "variable": "light",
         "x": 450,
-        "y": 860,
+        "y": 980,
         "wires": [
             [
                 "eac6b1e0a11d0689",
@@ -805,8 +824,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Humidity Status",
-        "x": 1100,
-        "y": 560,
+        "x": 1620,
+        "y": 680,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -820,7 +839,7 @@
         "z": "c0a854f2e62226f7",
         "name": "Lighting Status",
         "x": 1100,
-        "y": 1040,
+        "y": 1160,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -833,8 +852,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Precipitation Status",
-        "x": 1110,
-        "y": 720,
+        "x": 1630,
+        "y": 740,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -847,8 +866,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "System Status",
-        "x": 1380,
-        "y": 640,
+        "x": 1920,
+        "y": 700,
         "wires": [
             [],
             []
@@ -865,8 +884,8 @@
         "syntax": "mustache",
         "template": "{{payload.temperature}}",
         "output": "str",
-        "x": 620,
-        "y": 160,
+        "x": 940,
+        "y": 140,
         "wires": [
             [
                 "673deaaa902483da",
@@ -885,8 +904,8 @@
         "syntax": "mustache",
         "template": "{{payload.humidity}}",
         "output": "str",
-        "x": 620,
-        "y": 400,
+        "x": 1060,
+        "y": 500,
         "wires": [
             [
                 "80a6fee06bad3a98",
@@ -907,7 +926,7 @@
         "template": "{{payload.light}}",
         "output": "str",
         "x": 620,
-        "y": 840,
+        "y": 960,
         "wires": [
             [
                 "869cea4cfd17e8cd",
@@ -923,7 +942,7 @@
         "variable": "pressure",
         "sampleinterval": "",
         "x": 460,
-        "y": 1140,
+        "y": 1260,
         "wires": [
             [
                 "c6e680047593b7a6"
@@ -944,7 +963,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 800,
+        "y": 920,
         "wires": [
             [
                 "c1382f268f08be54"
@@ -963,7 +982,7 @@
         "template": "{{payload.pressure}}",
         "output": "str",
         "x": 620,
-        "y": 1140,
+        "y": 1260,
         "wires": [
             [
                 "706121d25167f537",
@@ -989,8 +1008,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 620,
-        "y": 560,
+        "x": 920,
+        "y": 740,
         "wires": [
             [
                 "38417f951ba2e8cf"
@@ -1010,7 +1029,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "0c6df0b11131a8c9",
@@ -1031,7 +1050,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 1040,
+        "y": 1160,
         "wires": [
             [
                 "a5ee427c8f782dfc"
@@ -1070,7 +1089,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 250,
-        "y": 140,
+        "y": 100,
         "wires": [
             [
                 "54fe9e766a5c5396"
@@ -1082,7 +1101,7 @@
         "type": "edgeberry",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 1710,
+        "x": 2130,
         "y": 200,
         "wires": [
             [
@@ -1102,7 +1121,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1450,
+        "x": 1870,
         "y": 340,
         "wires": [
             [
@@ -1122,7 +1141,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
+        "x": 1890,
         "y": 380,
         "wires": [
             [
@@ -1142,8 +1161,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1470,
-        "y": 420,
+        "x": 1890,
+        "y": 540,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -1163,7 +1182,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1910,
+        "x": 2330,
         "y": 200,
         "wires": []
     },
@@ -1180,7 +1199,7 @@
         "finalize": "",
         "libs": [],
         "x": 650,
-        "y": 1000,
+        "y": 1120,
         "wires": [
             [
                 "a030ee2f8804a863",
@@ -1219,7 +1238,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 250,
+        "x": 790,
         "y": 340,
         "wires": [
             [
@@ -1258,8 +1277,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 250,
-        "y": 560,
+        "x": 770,
+        "y": 740,
         "wires": [
             [
                 "1a2e480989bed771"
@@ -1298,7 +1317,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 460,
-        "y": 1000,
+        "y": 1120,
         "wires": [
             [
                 "7c33142b8ae8c86b"
@@ -1337,7 +1356,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 460,
-        "y": 1040,
+        "y": 1160,
         "wires": [
             [
                 "4c6b2e8277ea7a30"
@@ -1360,7 +1379,9 @@
         "max": "80",
         "step": "0.5",
         "tooltip": "The absolute minimum temperature",
+        "delay": "0",
         "passthru": true,
+        "sendOnDelay": false,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -1369,7 +1390,7 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "spinner": "default",
-        "x": 260,
+        "x": 280,
         "y": 240,
         "wires": [
             [
@@ -1393,7 +1414,9 @@
         "max": "80",
         "step": "0.5",
         "tooltip": "The absolute maximum temperature",
+        "delay": "0",
         "passthru": true,
+        "sendOnDelay": false,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -1436,7 +1459,7 @@
         "iconInnerPosition": "inside",
         "spinner": "default",
         "x": 260,
-        "y": 480,
+        "y": 600,
         "wires": [
             [
                 "359a7caf307c7fe3"
@@ -1469,7 +1492,7 @@
         "iconInnerPosition": "inside",
         "spinner": "default",
         "x": 260,
-        "y": 520,
+        "y": 640,
         "wires": [
             [
                 "47ce135c94534feb"
@@ -1510,8 +1533,8 @@
         "removeOlderUnit": "3600",
         "removeOlderPoints": "",
         "colors": [
+            "#cccccc",
             "#a2ca6f",
-            "#ff0000",
             "#ff7f0e",
             "#2ca02c",
             "#a347e1",
@@ -1532,8 +1555,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 870,
-        "y": 140,
+        "x": 1370,
+        "y": 120,
         "wires": [
             []
         ]
@@ -1574,8 +1597,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 870,
-        "y": 180,
+        "x": 1370,
+        "y": 160,
         "wires": [
             []
         ]
@@ -1636,8 +1659,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 870,
-        "y": 380,
+        "x": 1230,
+        "y": 480,
         "wires": [
             []
         ]
@@ -1678,8 +1701,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 870,
-        "y": 420,
+        "x": 1230,
+        "y": 520,
         "wires": [
             []
         ]
@@ -1741,7 +1764,7 @@
         "className": "",
         "interpolation": "smooth",
         "x": 870,
-        "y": 800,
+        "y": 920,
         "wires": [
             []
         ]
@@ -1783,7 +1806,7 @@
         "styleGlow": false,
         "className": "",
         "x": 870,
-        "y": 840,
+        "y": 960,
         "wires": [
             []
         ]
@@ -1807,7 +1830,7 @@
         "templateScope": "local",
         "className": "",
         "x": 460,
-        "y": 920,
+        "y": 1040,
         "wires": [
             [
                 "16f818035533a75f"
@@ -1833,7 +1856,7 @@
         "templateScope": "local",
         "className": "",
         "x": 460,
-        "y": 960,
+        "y": 1080,
         "wires": [
             [
                 "16f818035533a75f"
@@ -1877,7 +1900,7 @@
         "styleGlow": false,
         "className": "",
         "x": 880,
-        "y": 1160,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -1939,7 +1962,7 @@
         "className": "",
         "interpolation": "smooth",
         "x": 880,
-        "y": 1120,
+        "y": 1240,
         "wires": [
             []
         ]
@@ -1975,7 +1998,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1300,
+        "x": 1700,
         "y": 280,
         "wires": [
             [
@@ -2028,7 +2051,7 @@
         "value": "payload.lighting",
         "valueType": "msg",
         "x": 850,
-        "y": 760,
+        "y": 880,
         "wires": []
     },
     {
@@ -2052,7 +2075,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 850,
-        "y": 1080,
+        "y": 1200,
         "wires": []
     },
     {
@@ -2075,8 +2098,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 850,
-        "y": 340,
+        "x": 1210,
+        "y": 440,
         "wires": []
     },
     {
@@ -2086,8 +2109,8 @@
         "name": "",
         "ui": "686c46360e79bd75",
         "events": "all",
-        "x": 1440,
-        "y": 60,
+        "x": 1380,
+        "y": 40,
         "wires": [
             []
         ]
@@ -2123,8 +2146,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1310,
-        "y": 60,
+        "x": 1250,
+        "y": 40,
         "wires": [
             [
                 "b953255c7a8b8342"
@@ -2138,7 +2161,7 @@
         "name": "UVB Sensor",
         "variable": "uvb",
         "x": 450,
-        "y": 1260,
+        "y": 1380,
         "wires": [
             [
                 "237e81793bd0e731"
@@ -2204,7 +2227,7 @@
         "sizeKeyThickness": "8",
         "className": "",
         "x": 870,
-        "y": 1320,
+        "y": 1440,
         "wires": [
             []
         ]
@@ -2221,7 +2244,7 @@
         "template": "{{payload.uvb}}",
         "output": "str",
         "x": 620,
-        "y": 1280,
+        "y": 1400,
         "wires": [
             [
                 "159b6245-40d7-4ec7-b176-125a42997e9b",
@@ -2237,7 +2260,7 @@
         "variable": "all",
         "sampleinterval": "",
         "x": 440,
-        "y": 60,
+        "y": 40,
         "wires": [
             [
                 "4f6c381ea45deb9b"
@@ -2259,7 +2282,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 60,
+        "y": 40,
         "wires": []
     },
     {
@@ -2319,7 +2342,7 @@
         "className": "",
         "interpolation": "smooth",
         "x": 860,
-        "y": 1280,
+        "y": 1400,
         "wires": [
             []
         ]
@@ -2351,7 +2374,7 @@
         "officon": "",
         "offcolor": "",
         "x": 280,
-        "y": 1320,
+        "y": 1440,
         "wires": [
             [
                 "fcbac3a4d9a38f65"
@@ -2385,7 +2408,7 @@
         "officon": "",
         "offcolor": "",
         "x": 270,
-        "y": 1380,
+        "y": 1500,
         "wires": [
             [
                 "1a4e44df67a847c0"
@@ -2408,8 +2431,7 @@
         "y": 240,
         "wires": [
             [
-                "1589282f12a5c631",
-                "7d8a3b457a69e817"
+                "b6d24c61bf7ca039"
             ]
         ]
     },
@@ -2429,7 +2451,7 @@
         "y": 280,
         "wires": [
             [
-                "1589282f12a5c631"
+                "1cb314d3fad0b56a"
             ]
         ]
     },
@@ -2520,7 +2542,7 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 480,
+        "y": 600,
         "wires": [
             [
                 "2aee6582bf4df2ff"
@@ -2540,7 +2562,7 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 520,
+        "y": 640,
         "wires": [
             [
                 "03e7c674cf6767aa"
@@ -2560,10 +2582,10 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 480,
+        "y": 600,
         "wires": [
             [
-                "6f2821f6469e2e25"
+                "49df631afc30df51"
             ]
         ]
     },
@@ -2580,29 +2602,12 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 520,
+        "y": 640,
         "wires": [
             [
-                "6f2821f6469e2e25"
+                "cdf06cb3b65b9c1b"
             ]
         ]
-    },
-    {
-        "id": "7d8a3b457a69e817",
-        "type": "debug",
-        "z": "c0a854f2e62226f7",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1060,
-        "y": 80,
-        "wires": []
     },
     {
         "id": "7282fd7974418b81",
@@ -2617,7 +2622,7 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 1320,
+        "y": 1440,
         "wires": [
             [
                 "fbb67b3f83f961e6"
@@ -2637,7 +2642,7 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 1380,
+        "y": 1500,
         "wires": [
             [
                 "076c8671d746485a"
@@ -2657,7 +2662,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 1320,
+        "y": 1440,
         "wires": [
             []
         ]
@@ -2675,9 +2680,148 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 1380,
+        "y": 1500,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "b6d24c61bf7ca039",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"absoluteMin\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 240,
+        "wires": [
+            [
+                "1589282f12a5c631"
+            ]
+        ]
+    },
+    {
+        "id": "1cb314d3fad0b56a",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"absoluteMax\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 280,
+        "wires": [
+            [
+                "1589282f12a5c631"
+            ]
+        ]
+    },
+    {
+        "id": "49df631afc30df51",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"absoluteMin\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 600,
+        "wires": [
+            [
+                "6f2821f6469e2e25"
+            ]
+        ]
+    },
+    {
+        "id": "cdf06cb3b65b9c1b",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"absoluteMax\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 640,
+        "wires": [
+            [
+                "6f2821f6469e2e25"
+            ]
+        ]
+    },
+    {
+        "id": "3236fd72cef32005",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"sensor\";\nmsg.payload = msg.payload.temperature;\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 220,
+        "wires": [
+            [
+                "144a01e7f0dd298d",
+                "2f361371c49546f8"
+            ]
+        ]
+    },
+    {
+        "id": "7af7491042c2835c",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"target\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 260,
+        "wires": [
+            [
+                "144a01e7f0dd298d",
+                "2f361371c49546f8",
+                "673deaaa902483da"
+            ]
+        ]
+    },
+    {
+        "id": "2f361371c49546f8",
+        "type": "debug",
+        "z": "c0a854f2e62226f7",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1580,
+        "y": 160,
+        "wires": []
     }
 ]
