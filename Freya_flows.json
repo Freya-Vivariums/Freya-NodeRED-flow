@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.8",
+        "label": "Freya-v0.2.9",
         "disabled": false,
         "info": "",
         "env": []
@@ -356,7 +356,7 @@
         "axialTilt": 23.44,
         "orbitalPeriod": 365.25,
         "rotationalPeriod": 24,
-        "timeScale": "1"
+        "timeScale": "20"
     },
     {
         "id": "f012f8b348309bb5",
@@ -499,7 +499,12 @@
         "type": "humidity controller",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 1030,
+        "deadband": "20",
+        "minimumHumidity": "40",
+        "maximumHumidity": "99",
+        "watchdogTimeout": "180",
+        "watchdogSeverity": "warning",
+        "x": 1130,
         "y": 580,
         "wires": [
             [
@@ -536,13 +541,17 @@
         "id": "eac6b1e0a11d0689",
         "type": "lighting controller",
         "z": "c0a854f2e62226f7",
-        "name": "",
-        "x": 890,
-        "y": 1060,
+        "name": "Main Lighting Controller",
+        "gain": "1",
+        "bottomCutOff": "50",
+        "mode": "digital",
+        "scheduleTime1": "",
+        "scheduleTime2": "",
+        "x": 1150,
+        "y": 960,
         "wires": [
             [
-                "a030ee2f8804a863",
-                "a5ee427c8f782dfc"
+                "a030ee2f8804a863"
             ],
             [
                 "2f6bd800c9979c6c"
@@ -571,7 +580,7 @@
         "z": "c0a854f2e62226f7",
         "name": "",
         "locationConfig": "5af9fc4d33e3d5ba",
-        "phaseShift": "30",
+        "phaseShift": "-30",
         "diurnalSwing": 1,
         "seasonalSwing": 1,
         "tickInterval": "20",
@@ -602,7 +611,7 @@
         "y": 620,
         "wires": [
             [
-                "d44fa9863bcdba16"
+                "5ea46a13affe3368"
             ],
             [
                 "65ec410c37b483e8"
@@ -618,13 +627,13 @@
         "phaseShift": "0",
         "diurnalSwing": 1,
         "seasonalSwing": 1,
-        "tickInterval": "",
-        "decimals": "",
-        "x": 640,
-        "y": 1060,
+        "tickInterval": "20",
+        "decimals": "1",
+        "x": 740,
+        "y": 1000,
         "wires": [
             [
-                "eac6b1e0a11d0689"
+                "f4a3582e9b3726be"
             ],
             [
                 "2f6bd800c9979c6c"
@@ -724,8 +733,8 @@
         "actuator": "lighting",
         "channel": "1",
         "mode": "digital",
-        "x": 1090,
-        "y": 1020,
+        "x": 1370,
+        "y": 960,
         "wires": [
             [
                 "2f6bd800c9979c6c"
@@ -737,11 +746,11 @@
         "type": "system actuators",
         "z": "c0a854f2e62226f7",
         "name": "Auxilary Lights",
-        "actuator": "auxLighting",
+        "actuator": "lighting",
         "channel": "6",
         "mode": "digital",
-        "x": 1100,
-        "y": 1080,
+        "x": 1380,
+        "y": 1020,
         "wires": [
             [
                 "2f6bd800c9979c6c"
@@ -791,9 +800,9 @@
         "y": 540,
         "wires": [
             [
-                "d44fa9863bcdba16",
                 "e5b848f06ac6a762",
-                "c041d181d85f3f63"
+                "c041d181d85f3f63",
+                "5bd21e17c7477ba7"
             ],
             [
                 "65ec410c37b483e8"
@@ -806,11 +815,10 @@
         "z": "c0a854f2e62226f7",
         "name": "Light Sensor",
         "variable": "light",
-        "x": 450,
-        "y": 980,
+        "x": 790,
+        "y": 920,
         "wires": [
             [
-                "eac6b1e0a11d0689",
                 "19459d7ed75c5df5",
                 "d85c98c981f083c8"
             ],
@@ -838,8 +846,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Lighting Status",
-        "x": 1100,
-        "y": 1160,
+        "x": 1600,
+        "y": 1120,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -925,12 +933,12 @@
         "syntax": "mustache",
         "template": "{{payload.light}}",
         "output": "str",
-        "x": 620,
-        "y": 960,
+        "x": 1060,
+        "y": 880,
         "wires": [
             [
-                "869cea4cfd17e8cd",
-                "d56b71c2375d7c0b"
+                "d56b71c2375d7c0b",
+                "c1382f268f08be54"
             ]
         ]
     },
@@ -948,26 +956,6 @@
                 "c6e680047593b7a6"
             ],
             []
-        ]
-    },
-    {
-        "id": "869cea4cfd17e8cd",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "ui_control",
-        "func": "// msg.payload = your normal data (e.g. a number or {series[], data[][], labels[]})\n/*msg.ui_control = {\n    options: {\n        scales: {\n            yAxes: [{\n                type: 'logarithmic',       // switch to log scale\n                scaleLabel: {\n                    display: true,\n                    labelString: 'Value (log)'\n                },\n                min: 0.05,                 // hard lower bound (moonlight)\n                max: 120000,               // hard upper bound (bright daylight)\n            }]\n        }\n    }\n};*/\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 920,
-        "wires": [
-            [
-                "c1382f268f08be54"
-            ]
         ]
     },
     {
@@ -1049,8 +1037,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 1160,
+        "x": 870,
+        "y": 1140,
         "wires": [
             [
                 "a5ee427c8f782dfc"
@@ -1198,8 +1186,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
-        "y": 1120,
+        "x": 870,
+        "y": 1100,
         "wires": [
             [
                 "a030ee2f8804a863",
@@ -1316,8 +1304,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 460,
-        "y": 1120,
+        "x": 680,
+        "y": 1100,
         "wires": [
             [
                 "7c33142b8ae8c86b"
@@ -1355,8 +1343,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 460,
-        "y": 1160,
+        "x": 680,
+        "y": 1140,
         "wires": [
             [
                 "4c6b2e8277ea7a30"
@@ -1637,8 +1625,8 @@
         "removeOlderUnit": "3600",
         "removeOlderPoints": "",
         "colors": [
+            "#cccccc",
             "#a2ca6f",
-            "#ff0000",
             "#ff7f0e",
             "#2ca02c",
             "#a347e1",
@@ -1659,7 +1647,7 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 1230,
+        "x": 1370,
         "y": 480,
         "wires": [
             []
@@ -1701,7 +1689,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1230,
+        "x": 1370,
         "y": 520,
         "wires": [
             []
@@ -1741,8 +1729,8 @@
         "removeOlderUnit": "3600",
         "removeOlderPoints": "",
         "colors": [
+            "#cccccc",
             "#a2ca6f",
-            "#ff0000",
             "#ff7f0e",
             "#2ca02c",
             "#a347e1",
@@ -1763,8 +1751,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 870,
-        "y": 920,
+        "x": 1370,
+        "y": 860,
         "wires": [
             []
         ]
@@ -1805,8 +1793,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 870,
-        "y": 960,
+        "x": 1370,
+        "y": 900,
         "wires": [
             []
         ]
@@ -1829,12 +1817,10 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 460,
-        "y": 1040,
+        "x": 320,
+        "y": 960,
         "wires": [
-            [
-                "16f818035533a75f"
-            ]
+            []
         ]
     },
     {
@@ -1855,12 +1841,10 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 460,
-        "y": 1080,
+        "x": 320,
+        "y": 1000,
         "wires": [
-            [
-                "16f818035533a75f"
-            ]
+            []
         ]
     },
     {
@@ -2050,8 +2034,8 @@
         "className": "",
         "value": "payload.lighting",
         "valueType": "msg",
-        "x": 850,
-        "y": 880,
+        "x": 1350,
+        "y": 820,
         "wires": []
     },
     {
@@ -2098,7 +2082,7 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 1210,
+        "x": 1350,
         "y": 440,
         "wires": []
     },
@@ -2525,7 +2509,9 @@
                 "15fb360ca76e8cb6",
                 "b6ae9fb9dc6d807f",
                 "7282fd7974418b81",
-                "ef2db5cf91e3c7f6"
+                "ef2db5cf91e3c7f6",
+                "1c325d7f10082f8a",
+                "1c4a1b844e807b1c"
             ]
         ]
     },
@@ -2823,5 +2809,147 @@
         "x": 1580,
         "y": 160,
         "wires": []
+    },
+    {
+        "id": "5bd21e17c7477ba7",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"sensor\";\nmsg.payload = msg.payload.humidity;\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 560,
+        "wires": [
+            [
+                "d44fa9863bcdba16"
+            ]
+        ]
+    },
+    {
+        "id": "5ea46a13affe3368",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"target\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 600,
+        "wires": [
+            [
+                "d44fa9863bcdba16",
+                "80a6fee06bad3a98"
+            ]
+        ]
+    },
+    {
+        "id": "1c325d7f10082f8a",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Set 0% minimum",
+        "func": "msg.topic = \"absoluteMin\";\nmsg.payload = 0;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 980,
+        "wires": [
+            [
+                "16f818035533a75f"
+            ]
+        ]
+    },
+    {
+        "id": "1c4a1b844e807b1c",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Set 100% maximum",
+        "func": "msg.topic = \"absoluteMax\";\nmsg.payload = 100;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 1020,
+        "wires": [
+            [
+                "16f818035533a75f"
+            ]
+        ]
+    },
+    {
+        "id": "f4a3582e9b3726be",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"target\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 1000,
+        "wires": [
+            [
+                "eac6b1e0a11d0689",
+                "c18a646be40c5a38",
+                "3a2b821aedbab5c3"
+            ]
+        ]
+    },
+    {
+        "id": "c18a646be40c5a38",
+        "type": "lighting controller",
+        "z": "c0a854f2e62226f7",
+        "name": "Auxiliary Lighting Controller",
+        "gain": "1",
+        "bottomCutOff": "47.5",
+        "mode": "digital",
+        "scheduleTime1": "",
+        "scheduleTime2": "",
+        "x": 1160,
+        "y": 1020,
+        "wires": [
+            [
+                "a5ee427c8f782dfc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3a2b821aedbab5c3",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "const multiplier = 200;\nmsg.payload = (msg.payload-50)>=0?(msg.payload-50)*multiplier:0\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 920,
+        "wires": [
+            [
+                "c1382f268f08be54"
+            ]
+        ]
     }
 ]
