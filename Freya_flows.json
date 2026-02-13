@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.9",
+        "label": "Freya-v0.2.10",
         "disabled": false,
         "info": "",
         "env": []
@@ -356,7 +356,7 @@
         "axialTilt": 23.44,
         "orbitalPeriod": 365.25,
         "rotationalPeriod": 24,
-        "timeScale": "20"
+        "timeScale": "1"
     },
     {
         "id": "f012f8b348309bb5",
@@ -1957,16 +1957,16 @@
         "z": "c0a854f2e62226f7",
         "group": "2ca1bfb3a45d421a",
         "name": "Identify",
-        "label": "Identify Vivarium",
+        "label": "Identify",
         "order": 1,
-        "width": 3,
-        "height": 0,
+        "width": "1",
+        "height": "1",
         "emulateClick": false,
         "tooltip": "",
         "color": "",
         "bgcolor": "",
         "className": "",
-        "icon": "",
+        "icon": "mdi-access-point",
         "iconPosition": "left",
         "payload": "{\"identify\":true}",
         "payloadType": "json",
@@ -2085,58 +2085,6 @@
         "x": 1350,
         "y": 440,
         "wires": []
-    },
-    {
-        "id": "b953255c7a8b8342",
-        "type": "ui-control",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "ui": "686c46360e79bd75",
-        "events": "all",
-        "x": 1380,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e79bbef708ea3dd7",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "name": "Editor",
-        "label": "Editor",
-        "order": 2,
-        "width": 1,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "pencil",
-        "iconPosition": "left",
-        "payload": "{\"url\":\"/editor\",\"target\":\"_blank\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 1250,
-        "y": 40,
-        "wires": [
-            [
-                "b953255c7a8b8342"
-            ]
-        ]
     },
     {
         "id": "205b6bce-522f-46f9-9654-61feec61417c",
@@ -2949,6 +2897,97 @@
         "wires": [
             [
                 "c1382f268f08be54"
+            ]
+        ]
+    },
+    {
+        "id": "b953255c7a8b8342",
+        "type": "ui-control",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "ui": "686c46360e79bd75",
+        "events": "all",
+        "x": 1400,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e79bbef708ea3dd7",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "Editor",
+        "label": "Editor",
+        "order": 2,
+        "width": 1,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "pencil",
+        "iconPosition": "left",
+        "payload": "{\"url\":\"/editor\",\"target\":\"_blank\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 1250,
+        "y": 20,
+        "wires": [
+            [
+                "b953255c7a8b8342"
+            ]
+        ]
+    },
+    {
+        "id": "692d3b4d1c830151",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "GitHub",
+        "label": "GitHub",
+        "order": 2,
+        "width": 1,
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-github",
+        "iconPosition": "left",
+        "payload": "{\"url\":\"https://github.com/Freya-Vivariums\",\"target\":\"_blank\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 1240,
+        "y": 60,
+        "wires": [
+            [
+                "b953255c7a8b8342"
             ]
         ]
     }
