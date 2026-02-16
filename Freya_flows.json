@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.10",
+        "label": "Freya-v0.2.11",
         "disabled": false,
         "info": "",
         "env": []
@@ -256,17 +256,6 @@
         "order": 1,
         "width": 3,
         "height": 3,
-        "className": ""
-    },
-    {
-        "id": "a0ae4eaea4fee556",
-        "type": "ui-spacer",
-        "group": "f5e57c98baa75735",
-        "name": "spacer",
-        "tooltip": "",
-        "order": 3,
-        "width": 3,
-        "height": 1,
         "className": ""
     },
     {
@@ -543,7 +532,7 @@
         "z": "c0a854f2e62226f7",
         "name": "Main Lighting Controller",
         "gain": "1",
-        "bottomCutOff": "50",
+        "bottomCutOff": "43",
         "mode": "digital",
         "scheduleTime1": "",
         "scheduleTime2": "",
@@ -563,14 +552,14 @@
         "type": "precipitation controller",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 1020,
-        "y": 640,
+        "interval": "2",
+        "duration": "1",
+        "tickInterval": "20",
+        "x": 1140,
+        "y": 680,
         "wires": [
             [
                 "38417f951ba2e8cf"
-            ],
-            [
-                "edff2574530c85bb"
             ]
         ]
     },
@@ -637,28 +626,6 @@
             ],
             [
                 "2f6bd800c9979c6c"
-            ]
-        ]
-    },
-    {
-        "id": "e667d1e955769107",
-        "type": "circadian core",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "locationConfig": "5af9fc4d33e3d5ba",
-        "phaseShift": "",
-        "diurnalSwing": 1,
-        "seasonalSwing": 1,
-        "tickInterval": "",
-        "decimals": "",
-        "x": 740,
-        "y": 680,
-        "wires": [
-            [
-                "5c23dfdcc1dc077c"
-            ],
-            [
-                "edff2574530c85bb"
             ]
         ]
     },
@@ -762,7 +729,7 @@
         "type": "system actuators",
         "z": "c0a854f2e62226f7",
         "name": "Rain Pump",
-        "actuator": "rain",
+        "actuator": "pump",
         "channel": "3",
         "mode": "digital",
         "x": 1370,
@@ -997,7 +964,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 920,
-        "y": 740,
+        "y": 780,
         "wires": [
             [
                 "38417f951ba2e8cf"
@@ -1241,7 +1208,7 @@
         "group": "f5e57c98baa75735",
         "name": "Test",
         "label": "Test",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "emulateClick": false,
@@ -1266,7 +1233,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 770,
-        "y": 740,
+        "y": 780,
         "wires": [
             [
                 "1a2e480989bed771"
@@ -1429,15 +1396,17 @@
         "name": "Min Hum",
         "label": "Minimum Humidity",
         "order": 1,
-        "width": 0,
-        "height": 0,
+        "width": "1",
+        "height": "1",
         "topic": "minimumHumidity",
         "topicType": "str",
         "min": "0",
         "max": "100",
         "step": "0.5",
         "tooltip": "The absolute minimum Humidity",
+        "delay": "0",
         "passthru": true,
+        "sendOnDelay": true,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -1462,15 +1431,17 @@
         "name": "Max Hum",
         "label": "Maximum Humidity",
         "order": 2,
-        "width": 0,
-        "height": 0,
+        "width": "1",
+        "height": "1",
         "topic": "maximumHumidity",
         "topicType": "str",
         "min": "0",
         "max": "100",
         "step": "0.5",
         "tooltip": "The absolute maximum humidity",
+        "delay": "0",
         "passthru": true,
+        "sendOnDelay": true,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -2459,7 +2430,9 @@
                 "7282fd7974418b81",
                 "ef2db5cf91e3c7f6",
                 "1c325d7f10082f8a",
-                "1c4a1b844e807b1c"
+                "1c4a1b844e807b1c",
+                "afcbff4fda809649",
+                "e50bd51a08c2b2ac"
             ]
         ]
     },
@@ -2867,7 +2840,7 @@
         "z": "c0a854f2e62226f7",
         "name": "Auxiliary Lighting Controller",
         "gain": "1",
-        "bottomCutOff": "47.5",
+        "bottomCutOff": "38",
         "mode": "digital",
         "scheduleTime1": "",
         "scheduleTime2": "",
@@ -2959,7 +2932,7 @@
         "group": "2ca1bfb3a45d421a",
         "name": "GitHub",
         "label": "GitHub",
-        "order": 2,
+        "order": 3,
         "width": 1,
         "height": "1",
         "emulateClick": false,
@@ -2988,6 +2961,196 @@
         "wires": [
             [
                 "b953255c7a8b8342"
+            ]
+        ]
+    },
+    {
+        "id": "6cb5fa026c5c46a9",
+        "type": "ui-number-input",
+        "z": "c0a854f2e62226f7",
+        "group": "f5e57c98baa75735",
+        "name": "Interval",
+        "label": "Precipitation Interval",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "topic": "precipitationInterval",
+        "topicType": "str",
+        "min": "1",
+        "max": "400",
+        "step": "10",
+        "tooltip": "The interval, in minutes, between precipitation events",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 260,
+        "y": 720,
+        "wires": [
+            [
+                "6c0a892317ba0e35"
+            ]
+        ]
+    },
+    {
+        "id": "7a78e7c9bde33bf6",
+        "type": "ui-number-input",
+        "z": "c0a854f2e62226f7",
+        "group": "f5e57c98baa75735",
+        "name": "Duration",
+        "label": "Precipitation Duration",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "topic": "precipitationDuration",
+        "topicType": "str",
+        "min": "0",
+        "max": "100",
+        "step": "0.5",
+        "tooltip": "The duration of a precipitation event, in seconds",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 260,
+        "y": 760,
+        "wires": [
+            [
+                "ec09f0bf4a95e8ad"
+            ]
+        ]
+    },
+    {
+        "id": "afcbff4fda809649",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.precipitationInterval\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 720,
+        "wires": [
+            [
+                "6cb5fa026c5c46a9"
+            ]
+        ]
+    },
+    {
+        "id": "e50bd51a08c2b2ac",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.precipitationDuration\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 760,
+        "wires": [
+            [
+                "7a78e7c9bde33bf6"
+            ]
+        ]
+    },
+    {
+        "id": "6c0a892317ba0e35",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 720,
+        "wires": [
+            [
+                "18c2b6fed2711d71"
+            ]
+        ]
+    },
+    {
+        "id": "ec09f0bf4a95e8ad",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 760,
+        "wires": [
+            [
+                "6d639e3afbed4c0a"
+            ]
+        ]
+    },
+    {
+        "id": "18c2b6fed2711d71",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"interval\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 720,
+        "wires": [
+            [
+                "5c23dfdcc1dc077c"
+            ]
+        ]
+    },
+    {
+        "id": "6d639e3afbed4c0a",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"duration\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 760,
+        "wires": [
+            [
+                "5c23dfdcc1dc077c"
             ]
         ]
     }
