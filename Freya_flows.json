@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.11",
+        "label": "Freya-v0.2.13",
         "disabled": false,
         "info": "",
         "env": []
@@ -522,7 +522,8 @@
                 "c33f1595ae47213c"
             ],
             [
-                "00cfd341d4986698"
+                "00cfd341d4986698",
+                "a04884562093142c"
             ]
         ]
     },
@@ -543,7 +544,7 @@
                 "a030ee2f8804a863"
             ],
             [
-                "2f6bd800c9979c6c"
+                "c3a6edc58d29db0d"
             ]
         ]
     },
@@ -560,6 +561,9 @@
         "wires": [
             [
                 "38417f951ba2e8cf"
+            ],
+            [
+                "584d7513dd9a750a"
             ]
         ]
     },
@@ -789,9 +793,7 @@
                 "19459d7ed75c5df5",
                 "d85c98c981f083c8"
             ],
-            [
-                "2f6bd800c9979c6c"
-            ]
+            []
         ]
     },
     {
@@ -799,8 +801,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Humidity Status",
-        "x": 1620,
-        "y": 680,
+        "x": 1760,
+        "y": 640,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -813,8 +815,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Lighting Status",
-        "x": 1600,
-        "y": 1120,
+        "x": 1660,
+        "y": 1020,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -827,8 +829,8 @@
         "type": "status aggregator",
         "z": "c0a854f2e62226f7",
         "name": "Precipitation Status",
-        "x": 1630,
-        "y": 740,
+        "x": 1710,
+        "y": 700,
         "wires": [
             [
                 "3a5104b6f4842907"
@@ -884,8 +886,7 @@
         "wires": [
             [
                 "80a6fee06bad3a98",
-                "adfbd547841167e4",
-                "e7274d3a41f1f1fb"
+                "adfbd547841167e4"
             ]
         ]
     },
@@ -951,8 +952,8 @@
         "type": "trigger",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "op1": "{\"rain\":\"on\"}",
-        "op2": "{\"rain\":\"off\"}",
+        "op1": "{\"pump\":\"on\"}",
+        "op2": "{\"pump\":\"off\"}",
         "op1type": "json",
         "op2type": "json",
         "duration": "5",
@@ -987,8 +988,7 @@
         "y": 100,
         "wires": [
             [
-                "0c6df0b11131a8c9",
-                "f133454d9ec41ce7"
+                "0c6df0b11131a8c9"
             ]
         ]
     },
@@ -1157,8 +1157,7 @@
         "y": 1100,
         "wires": [
             [
-                "a030ee2f8804a863",
-                "849cd6ed49a1fdb6"
+                "a030ee2f8804a863"
             ]
         ]
     },
@@ -1962,15 +1961,15 @@
         ]
     },
     {
-        "id": "f133454d9ec41ce7",
+        "id": "849cd6ed49a1fdb6",
         "type": "ui-text",
         "z": "c0a854f2e62226f7",
-        "group": "58721ee298d6b49c",
+        "group": "a9908ab557174656",
         "order": 3,
         "width": 2,
         "height": "1",
         "name": "",
-        "label": "",
+        "label": "Status: ",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": false,
@@ -1981,32 +1980,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 850,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "849cd6ed49a1fdb6",
-        "type": "ui-text",
-        "z": "c0a854f2e62226f7",
-        "group": "a9908ab557174656",
-        "order": 3,
-        "width": 2,
-        "height": "1",
-        "name": "",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload.lighting",
-        "valueType": "msg",
-        "x": 1350,
-        "y": 820,
+        "x": 1520,
+        "y": 1100,
         "wires": []
     },
     {
@@ -2042,7 +2017,7 @@
         "width": 2,
         "height": "1",
         "name": "",
-        "label": "",
+        "label": "Status: ",
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "style": false,
@@ -2053,8 +2028,8 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 1350,
-        "y": 440,
+        "x": 1520,
+        "y": 700,
         "wires": []
     },
     {
@@ -3151,6 +3126,90 @@
         "wires": [
             [
                 "5c23dfdcc1dc077c"
+            ]
+        ]
+    },
+    {
+        "id": "584d7513dd9a750a",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.payload = msg.payload.state;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 700,
+        "wires": [
+            [
+                "e7274d3a41f1f1fb"
+            ]
+        ]
+    },
+    {
+        "id": "a04884562093142c",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.payload = msg.payload.state;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 340,
+        "wires": [
+            [
+                "1ae273e6283c9109"
+            ]
+        ]
+    },
+    {
+        "id": "1ae273e6283c9109",
+        "type": "ui-text",
+        "z": "c0a854f2e62226f7",
+        "group": "58721ee298d6b49c",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "Status: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1520,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c3a6edc58d29db0d",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.payload = msg.payload.state;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 1100,
+        "wires": [
+            [
+                "849cd6ed49a1fdb6"
             ]
         ]
     }
