@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.13",
+        "label": "Freya-v0.2.14",
         "disabled": false,
         "info": "",
         "env": []
@@ -348,6 +348,17 @@
         "timeScale": "1"
     },
     {
+        "id": "4b7223d8d77ff0cb",
+        "type": "ui-spacer",
+        "group": "f5e57c98baa75735",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 3,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
         "id": "f012f8b348309bb5",
         "type": "inject",
         "z": "c0a854f2e62226f7",
@@ -541,7 +552,8 @@
         "y": 960,
         "wires": [
             [
-                "a030ee2f8804a863"
+                "a030ee2f8804a863",
+                "c5318758f471ddba"
             ],
             [
                 "c3a6edc58d29db0d"
@@ -556,8 +568,8 @@
         "interval": "2",
         "duration": "1",
         "tickInterval": "20",
-        "x": 1140,
-        "y": 680,
+        "x": 920,
+        "y": 780,
         "wires": [
             [
                 "38417f951ba2e8cf"
@@ -786,7 +798,7 @@
         "z": "c0a854f2e62226f7",
         "name": "Light Sensor",
         "variable": "light",
-        "x": 790,
+        "x": 750,
         "y": 920,
         "wires": [
             [
@@ -901,7 +913,7 @@
         "syntax": "mustache",
         "template": "{{payload.light}}",
         "output": "str",
-        "x": 1060,
+        "x": 1080,
         "y": 880,
         "wires": [
             [
@@ -964,8 +976,8 @@
         "bytopic": "all",
         "topic": "topic",
         "outputs": 1,
-        "x": 920,
-        "y": 780,
+        "x": 420,
+        "y": 700,
         "wires": [
             [
                 "38417f951ba2e8cf"
@@ -1207,7 +1219,7 @@
         "group": "f5e57c98baa75735",
         "name": "Test",
         "label": "Test",
-        "order": 5,
+        "order": 7,
         "width": 0,
         "height": 0,
         "emulateClick": false,
@@ -1231,8 +1243,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 770,
-        "y": 780,
+        "x": 270,
+        "y": 700,
         "wires": [
             [
                 "1a2e480989bed771"
@@ -2663,8 +2675,7 @@
         "y": 220,
         "wires": [
             [
-                "144a01e7f0dd298d",
-                "2f361371c49546f8"
+                "144a01e7f0dd298d"
             ]
         ]
     },
@@ -2685,26 +2696,9 @@
         "wires": [
             [
                 "144a01e7f0dd298d",
-                "2f361371c49546f8",
                 "673deaaa902483da"
             ]
         ]
-    },
-    {
-        "id": "2f361371c49546f8",
-        "type": "debug",
-        "z": "c0a854f2e62226f7",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1580,
-        "y": 160,
-        "wires": []
     },
     {
         "id": "5bd21e17c7477ba7",
@@ -2799,8 +2793,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 940,
-        "y": 1000,
+        "x": 920,
+        "y": 980,
         "wires": [
             [
                 "eac6b1e0a11d0689",
@@ -2840,7 +2834,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1060,
+        "x": 1100,
         "y": 920,
         "wires": [
             [
@@ -2946,9 +2940,9 @@
         "group": "f5e57c98baa75735",
         "name": "Interval",
         "label": "Precipitation Interval",
-        "order": 3,
-        "width": 0,
-        "height": 0,
+        "order": 4,
+        "width": "1",
+        "height": "1",
         "topic": "precipitationInterval",
         "topicType": "str",
         "min": "1",
@@ -2957,7 +2951,7 @@
         "tooltip": "The interval, in minutes, between precipitation events",
         "delay": "0",
         "passthru": true,
-        "sendOnDelay": true,
+        "sendOnDelay": false,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -2967,7 +2961,7 @@
         "iconInnerPosition": "inside",
         "spinner": "default",
         "x": 260,
-        "y": 720,
+        "y": 740,
         "wires": [
             [
                 "6c0a892317ba0e35"
@@ -2981,18 +2975,18 @@
         "group": "f5e57c98baa75735",
         "name": "Duration",
         "label": "Precipitation Duration",
-        "order": 4,
-        "width": 0,
-        "height": 0,
+        "order": 5,
+        "width": "1",
+        "height": "1",
         "topic": "precipitationDuration",
         "topicType": "str",
         "min": "0",
         "max": "100",
-        "step": "0.5",
+        "step": "1",
         "tooltip": "The duration of a precipitation event, in seconds",
         "delay": "0",
         "passthru": true,
-        "sendOnDelay": true,
+        "sendOnDelay": false,
         "sendOnBlur": true,
         "sendOnEnter": true,
         "className": "",
@@ -3002,7 +2996,7 @@
         "iconInnerPosition": "inside",
         "spinner": "default",
         "x": 260,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
                 "ec09f0bf4a95e8ad"
@@ -3022,7 +3016,7 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 720,
+        "y": 740,
         "wires": [
             [
                 "6cb5fa026c5c46a9"
@@ -3042,7 +3036,7 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
                 "7a78e7c9bde33bf6"
@@ -3062,7 +3056,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 720,
+        "y": 740,
         "wires": [
             [
                 "18c2b6fed2711d71"
@@ -3082,7 +3076,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
                 "6d639e3afbed4c0a"
@@ -3102,7 +3096,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 720,
+        "y": 740,
         "wires": [
             [
                 "5c23dfdcc1dc077c"
@@ -3122,7 +3116,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
                 "5c23dfdcc1dc077c"
@@ -3210,6 +3204,120 @@
         "wires": [
             [
                 "849cd6ed49a1fdb6"
+            ]
+        ]
+    },
+    {
+        "id": "91ed6f698557540a",
+        "type": "ui-switch",
+        "z": "c0a854f2e62226f7",
+        "name": "NightDisable",
+        "label": "Nighttime Disable",
+        "group": "f5e57c98baa75735",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "precipitationNighttimeDisable",
+        "topicType": "str",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "line",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 270,
+        "y": 820,
+        "wires": [
+            [
+                "dc20db9541d7dab7"
+            ]
+        ]
+    },
+    {
+        "id": "29dd53e74382192d",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.precipitationNighttimeDisable\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 820,
+        "wires": [
+            [
+                "91ed6f698557540a"
+            ]
+        ]
+    },
+    {
+        "id": "dc20db9541d7dab7",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 820,
+        "wires": [
+            [
+                "e9c1cd1888e1f5aa"
+            ]
+        ]
+    },
+    {
+        "id": "e9c1cd1888e1f5aa",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"nightDisable\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 820,
+        "wires": [
+            [
+                "5c23dfdcc1dc077c"
+            ]
+        ]
+    },
+    {
+        "id": "c5318758f471ddba",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "isNight",
+        "func": "msg.topic = \"night\";\nif( msg.payload === 'off'){\n    msg.payload = true;\n}\nelse{\n    msg.payload = false;\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 860,
+        "wires": [
+            [
+                "5c23dfdcc1dc077c"
             ]
         ]
     }
