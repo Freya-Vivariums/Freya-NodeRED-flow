@@ -12,3 +12,6 @@ The **Node-RED flow** with the Freya Vivarium Control System functionality.
 5. Click `Deploy` to activate the flow. Check the Debug sidebar or your configured outputs to verify everything is running.
 6. Open the `Dashboard` at http://[ip address]/dashboard
 
+## Wiring
+
+![Wiring diagram](documentation/wiring.png)
