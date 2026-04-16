@@ -3,7 +3,7 @@
 
 <img src="documentation/screenshot.png" align="right" width="50%"/>
 
-The **Node-RED flow** with the default Freya Vivarium Control System functionality. This can be used as a starting point for your own custom flows.
+The **Node-RED flow** with the default Freya Vivarium Control System functionality. This flow can be the starting point for your own control logic implementation.
 
 <br clear="right"/>
 
