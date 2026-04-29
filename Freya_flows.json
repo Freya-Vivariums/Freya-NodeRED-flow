@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.14",
+        "label": "Freya-v0.2.15",
         "disabled": false,
         "info": "",
         "env": []
@@ -341,7 +341,7 @@
         "name": "Leuven",
         "latitude": 50.98,
         "longitude": 4.32,
-        "timezone": "UTC+1",
+        "timezone": "UTC+0",
         "axialTilt": 23.44,
         "orbitalPeriod": 365.25,
         "rotationalPeriod": 24,
@@ -2050,11 +2050,12 @@
         "z": "c0a854f2e62226f7",
         "name": "UVB Sensor",
         "variable": "uvb",
+        "sampleinterval": "",
         "x": 450,
-        "y": 1380,
+        "y": 1440,
         "wires": [
             [
-                "237e81793bd0e731"
+                "0ebfdcaa4c731f9c"
             ],
             []
         ]
@@ -2077,7 +2078,7 @@
         "units": "",
         "icon": "",
         "prefix": "",
-        "suffix": "μW/m2",
+        "suffix": "W/m2",
         "segments": [
             {
                 "from": "0",
@@ -2120,26 +2121,6 @@
         "y": 1440,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "237e81793bd0e731",
-        "type": "template",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.uvb}}",
-        "output": "str",
-        "x": 620,
-        "y": 1400,
-        "wires": [
-            [
-                "159b6245-40d7-4ec7-b176-125a42997e9b",
-                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
-            ]
         ]
     },
     {
@@ -2209,9 +2190,9 @@
         "removeOlderUnit": "3600",
         "removeOlderPoints": "",
         "colors": [
-            "#a2ca6f",
-            "#aec7e8",
-            "#ff7f0e",
+            "#c800c8",
+            "#960096",
+            "#640064",
             "#2ca02c",
             "#98df8a",
             "#d62728",
@@ -2264,7 +2245,7 @@
         "officon": "",
         "offcolor": "",
         "x": 280,
-        "y": 1440,
+        "y": 1560,
         "wires": [
             [
                 "fcbac3a4d9a38f65"
@@ -2298,7 +2279,7 @@
         "officon": "",
         "offcolor": "",
         "x": 270,
-        "y": 1500,
+        "y": 1620,
         "wires": [
             [
                 "1a4e44df67a847c0"
@@ -2516,7 +2497,7 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 1440,
+        "y": 1560,
         "wires": [
             [
                 "fbb67b3f83f961e6"
@@ -2536,7 +2517,7 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 1500,
+        "y": 1620,
         "wires": [
             [
                 "076c8671d746485a"
@@ -2556,7 +2537,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 1440,
+        "y": 1560,
         "wires": [
             []
         ]
@@ -2574,7 +2555,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 1500,
+        "y": 1620,
         "wires": [
             []
         ]
@@ -3318,6 +3299,99 @@
         "wires": [
             [
                 "5c23dfdcc1dc077c"
+            ]
+        ]
+    },
+    {
+        "id": "da5c2e729f533aa3",
+        "type": "environment sensor",
+        "z": "c0a854f2e62226f7",
+        "name": "UVA Sensor",
+        "variable": "uva",
+        "sampleinterval": "",
+        "x": 450,
+        "y": 1380,
+        "wires": [
+            [
+                "2801fe322eba12c7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a516b9a21f089d68",
+        "type": "environment sensor",
+        "z": "c0a854f2e62226f7",
+        "name": "UVC Sensor",
+        "variable": "uvc",
+        "sampleinterval": "",
+        "x": 450,
+        "y": 1500,
+        "wires": [
+            [
+                "a92c8452b5e58725"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2801fe322eba12c7",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"uva\";\nmsg.payload = msg.payload.uva\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1380,
+        "wires": [
+            [
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+            ]
+        ]
+    },
+    {
+        "id": "0ebfdcaa4c731f9c",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"uvb\";\nmsg.payload = msg.payload.uvb\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1440,
+        "wires": [
+            [
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2",
+                "159b6245-40d7-4ec7-b176-125a42997e9b"
+            ]
+        ]
+    },
+    {
+        "id": "a92c8452b5e58725",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Format",
+        "func": "msg.topic = \"uvc\";\nmsg.payload = msg.payload.uvc\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1500,
+        "wires": [
+            [
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
             ]
         ]
     }
