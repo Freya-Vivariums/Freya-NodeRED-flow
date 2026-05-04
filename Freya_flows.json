@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.15",
+        "label": "Freya-v0.2.16",
         "disabled": false,
         "info": "",
         "env": []
@@ -2830,8 +2830,8 @@
         "name": "",
         "ui": "686c46360e79bd75",
         "events": "all",
-        "x": 1400,
-        "y": 40,
+        "x": 440,
+        "y": 1800,
         "wires": [
             []
         ]
@@ -2867,8 +2867,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1250,
-        "y": 20,
+        "x": 270,
+        "y": 1780,
         "wires": [
             [
                 "b953255c7a8b8342"
@@ -2906,8 +2906,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1240,
-        "y": 60,
+        "x": 280,
+        "y": 1820,
         "wires": [
             [
                 "b953255c7a8b8342"
@@ -3392,6 +3392,152 @@
         "wires": [
             [
                 "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+            ]
+        ]
+    },
+    {
+        "id": "60951ad0a144e0bd",
+        "type": "ui-template",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "page": "",
+        "ui": "",
+        "name": "Power Menu",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <v-dialog v-model=\"showDialog\" max-width=\"320\">\n    <v-card>\n      <v-card-title class=\"text-h6\">System Power</v-card-title>\n      <v-card-text>Active control will be interrupted.</v-card-text>\n      <v-card-actions>\n        <v-btn @click=\"doAction('reboot')\" color=\"warning\" variant=\"tonal\" prepend-icon=\"mdi-restart\">\n          Reboot\n        </v-btn>\n        <v-btn @click=\"doAction('shutdown')\" color=\"error\" variant=\"tonal\" prepend-icon=\"mdi-power\">\n          Shutdown\n        </v-btn>\n        <v-spacer />\n        <v-btn @click=\"showDialog = false\" variant=\"text\">Cancel</v-btn>\n      </v-card-actions>\n    </v-card>\n  </v-dialog>\n</template>\n\n<script>\n  export default {\n    data() {\n      return { showDialog: false }\n    },\n    mounted() {\n      // collapse the widget wrapper so it takes no grid space\n      const wrapper = this.$el.parentElement\n      if (wrapper) {\n        wrapper.style.display = 'contents'\n      }\n    },\n    watch: {\n      msg() {\n        this.showDialog = true\n      }\n    },\n    methods: {\n      doAction(action) {\n        this.showDialog = false\n        this.send({ payload: action })\n      }\n    }\n  }\n</script>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 450,
+        "y": 1720,
+        "wires": [
+            [
+                "07916f0eb5ec6586",
+                "5f9ace766f71365f"
+            ]
+        ]
+    },
+    {
+        "id": "0f148524871c217a",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "Power",
+        "label": "Power",
+        "order": 2,
+        "width": 1,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-power",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 270,
+        "y": 1720,
+        "wires": [
+            [
+                "60951ad0a144e0bd"
+            ]
+        ]
+    },
+    {
+        "id": "82a1ec9ad78a9cac",
+        "type": "exec",
+        "z": "c0a854f2e62226f7",
+        "command": "shutdown -r now",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Shutdown",
+        "x": 740,
+        "y": 1680,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "79c623a0c7a6e1b0",
+        "type": "exec",
+        "z": "c0a854f2e62226f7",
+        "command": "reboot",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Reboot",
+        "x": 740,
+        "y": 1760,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "07916f0eb5ec6586",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Filter",
+        "func": "if (msg.payload === 'shutdown') return msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1700,
+        "wires": [
+            [
+                "82a1ec9ad78a9cac"
+            ]
+        ]
+    },
+    {
+        "id": "5f9ace766f71365f",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Filter",
+        "func": "if (msg.payload === 'reboot') return msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1740,
+        "wires": [
+            [
+                "79c623a0c7a6e1b0"
             ]
         ]
     }
