@@ -681,7 +681,7 @@
     },
     {
         "id": "0c6df0b11131a8c9",
-        "type": "freya-hardware-cartridge",
+        "type": "digital-output",
         "z": "c0a854f2e62226f7",
         "name": "Fans",
         "actuator": "cooler",
@@ -697,7 +697,7 @@
     },
     {
         "id": "8a52bc9eba3c0ada",
-        "type": "freya-hardware-cartridge",
+        "type": "digital-output",
         "z": "c0a854f2e62226f7",
         "name": "Humidifier",
         "x": 1360,
@@ -710,7 +710,7 @@
     },
     {
         "id": "a030ee2f8804a863",
-        "type": "freya-hardware-cartridge",
+        "type": "digital-output",
         "z": "c0a854f2e62226f7",
         "name": "Main Lights",
         "actuator": "lighting",
@@ -726,7 +726,7 @@
     },
     {
         "id": "a5ee427c8f782dfc",
-        "type": "freya-hardware-cartridge",
+        "type": "digital-output",
         "z": "c0a854f2e62226f7",
         "name": "Auxilary Lights",
         "actuator": "lighting",
@@ -742,7 +742,7 @@
     },
     {
         "id": "38417f951ba2e8cf",
-        "type": "freya-hardware-cartridge",
+        "type": "digital-output",
         "z": "c0a854f2e62226f7",
         "name": "Rain Pump",
         "actuator": "pump",
@@ -758,7 +758,7 @@
     },
     {
         "id": "c33f1595ae47213c",
-        "type": "freya-hardware-cartridge",
+        "type": "digital-output",
         "z": "c0a854f2e62226f7",
         "name": "Heater",
         "actuator": "heater",
