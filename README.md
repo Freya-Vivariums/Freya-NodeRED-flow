@@ -1,12 +1,14 @@
 ![Freya banner](https://github.com/Freya-Vivariums/.github/blob/main/brand/Freya_banner.png?raw=true)
 
-[![Node-RED Collection](https://img.shields.io/badge/Node--RED-Freya%20Collection-red?logo=nodered)](https://flows.nodered.org/collection/zelZWgFz2b6c)
+
 
 <img src="documentation/screenshot.png" align="right" width="50%"/>
 
 The **Node-RED flow** with the default Freya Vivarium Control System functionality. This flow can be the starting point for your own control logic implementation.
 
 <br clear="right"/>
+
+[![Node-RED nodes](https://img.shields.io/badge/Node--RED-Freya%20Collection-red?logo=nodered)](https://flows.nodered.org/collection/zelZWgFz2b6c)
 
 ## Installation
 1. Open [Freya_flows.json](Freya_flows.json) file here on GitHub, and click the `Copy raw file` button.
