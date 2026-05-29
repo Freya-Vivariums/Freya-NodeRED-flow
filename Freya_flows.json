@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.2.16",
+        "label": "Freya-v0.3.0",
         "disabled": false,
         "info": "",
         "env": []
@@ -661,7 +661,7 @@
     },
     {
         "id": "62a46a47a709ceec",
-        "type": "environment sensor",
+        "type": "freya-terra-sensor",
         "z": "c0a854f2e62226f7",
         "name": "Temperature Sensor",
         "variable": "temperature",
@@ -681,7 +681,7 @@
     },
     {
         "id": "0c6df0b11131a8c9",
-        "type": "system actuators",
+        "type": "freya-hardware-cartridge",
         "z": "c0a854f2e62226f7",
         "name": "Fans",
         "actuator": "cooler",
@@ -697,7 +697,7 @@
     },
     {
         "id": "8a52bc9eba3c0ada",
-        "type": "system actuators",
+        "type": "freya-hardware-cartridge",
         "z": "c0a854f2e62226f7",
         "name": "Humidifier",
         "x": 1360,
@@ -710,7 +710,7 @@
     },
     {
         "id": "a030ee2f8804a863",
-        "type": "system actuators",
+        "type": "freya-hardware-cartridge",
         "z": "c0a854f2e62226f7",
         "name": "Main Lights",
         "actuator": "lighting",
@@ -726,7 +726,7 @@
     },
     {
         "id": "a5ee427c8f782dfc",
-        "type": "system actuators",
+        "type": "freya-hardware-cartridge",
         "z": "c0a854f2e62226f7",
         "name": "Auxilary Lights",
         "actuator": "lighting",
@@ -742,7 +742,7 @@
     },
     {
         "id": "38417f951ba2e8cf",
-        "type": "system actuators",
+        "type": "freya-hardware-cartridge",
         "z": "c0a854f2e62226f7",
         "name": "Rain Pump",
         "actuator": "pump",
@@ -758,7 +758,7 @@
     },
     {
         "id": "c33f1595ae47213c",
-        "type": "system actuators",
+        "type": "freya-hardware-cartridge",
         "z": "c0a854f2e62226f7",
         "name": "Heater",
         "actuator": "heater",
@@ -774,7 +774,7 @@
     },
     {
         "id": "aa2c64349df313c4",
-        "type": "environment sensor",
+        "type": "freya-terra-sensor",
         "z": "c0a854f2e62226f7",
         "name": "Humidity Sensor",
         "variable": "humidity",
@@ -794,7 +794,7 @@
     },
     {
         "id": "f5bca2f1b7480420",
-        "type": "environment sensor",
+        "type": "freya-terra-sensor",
         "z": "c0a854f2e62226f7",
         "name": "Light Sensor",
         "variable": "light",
@@ -924,7 +924,7 @@
     },
     {
         "id": "68778245ec10f3ab",
-        "type": "environment sensor",
+        "type": "freya-terra-sensor",
         "z": "c0a854f2e62226f7",
         "name": "Pressure",
         "variable": "pressure",
@@ -2046,7 +2046,7 @@
     },
     {
         "id": "205b6bce-522f-46f9-9654-61feec61417c",
-        "type": "environment sensor",
+        "type": "freya-terra-sensor",
         "z": "c0a854f2e62226f7",
         "name": "UVB Sensor",
         "variable": "uvb",
@@ -2125,7 +2125,7 @@
     },
     {
         "id": "4842d55fc547be75",
-        "type": "environment sensor",
+        "type": "freya-terra-sensor",
         "z": "c0a854f2e62226f7",
         "name": "All sensor values",
         "variable": "all",
@@ -3304,7 +3304,7 @@
     },
     {
         "id": "da5c2e729f533aa3",
-        "type": "environment sensor",
+        "type": "freya-terra-sensor",
         "z": "c0a854f2e62226f7",
         "name": "UVA Sensor",
         "variable": "uva",
@@ -3320,7 +3320,7 @@
     },
     {
         "id": "a516b9a21f089d68",
-        "type": "environment sensor",
+        "type": "freya-terra-sensor",
         "z": "c0a854f2e62226f7",
         "name": "UVC Sensor",
         "variable": "uvc",

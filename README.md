@@ -1,5 +1,6 @@
 ![Freya banner](https://github.com/Freya-Vivariums/.github/blob/main/brand/Freya_banner.png?raw=true)
 
+[![Node-RED Collection](https://img.shields.io/badge/Node--RED-Freya%20Collection-red?logo=nodered)](https://flows.nodered.org/collection/zelZWgFz2b6c)
 
 <img src="documentation/screenshot.png" align="right" width="50%"/>
 
