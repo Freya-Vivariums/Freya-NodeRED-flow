@@ -2,7 +2,31 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-v0.3.0",
+        "label": "Freya-System-v0.3.1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e0de5f1a89be7055",
+        "type": "tab",
+        "label": "Freya-Temperature-v0.3.1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8e2b0ca1e84570fa",
+        "type": "tab",
+        "label": "Freya-Humidity-v0.3.1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "88c6b96e78cf833d",
+        "type": "tab",
+        "label": "Freya-Light-v0.3.1",
         "disabled": false,
         "info": "",
         "env": []
@@ -379,8 +403,8 @@
         "topic": "",
         "payload": "{\"info\":{\"name\":\"Freya\",\"version\":\"v0.0.1\",\"description\":\"Freya wired up in Node-RED\"}}",
         "payloadType": "json",
-        "x": 1920,
-        "y": 160,
+        "x": 320,
+        "y": 480,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -408,8 +432,8 @@
         "topic": "",
         "payload": "{\"status\":{\"level\":\"ok\"}}",
         "payloadType": "json",
-        "x": 1910,
-        "y": 200,
+        "x": 310,
+        "y": 520,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -437,8 +461,8 @@
         "topic": "",
         "payload": "{\"status\":{\"level\":\"warning\"}}",
         "payloadType": "json",
-        "x": 1920,
-        "y": 240,
+        "x": 320,
+        "y": 560,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -466,8 +490,8 @@
         "topic": "identify",
         "payload": "{\"blub\":\"zeemeermin\"}",
         "payloadType": "json",
-        "x": 1930,
-        "y": 120,
+        "x": 330,
+        "y": 440,
         "wires": [
             [
                 "b657230ce10b8863"
@@ -486,580 +510,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1890,
-        "y": 280,
+        "x": 290,
+        "y": 600,
         "wires": [
             [
                 "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "d44fa9863bcdba16",
-        "type": "humidity controller",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "deadband": "20",
-        "minimumHumidity": "40",
-        "maximumHumidity": "99",
-        "watchdogTimeout": "180",
-        "watchdogSeverity": "warning",
-        "x": 1130,
-        "y": 580,
-        "wires": [
-            [
-                "8a52bc9eba3c0ada"
-            ],
-            [
-                "65ec410c37b483e8"
-            ]
-        ]
-    },
-    {
-        "id": "144a01e7f0dd298d",
-        "type": "temperature controller",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "deadband": "0.5",
-        "minimumTemperature": "-10",
-        "maximumTemperature": "50",
-        "watchdogTimeout": "180",
-        "watchdogSeverity": "warning",
-        "x": 1140,
-        "y": 240,
-        "wires": [
-            [
-                "0c6df0b11131a8c9",
-                "c33f1595ae47213c"
-            ],
-            [
-                "00cfd341d4986698",
-                "a04884562093142c"
-            ]
-        ]
-    },
-    {
-        "id": "eac6b1e0a11d0689",
-        "type": "lighting controller",
-        "z": "c0a854f2e62226f7",
-        "name": "Main Lighting Controller",
-        "gain": "1",
-        "bottomCutOff": "43",
-        "mode": "digital",
-        "scheduleTime1": "",
-        "scheduleTime2": "",
-        "x": 1150,
-        "y": 960,
-        "wires": [
-            [
-                "a030ee2f8804a863",
-                "c5318758f471ddba"
-            ],
-            [
-                "c3a6edc58d29db0d"
-            ]
-        ]
-    },
-    {
-        "id": "5c23dfdcc1dc077c",
-        "type": "precipitation controller",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "interval": "2",
-        "duration": "1",
-        "tickInterval": "20",
-        "x": 920,
-        "y": 780,
-        "wires": [
-            [
-                "38417f951ba2e8cf"
-            ],
-            [
-                "584d7513dd9a750a"
-            ]
-        ]
-    },
-    {
-        "id": "1589282f12a5c631",
-        "type": "circadian core",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "locationConfig": "5af9fc4d33e3d5ba",
-        "phaseShift": "-30",
-        "diurnalSwing": 1,
-        "seasonalSwing": 1,
-        "tickInterval": "20",
-        "decimals": "1",
-        "x": 760,
-        "y": 260,
-        "wires": [
-            [
-                "7af7491042c2835c"
-            ],
-            [
-                "00cfd341d4986698"
-            ]
-        ]
-    },
-    {
-        "id": "6f2821f6469e2e25",
-        "type": "circadian core",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "locationConfig": "5af9fc4d33e3d5ba",
-        "phaseShift": "180",
-        "diurnalSwing": 1,
-        "seasonalSwing": 1,
-        "tickInterval": "20",
-        "decimals": "1",
-        "x": 740,
-        "y": 620,
-        "wires": [
-            [
-                "5ea46a13affe3368"
-            ],
-            [
-                "65ec410c37b483e8"
-            ]
-        ]
-    },
-    {
-        "id": "16f818035533a75f",
-        "type": "circadian core",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "locationConfig": "5af9fc4d33e3d5ba",
-        "phaseShift": "0",
-        "diurnalSwing": 1,
-        "seasonalSwing": 1,
-        "tickInterval": "20",
-        "decimals": "1",
-        "x": 740,
-        "y": 1000,
-        "wires": [
-            [
-                "f4a3582e9b3726be"
-            ],
-            [
-                "2f6bd800c9979c6c"
-            ]
-        ]
-    },
-    {
-        "id": "00cfd341d4986698",
-        "type": "status aggregator",
-        "z": "c0a854f2e62226f7",
-        "name": "Temperature Status",
-        "x": 1410,
-        "y": 380,
-        "wires": [
-            [
-                "3a5104b6f4842907"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "62a46a47a709ceec",
-        "type": "sensor-measurement",
-        "z": "c0a854f2e62226f7",
-        "name": "Temperature Sensor",
-        "variable": "temperature",
-        "sampleinterval": "",
-        "x": 750,
-        "y": 180,
-        "wires": [
-            [
-                "8315c5acdf23410d",
-                "7fca6fbb863561ee",
-                "3236fd72cef32005"
-            ],
-            [
-                "00cfd341d4986698"
-            ]
-        ]
-    },
-    {
-        "id": "0c6df0b11131a8c9",
-        "type": "digital-output",
-        "z": "c0a854f2e62226f7",
-        "name": "Fans",
-        "actuator": "cooler",
-        "channel": "5",
-        "mode": "digital",
-        "x": 1350,
-        "y": 280,
-        "wires": [
-            [
-                "00cfd341d4986698"
-            ]
-        ]
-    },
-    {
-        "id": "8a52bc9eba3c0ada",
-        "type": "digital-output",
-        "z": "c0a854f2e62226f7",
-        "name": "Humidifier",
-        "x": 1360,
-        "y": 580,
-        "wires": [
-            [
-                "65ec410c37b483e8"
-            ]
-        ]
-    },
-    {
-        "id": "a030ee2f8804a863",
-        "type": "digital-output",
-        "z": "c0a854f2e62226f7",
-        "name": "Main Lights",
-        "actuator": "lighting",
-        "channel": "1",
-        "mode": "digital",
-        "x": 1370,
-        "y": 960,
-        "wires": [
-            [
-                "2f6bd800c9979c6c"
-            ]
-        ]
-    },
-    {
-        "id": "a5ee427c8f782dfc",
-        "type": "digital-output",
-        "z": "c0a854f2e62226f7",
-        "name": "Auxilary Lights",
-        "actuator": "lighting",
-        "channel": "6",
-        "mode": "digital",
-        "x": 1380,
-        "y": 1020,
-        "wires": [
-            [
-                "2f6bd800c9979c6c"
-            ]
-        ]
-    },
-    {
-        "id": "38417f951ba2e8cf",
-        "type": "digital-output",
-        "z": "c0a854f2e62226f7",
-        "name": "Rain Pump",
-        "actuator": "pump",
-        "channel": "3",
-        "mode": "digital",
-        "x": 1370,
-        "y": 640,
-        "wires": [
-            [
-                "edff2574530c85bb"
-            ]
-        ]
-    },
-    {
-        "id": "c33f1595ae47213c",
-        "type": "digital-output",
-        "z": "c0a854f2e62226f7",
-        "name": "Heater",
-        "actuator": "heater",
-        "channel": "2",
-        "mode": "digital",
-        "x": 1350,
-        "y": 220,
-        "wires": [
-            [
-                "00cfd341d4986698"
-            ]
-        ]
-    },
-    {
-        "id": "aa2c64349df313c4",
-        "type": "sensor-measurement",
-        "z": "c0a854f2e62226f7",
-        "name": "Humidity Sensor",
-        "variable": "humidity",
-        "sampleinterval": "",
-        "x": 740,
-        "y": 540,
-        "wires": [
-            [
-                "e5b848f06ac6a762",
-                "c041d181d85f3f63",
-                "5bd21e17c7477ba7"
-            ],
-            [
-                "65ec410c37b483e8"
-            ]
-        ]
-    },
-    {
-        "id": "f5bca2f1b7480420",
-        "type": "sensor-measurement",
-        "z": "c0a854f2e62226f7",
-        "name": "Light Sensor",
-        "variable": "light",
-        "x": 750,
-        "y": 920,
-        "wires": [
-            [
-                "19459d7ed75c5df5",
-                "d85c98c981f083c8"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "65ec410c37b483e8",
-        "type": "status aggregator",
-        "z": "c0a854f2e62226f7",
-        "name": "Humidity Status",
-        "x": 1760,
-        "y": 640,
-        "wires": [
-            [
-                "3a5104b6f4842907"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "2f6bd800c9979c6c",
-        "type": "status aggregator",
-        "z": "c0a854f2e62226f7",
-        "name": "Lighting Status",
-        "x": 1660,
-        "y": 1020,
-        "wires": [
-            [
-                "3a5104b6f4842907"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "edff2574530c85bb",
-        "type": "status aggregator",
-        "z": "c0a854f2e62226f7",
-        "name": "Precipitation Status",
-        "x": 1710,
-        "y": 700,
-        "wires": [
-            [
-                "3a5104b6f4842907"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "3a5104b6f4842907",
-        "type": "status aggregator",
-        "z": "c0a854f2e62226f7",
-        "name": "System Status",
-        "x": 1920,
-        "y": 700,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
-        "id": "8315c5acdf23410d",
-        "type": "template",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.temperature}}",
-        "output": "str",
-        "x": 940,
-        "y": 140,
-        "wires": [
-            [
-                "673deaaa902483da",
-                "d6fe66756f3e89f4"
-            ]
-        ]
-    },
-    {
-        "id": "e5b848f06ac6a762",
-        "type": "template",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.humidity}}",
-        "output": "str",
-        "x": 1060,
-        "y": 500,
-        "wires": [
-            [
-                "80a6fee06bad3a98",
-                "adfbd547841167e4"
-            ]
-        ]
-    },
-    {
-        "id": "19459d7ed75c5df5",
-        "type": "template",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.light}}",
-        "output": "str",
-        "x": 1080,
-        "y": 880,
-        "wires": [
-            [
-                "d56b71c2375d7c0b",
-                "c1382f268f08be54"
-            ]
-        ]
-    },
-    {
-        "id": "68778245ec10f3ab",
-        "type": "sensor-measurement",
-        "z": "c0a854f2e62226f7",
-        "name": "Pressure",
-        "variable": "pressure",
-        "sampleinterval": "",
-        "x": 460,
-        "y": 1260,
-        "wires": [
-            [
-                "c6e680047593b7a6"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "c6e680047593b7a6",
-        "type": "template",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.pressure}}",
-        "output": "str",
-        "x": 620,
-        "y": 1260,
-        "wires": [
-            [
-                "706121d25167f537",
-                "d53e4abac86221b8",
-                "a30bb48351e7d448"
-            ]
-        ]
-    },
-    {
-        "id": "1a2e480989bed771",
-        "type": "trigger",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "op1": "{\"pump\":\"on\"}",
-        "op2": "{\"pump\":\"off\"}",
-        "op1type": "json",
-        "op2type": "json",
-        "duration": "5",
-        "extend": false,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 420,
-        "y": 700,
-        "wires": [
-            [
-                "38417f951ba2e8cf"
-            ]
-        ]
-    },
-    {
-        "id": "54fe9e766a5c5396",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Toggle fans",
-        "func": "// Toggle output each time a message arrives\nlet fans = context.get('fans') || false;  // get previous state, default false\n\nfans = !fans;              // flip the state\ncontext.set('fans', fans); // remember it\n\nreturn { payload:{cooler: fans?\"on\":\"off\"} };   // send true/false (on/off)",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 630,
-        "y": 100,
-        "wires": [
-            [
-                "0c6df0b11131a8c9"
-            ]
-        ]
-    },
-    {
-        "id": "4c6b2e8277ea7a30",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Toggle aux lights",
-        "func": "// Toggle output each time a message arrives\nlet auxLights = context.get('auxLights') || false;  // get previous state, default false\n\nauxLights = !auxLights;              // flip the state\ncontext.set('auxLights', auxLights); // remember it\n\nreturn { payload:{auxLighting: auxLights?\"on\":\"off\"} };   // send true/false (on/off)",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 870,
-        "y": 1140,
-        "wires": [
-            [
-                "a5ee427c8f782dfc"
-            ]
-        ]
-    },
-    {
-        "id": "1ee1b80395c36f00",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "70e72a51ea68dfb2",
-        "name": "Test",
-        "label": "Test",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"test\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 250,
-        "y": 100,
-        "wires": [
-            [
-                "54fe9e766a5c5396"
             ]
         ]
     },
@@ -1068,71 +523,11 @@
         "type": "edgeberry",
         "z": "c0a854f2e62226f7",
         "name": "",
-        "x": 2130,
-        "y": 200,
+        "x": 530,
+        "y": 520,
         "wires": [
             [
                 "dae89fffad3b4d41"
-            ]
-        ]
-    },
-    {
-        "id": "7fca6fbb863561ee",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Temperature formatting",
-        "func": "msg.topic = \"telemetry\"\nmsg.payload.variable = \"temperature\"\nmsg.payload.value = msg.payload.temperature\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1870,
-        "y": 340,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "c041d181d85f3f63",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Humidity formatting",
-        "func": "msg.topic = \"telemetry\"\nmsg.payload.variable = \"humidity\"\nmsg.payload.value = msg.payload.humidity\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1890,
-        "y": 380,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "d85c98c981f083c8",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Lighting formatting",
-        "func": "msg.topic = \"telemetry\"\nmsg.payload.variable = \"light\"\nmsg.payload.value = msg.payload.light\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1890,
-        "y": 540,
-        "wires": [
-            [
-                "b657230ce10b8863"
             ]
         ]
     },
@@ -1149,34 +544,511 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2330,
-        "y": 200,
+        "x": 730,
+        "y": 520,
         "wires": []
     },
     {
-        "id": "7c33142b8ae8c86b",
+        "id": "df994372cb11191c",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "Identify",
+        "label": "Identify",
+        "order": 1,
+        "width": "1",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-access-point",
+        "iconPosition": "left",
+        "payload": "{\"identify\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 100,
+        "y": 600,
+        "wires": [
+            [
+                "c1cdcfccad7409d6"
+            ]
+        ]
+    },
+    {
+        "id": "4842d55fc547be75",
+        "type": "sensor-measurement",
+        "z": "c0a854f2e62226f7",
+        "name": "All sensor values",
+        "variable": "all",
+        "sampleinterval": "",
+        "x": 120,
+        "y": 780,
+        "wires": [
+            [
+                "4f6c381ea45deb9b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4f6c381ea45deb9b",
+        "type": "debug",
+        "z": "c0a854f2e62226f7",
+        "name": "Sensor values",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "b953255c7a8b8342",
+        "type": "ui-control",
+        "z": "c0a854f2e62226f7",
+        "name": "Open URL",
+        "ui": "686c46360e79bd75",
+        "events": "all",
+        "x": 270,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e79bbef708ea3dd7",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "Editor",
+        "label": "Editor",
+        "order": 2,
+        "width": 1,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "pencil",
+        "iconPosition": "left",
+        "payload": "{\"url\":\"/editor\",\"target\":\"_blank\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 90,
+        "y": 240,
+        "wires": [
+            [
+                "b953255c7a8b8342"
+            ]
+        ]
+    },
+    {
+        "id": "692d3b4d1c830151",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "GitHub",
+        "label": "GitHub",
+        "order": 3,
+        "width": 1,
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-github",
+        "iconPosition": "left",
+        "payload": "{\"url\":\"https://github.com/Freya-Vivariums\",\"target\":\"_blank\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 100,
+        "y": 280,
+        "wires": [
+            [
+                "b953255c7a8b8342"
+            ]
+        ]
+    },
+    {
+        "id": "60951ad0a144e0bd",
+        "type": "ui-template",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "page": "",
+        "ui": "",
+        "name": "Power Menu",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n  <v-dialog v-model=\"showDialog\" max-width=\"320\">\n    <v-card>\n      <v-card-title class=\"text-h6\">System Power</v-card-title>\n      <v-card-text>Active control will be interrupted.</v-card-text>\n      <v-card-actions>\n        <v-btn @click=\"doAction('reboot')\" color=\"warning\" variant=\"tonal\" prepend-icon=\"mdi-restart\">\n          Reboot\n        </v-btn>\n        <v-btn @click=\"doAction('shutdown')\" color=\"error\" variant=\"tonal\" prepend-icon=\"mdi-power\">\n          Shutdown\n        </v-btn>\n        <v-spacer />\n        <v-btn @click=\"showDialog = false\" variant=\"text\">Cancel</v-btn>\n      </v-card-actions>\n    </v-card>\n  </v-dialog>\n</template>\n\n<script>\n  export default {\n    data() {\n      return { showDialog: false }\n    },\n    mounted() {\n      // collapse the widget wrapper so it takes no grid space\n      const wrapper = this.$el.parentElement\n      if (wrapper) {\n        wrapper.style.display = 'contents'\n      }\n    },\n    watch: {\n      msg() {\n        this.showDialog = true\n      }\n    },\n    methods: {\n      doAction(action) {\n        this.showDialog = false\n        this.send({ payload: action })\n      }\n    }\n  }\n</script>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 270,
+        "y": 180,
+        "wires": [
+            [
+                "07916f0eb5ec6586",
+                "5f9ace766f71365f"
+            ]
+        ]
+    },
+    {
+        "id": "0f148524871c217a",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "Power",
+        "label": "Power",
+        "order": 2,
+        "width": 1,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "mdi-power",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "60951ad0a144e0bd"
+            ]
+        ]
+    },
+    {
+        "id": "82a1ec9ad78a9cac",
+        "type": "exec",
+        "z": "c0a854f2e62226f7",
+        "command": "shutdown -r now",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Shutdown",
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "79c623a0c7a6e1b0",
+        "type": "exec",
+        "z": "c0a854f2e62226f7",
+        "command": "reboot",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "Reboot",
+        "x": 560,
+        "y": 220,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "07916f0eb5ec6586",
         "type": "function",
         "z": "c0a854f2e62226f7",
-        "name": "Toggle main lights",
-        "func": "if( msg.payload.test ){\n    let mainLights = context.get('mainLights');\n    mainLights = !mainLights;\n    context.set('mainLights', mainLights);\n    return { payload:{lighting: mainLights?\"on\":\"off\"} }; \n}",
+        "name": "Filter",
+        "func": "if (msg.payload === 'shutdown') return msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
-        "y": 1100,
+        "x": 430,
+        "y": 160,
         "wires": [
             [
-                "a030ee2f8804a863"
+                "82a1ec9ad78a9cac"
+            ]
+        ]
+    },
+    {
+        "id": "5f9ace766f71365f",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "Filter",
+        "func": "if (msg.payload === 'reboot') return msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "79c623a0c7a6e1b0"
+            ]
+        ]
+    },
+    {
+        "id": "7e3b0e419f7cad55",
+        "type": "comment",
+        "z": "c0a854f2e62226f7",
+        "name": "Nodes related to interacting with the system from the user dashboard",
+        "info": "",
+        "x": 260,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b96a1769e27db290",
+        "type": "comment",
+        "z": "c0a854f2e62226f7",
+        "name": "Dashboard's system interactions",
+        "info": "",
+        "x": 150,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "54d038defc5b1262",
+        "type": "comment",
+        "z": "c0a854f2e62226f7",
+        "name": "Edgeberry Platform",
+        "info": "",
+        "x": 110,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b02e50d50fd1c246",
+        "type": "comment",
+        "z": "c0a854f2e62226f7",
+        "name": "Nodes related to interaction with the underlying Edgeberry IoT platform",
+        "info": "",
+        "x": 270,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "7be8679a704e82d4",
+        "type": "comment",
+        "z": "c0a854f2e62226f7",
+        "name": "System debugging",
+        "info": "",
+        "x": 110,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "265b0237a1bdce88",
+        "type": "comment",
+        "z": "c0a854f2e62226f7",
+        "name": "Nodes related to developing and debugging the system",
+        "info": "",
+        "x": 220,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "144a01e7f0dd298d",
+        "type": "temperature controller",
+        "z": "e0de5f1a89be7055",
+        "name": "",
+        "deadband": "0.5",
+        "minimumTemperature": "-10",
+        "maximumTemperature": "50",
+        "watchdogTimeout": "180",
+        "watchdogSeverity": "warning",
+        "x": 1120,
+        "y": 200,
+        "wires": [
+            [
+                "0c6df0b11131a8c9",
+                "c33f1595ae47213c"
+            ],
+            [
+                "00cfd341d4986698",
+                "a04884562093142c"
+            ]
+        ]
+    },
+    {
+        "id": "1589282f12a5c631",
+        "type": "circadian core",
+        "z": "e0de5f1a89be7055",
+        "name": "",
+        "locationConfig": "5af9fc4d33e3d5ba",
+        "phaseShift": "-30",
+        "diurnalSwing": 1,
+        "seasonalSwing": 1,
+        "tickInterval": "20",
+        "decimals": "1",
+        "x": 740,
+        "y": 220,
+        "wires": [
+            [
+                "7af7491042c2835c"
+            ],
+            [
+                "00cfd341d4986698"
+            ]
+        ]
+    },
+    {
+        "id": "00cfd341d4986698",
+        "type": "status aggregator",
+        "z": "e0de5f1a89be7055",
+        "name": "Temperature Status",
+        "x": 1390,
+        "y": 340,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "62a46a47a709ceec",
+        "type": "sensor-measurement",
+        "z": "e0de5f1a89be7055",
+        "name": "Temperature Sensor",
+        "variable": "temperature",
+        "sampleinterval": "",
+        "x": 730,
+        "y": 140,
+        "wires": [
+            [
+                "8315c5acdf23410d",
+                "3236fd72cef32005"
+            ],
+            [
+                "00cfd341d4986698"
+            ]
+        ]
+    },
+    {
+        "id": "0c6df0b11131a8c9",
+        "type": "digital-output",
+        "z": "e0de5f1a89be7055",
+        "name": "Fans",
+        "actuator": "cooler",
+        "channel": "5",
+        "mode": "digital",
+        "x": 1330,
+        "y": 240,
+        "wires": [
+            [
+                "00cfd341d4986698"
+            ]
+        ]
+    },
+    {
+        "id": "c33f1595ae47213c",
+        "type": "digital-output",
+        "z": "e0de5f1a89be7055",
+        "name": "Heater",
+        "actuator": "heater",
+        "channel": "2",
+        "mode": "digital",
+        "x": 1330,
+        "y": 180,
+        "wires": [
+            [
+                "00cfd341d4986698"
+            ]
+        ]
+    },
+    {
+        "id": "8315c5acdf23410d",
+        "type": "template",
+        "z": "e0de5f1a89be7055",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.temperature}}",
+        "output": "str",
+        "x": 920,
+        "y": 100,
+        "wires": [
+            [
+                "673deaaa902483da",
+                "d6fe66756f3e89f4"
             ]
         ]
     },
     {
         "id": "95590828cab9d6b0",
         "type": "ui-button",
-        "z": "c0a854f2e62226f7",
+        "z": "e0de5f1a89be7055",
         "group": "b2841a82074a7645",
         "name": "Test",
         "label": "Test",
@@ -1204,8 +1076,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 790,
-        "y": 340,
+        "x": 770,
+        "y": 300,
         "wires": [
             [
                 "144a01e7f0dd298d"
@@ -1213,126 +1085,9 @@
         ]
     },
     {
-        "id": "2ac7767dcf65f9d4",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "f5e57c98baa75735",
-        "name": "Test",
-        "label": "Test",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"test\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 270,
-        "y": 700,
-        "wires": [
-            [
-                "1a2e480989bed771"
-            ]
-        ]
-    },
-    {
-        "id": "cbcca632970ed674",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "02b81bca1b8536a8",
-        "name": "Test Main",
-        "label": "Test Main",
-        "order": 5,
-        "width": 1,
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"test\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 680,
-        "y": 1100,
-        "wires": [
-            [
-                "7c33142b8ae8c86b"
-            ]
-        ]
-    },
-    {
-        "id": "b83642dbe2726d61",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "02b81bca1b8536a8",
-        "name": "Test Aux",
-        "label": "Test Aux",
-        "order": 4,
-        "width": 1,
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"test\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 680,
-        "y": 1140,
-        "wires": [
-            [
-                "4c6b2e8277ea7a30"
-            ]
-        ]
-    },
-    {
         "id": "5117121a42594b22",
         "type": "ui-number-input",
-        "z": "c0a854f2e62226f7",
+        "z": "e0de5f1a89be7055",
         "group": "b2841a82074a7645",
         "name": "Min Temp",
         "label": "Minimum Temperature",
@@ -1356,8 +1111,8 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "spinner": "default",
-        "x": 280,
-        "y": 240,
+        "x": 260,
+        "y": 200,
         "wires": [
             [
                 "b431b73c3aee3936"
@@ -1367,7 +1122,7 @@
     {
         "id": "0881a22599596138",
         "type": "ui-number-input",
-        "z": "c0a854f2e62226f7",
+        "z": "e0de5f1a89be7055",
         "group": "b2841a82074a7645",
         "name": "Max Temp",
         "label": "Maximum Temperature",
@@ -1391,8 +1146,8 @@
         "iconPosition": "left",
         "iconInnerPosition": "inside",
         "spinner": "default",
-        "x": 270,
-        "y": 280,
+        "x": 250,
+        "y": 240,
         "wires": [
             [
                 "30e986713b9cf221"
@@ -1400,79 +1155,9 @@
         ]
     },
     {
-        "id": "2aee6582bf4df2ff",
-        "type": "ui-number-input",
-        "z": "c0a854f2e62226f7",
-        "group": "f5e57c98baa75735",
-        "name": "Min Hum",
-        "label": "Minimum Humidity",
-        "order": 1,
-        "width": "1",
-        "height": "1",
-        "topic": "minimumHumidity",
-        "topicType": "str",
-        "min": "0",
-        "max": "100",
-        "step": "0.5",
-        "tooltip": "The absolute minimum Humidity",
-        "delay": "0",
-        "passthru": true,
-        "sendOnDelay": true,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "spinner": "default",
-        "x": 260,
-        "y": 600,
-        "wires": [
-            [
-                "359a7caf307c7fe3"
-            ]
-        ]
-    },
-    {
-        "id": "03e7c674cf6767aa",
-        "type": "ui-number-input",
-        "z": "c0a854f2e62226f7",
-        "group": "f5e57c98baa75735",
-        "name": "Max Hum",
-        "label": "Maximum Humidity",
-        "order": 2,
-        "width": "1",
-        "height": "1",
-        "topic": "maximumHumidity",
-        "topicType": "str",
-        "min": "0",
-        "max": "100",
-        "step": "0.5",
-        "tooltip": "The absolute maximum humidity",
-        "delay": "0",
-        "passthru": true,
-        "sendOnDelay": true,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "spinner": "default",
-        "x": 260,
-        "y": 640,
-        "wires": [
-            [
-                "47ce135c94534feb"
-            ]
-        ]
-    },
-    {
         "id": "673deaaa902483da",
         "type": "ui-chart",
-        "z": "c0a854f2e62226f7",
+        "z": "e0de5f1a89be7055",
         "group": "58721ee298d6b49c",
         "name": "Temp Chart",
         "label": "",
@@ -1525,8 +1210,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 1370,
-        "y": 120,
+        "x": 1350,
+        "y": 80,
         "wires": [
             []
         ]
@@ -1534,7 +1219,7 @@
     {
         "id": "d6fe66756f3e89f4",
         "type": "ui-gauge",
-        "z": "c0a854f2e62226f7",
+        "z": "e0de5f1a89be7055",
         "name": "Temp Gauge",
         "group": "58721ee298d6b49c",
         "order": 1,
@@ -1567,272 +1252,308 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1370,
+        "x": 1350,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b431b73c3aee3936",
+        "type": "function",
+        "z": "e0de5f1a89be7055",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload, \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "b6d24c61bf7ca039"
+            ]
+        ]
+    },
+    {
+        "id": "30e986713b9cf221",
+        "type": "function",
+        "z": "e0de5f1a89be7055",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,   \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "1cb314d3fad0b56a"
+            ]
+        ]
+    },
+    {
+        "id": "f85a613746667628",
+        "type": "function",
+        "z": "e0de5f1a89be7055",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.minimumTemperature\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 90,
+        "y": 200,
+        "wires": [
+            [
+                "5117121a42594b22"
+            ]
+        ]
+    },
+    {
+        "id": "fe0ef62128b9cfcc",
+        "type": "function",
+        "z": "e0de5f1a89be7055",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.maximumTemperature\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 90,
+        "y": 240,
+        "wires": [
+            [
+                "0881a22599596138"
+            ]
+        ]
+    },
+    {
+        "id": "b6d24c61bf7ca039",
+        "type": "function",
+        "z": "e0de5f1a89be7055",
+        "name": "Format",
+        "func": "msg.topic = \"absoluteMin\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "1589282f12a5c631"
+            ]
+        ]
+    },
+    {
+        "id": "1cb314d3fad0b56a",
+        "type": "function",
+        "z": "e0de5f1a89be7055",
+        "name": "Format",
+        "func": "msg.topic = \"absoluteMax\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "1589282f12a5c631"
+            ]
+        ]
+    },
+    {
+        "id": "3236fd72cef32005",
+        "type": "function",
+        "z": "e0de5f1a89be7055",
+        "name": "Format",
+        "func": "msg.topic = \"sensor\";\nmsg.payload = msg.payload.temperature;\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 180,
+        "wires": [
+            [
+                "144a01e7f0dd298d"
+            ]
+        ]
+    },
+    {
+        "id": "7af7491042c2835c",
+        "type": "function",
+        "z": "e0de5f1a89be7055",
+        "name": "Format",
+        "func": "msg.topic = \"target\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 220,
+        "wires": [
+            [
+                "144a01e7f0dd298d",
+                "673deaaa902483da"
+            ]
+        ]
+    },
+    {
+        "id": "a04884562093142c",
+        "type": "function",
+        "z": "e0de5f1a89be7055",
+        "name": "Format",
+        "func": "msg.payload = msg.payload.state;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 300,
+        "wires": [
+            [
+                "1ae273e6283c9109"
+            ]
+        ]
+    },
+    {
+        "id": "1ae273e6283c9109",
+        "type": "ui-text",
+        "z": "e0de5f1a89be7055",
+        "group": "58721ee298d6b49c",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "Status: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1500,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "88615b02948f380c",
+        "type": "comment",
+        "z": "e0de5f1a89be7055",
+        "name": "Temperature",
+        "info": "",
+        "x": 110,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f58a3421c54f1701",
+        "type": "comment",
+        "z": "e0de5f1a89be7055",
+        "name": "Lorem Ipsum Temperaturi et amet",
+        "info": "",
+        "x": 170,
         "y": 160,
-        "wires": [
-            []
-        ]
+        "wires": []
     },
     {
-        "id": "80a6fee06bad3a98",
-        "type": "ui-chart",
-        "z": "c0a854f2e62226f7",
-        "group": "cd300b67147963fd",
-        "name": "Hum Chart",
-        "label": "",
-        "order": 2,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "auto",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "false",
-        "pointRadius": 4,
-        "showLegend": false,
-        "removeOlder": "36",
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#cccccc",
-            "#a2ca6f",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#292b2d"
-        ],
-        "textColorDefault": false,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": 7,
-        "height": 4,
-        "className": "",
-        "interpolation": "smooth",
-        "x": 1370,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "adfbd547841167e4",
-        "type": "ui-gauge",
-        "z": "c0a854f2e62226f7",
-        "name": "Hum Gauge",
-        "group": "cd300b67147963fd",
-        "order": 1,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 2,
-        "height": 3,
-        "gtype": "gauge-34",
-        "gstyle": "rounded",
-        "title": "",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "%",
-        "segments": [
+        "id": "f33e4002191b9622",
+        "type": "inject",
+        "z": "e0de5f1a89be7055",
+        "name": "Init pulse",
+        "props": [
             {
-                "from": "0",
-                "color": "#a2ca6f",
-                "text": "",
-                "textType": "label"
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
             }
         ],
-        "min": "0",
-        "max": "100",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 1370,
-        "y": 520,
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 60,
         "wires": [
+            [
+                "f85a613746667628",
+                "fe0ef62128b9cfcc"
+            ]
+        ]
+    },
+    {
+        "id": "68778245ec10f3ab",
+        "type": "sensor-measurement",
+        "z": "e0de5f1a89be7055",
+        "name": "Pressure",
+        "variable": "pressure",
+        "sampleinterval": "",
+        "x": 740,
+        "y": 560,
+        "wires": [
+            [
+                "c6e680047593b7a6"
+            ],
             []
         ]
     },
     {
-        "id": "c1382f268f08be54",
-        "type": "ui-chart",
-        "z": "c0a854f2e62226f7",
-        "group": "a9908ab557174656",
-        "name": "Light Chart",
-        "label": "",
-        "order": 2,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "auto",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "false",
-        "pointRadius": 4,
-        "showLegend": false,
-        "removeOlder": "36",
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#cccccc",
-            "#a2ca6f",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#292b2d"
-        ],
-        "textColorDefault": false,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": 7,
-        "height": 4,
-        "className": "",
-        "interpolation": "smooth",
-        "x": 1370,
-        "y": 860,
+        "id": "c6e680047593b7a6",
+        "type": "template",
+        "z": "e0de5f1a89be7055",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.pressure}}",
+        "output": "str",
+        "x": 900,
+        "y": 560,
         "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d56b71c2375d7c0b",
-        "type": "ui-gauge",
-        "z": "c0a854f2e62226f7",
-        "name": "Light Gauge",
-        "group": "a9908ab557174656",
-        "order": 1,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 2,
-        "height": 3,
-        "gtype": "gauge-34",
-        "gstyle": "rounded",
-        "title": "",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "Lux",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#a2ca6f",
-                "text": "",
-                "textType": "label"
-            }
-        ],
-        "min": "0",
-        "max": "12000",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 1370,
-        "y": 900,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6e2483b21fb8a7df",
-        "type": "ui-template",
-        "z": "c0a854f2e62226f7",
-        "group": "02b81bca1b8536a8",
-        "page": "",
-        "ui": "",
-        "name": "Sunrise",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n<!-- Lighting Settings -->\n<div style=\"display:flex;flex-direction:column;gap:6px;\">\n    <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <label for=\"sunrise\">Sunrise</label>\n        <input id=\"sunrise\" type=\"time\" lang=\"en-GB\" step=\"60\"\n           style=\"border:none;background:transparent;text-align:right;\"\n           oninput=\"sendTime('sunrise', this.value)\">\n    </div>\n</div>\n\n<script>\n    (function(scope) {\n    scope.sendTime = function(label, value) {\n        scope.send({ topic: label, payload: value });\n        localStorage.setItem(`lighting_${label}`, value);\n    };\n\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n        ['sunrise', 'sunset'].forEach(id => {\n            const el = document.getElementById(id);\n            if (!el) return;\n            const stored = localStorage.getItem(`lighting_${id}`);\n            if (msg.topic === id && /^([01]\\d|2[0-3]):([0-5]\\d)$/.test(msg.payload)) {\n                el.value = msg.payload;\n                localStorage.setItem(`lighting_${id}`, msg.payload);\n            } else if (!msg.topic && stored) {\n                el.value = stored;\n            }\n        });\n    });\n})(scope);\n</script>\n</style>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 320,
-        "y": 960,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d1f3dc1aa92c6035",
-        "type": "ui-template",
-        "z": "c0a854f2e62226f7",
-        "group": "02b81bca1b8536a8",
-        "page": "",
-        "ui": "",
-        "name": "Sunset",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n<!-- Lighting Settings -->\n<div style=\"display:flex;flex-direction:column;gap:6px;\">\n    <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <label for=\"sunrise\">Sunrise</label>\n        <input id=\"sunrise\" type=\"time\" lang=\"en-GB\" step=\"60\"\n           style=\"border:none;background:transparent;text-align:right;\"\n           oninput=\"sendTime('sunrise', this.value)\">\n    </div>\n</div>\n\n<script>\n    (function(scope) {\n    scope.sendTime = function(label, value) {\n        scope.send({ topic: label, payload: value });\n        localStorage.setItem(`lighting_${label}`, value);\n    };\n\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n        ['sunrise', 'sunset'].forEach(id => {\n            const el = document.getElementById(id);\n            if (!el) return;\n            const stored = localStorage.getItem(`lighting_${id}`);\n            if (msg.topic === id && /^([01]\\d|2[0-3]):([0-5]\\d)$/.test(msg.payload)) {\n                el.value = msg.payload;\n                localStorage.setItem(`lighting_${id}`, msg.payload);\n            } else if (!msg.topic && stored) {\n                el.value = stored;\n            }\n        });\n    });\n})(scope);\n</script>\n</style>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 320,
-        "y": 1000,
-        "wires": [
-            []
+            [
+                "706121d25167f537",
+                "d53e4abac86221b8",
+                "a30bb48351e7d448"
+            ]
         ]
     },
     {
         "id": "d53e4abac86221b8",
         "type": "ui-gauge",
-        "z": "c0a854f2e62226f7",
+        "z": "e0de5f1a89be7055",
         "name": "Pressure Gauge",
         "group": "8ff445038f0d559b",
         "order": 1,
@@ -1865,8 +1586,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 880,
-        "y": 1280,
+        "x": 1160,
+        "y": 580,
         "wires": [
             []
         ]
@@ -1874,7 +1595,7 @@
     {
         "id": "706121d25167f537",
         "type": "ui-chart",
-        "z": "c0a854f2e62226f7",
+        "z": "e0de5f1a89be7055",
         "group": "8ff445038f0d559b",
         "name": "Pressure Chart",
         "label": "",
@@ -1927,79 +1648,16 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 880,
-        "y": 1240,
+        "x": 1160,
+        "y": 540,
         "wires": [
             []
         ]
     },
     {
-        "id": "df994372cb11191c",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "name": "Identify",
-        "label": "Identify",
-        "order": 1,
-        "width": "1",
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "mdi-access-point",
-        "iconPosition": "left",
-        "payload": "{\"identify\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 1700,
-        "y": 280,
-        "wires": [
-            [
-                "c1cdcfccad7409d6"
-            ]
-        ]
-    },
-    {
-        "id": "849cd6ed49a1fdb6",
-        "type": "ui-text",
-        "z": "c0a854f2e62226f7",
-        "group": "a9908ab557174656",
-        "order": 3,
-        "width": 2,
-        "height": "1",
-        "name": "",
-        "label": "Status: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 1520,
-        "y": 1100,
-        "wires": []
-    },
-    {
         "id": "a30bb48351e7d448",
         "type": "ui-text",
-        "z": "c0a854f2e62226f7",
+        "z": "e0de5f1a89be7055",
         "group": "8ff445038f0d559b",
         "order": 3,
         "width": 2,
@@ -2016,14 +1674,431 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 850,
-        "y": 1200,
+        "x": 1130,
+        "y": 500,
         "wires": []
+    },
+    {
+        "id": "54fe9e766a5c5396",
+        "type": "function",
+        "z": "e0de5f1a89be7055",
+        "name": "Toggle fans",
+        "func": "// Toggle output each time a message arrives\nlet fans = context.get('fans') || false;  // get previous state, default false\n\nfans = !fans;              // flip the state\ncontext.set('fans', fans); // remember it\n\nreturn { payload:{cooler: fans?\"on\":\"off\"} };   // send true/false (on/off)",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 420,
+        "wires": [
+            [
+                "0c6df0b11131a8c9"
+            ]
+        ]
+    },
+    {
+        "id": "1ee1b80395c36f00",
+        "type": "ui-button",
+        "z": "e0de5f1a89be7055",
+        "group": "70e72a51ea68dfb2",
+        "name": "Test",
+        "label": "Test",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 770,
+        "y": 420,
+        "wires": [
+            [
+                "54fe9e766a5c5396"
+            ]
+        ]
+    },
+    {
+        "id": "d44fa9863bcdba16",
+        "type": "humidity controller",
+        "z": "8e2b0ca1e84570fa",
+        "name": "",
+        "deadband": "20",
+        "minimumHumidity": "40",
+        "maximumHumidity": "99",
+        "watchdogTimeout": "180",
+        "watchdogSeverity": "warning",
+        "x": 1110,
+        "y": 160,
+        "wires": [
+            [
+                "8a52bc9eba3c0ada"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5c23dfdcc1dc077c",
+        "type": "precipitation controller",
+        "z": "8e2b0ca1e84570fa",
+        "name": "",
+        "interval": "240",
+        "duration": "5",
+        "tickInterval": "20",
+        "x": 760,
+        "y": 380,
+        "wires": [
+            [
+                "38417f951ba2e8cf"
+            ],
+            [
+                "584d7513dd9a750a"
+            ]
+        ]
+    },
+    {
+        "id": "6f2821f6469e2e25",
+        "type": "circadian core",
+        "z": "8e2b0ca1e84570fa",
+        "name": "",
+        "locationConfig": "5af9fc4d33e3d5ba",
+        "phaseShift": "180",
+        "diurnalSwing": 1,
+        "seasonalSwing": 1,
+        "tickInterval": "20",
+        "decimals": "1",
+        "x": 720,
+        "y": 200,
+        "wires": [
+            [
+                "5ea46a13affe3368"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8a52bc9eba3c0ada",
+        "type": "digital-output",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Humidifier",
+        "x": 1340,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "38417f951ba2e8cf",
+        "type": "digital-output",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Rain Pump",
+        "actuator": "pump",
+        "channel": "3",
+        "mode": "digital",
+        "x": 1350,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa2c64349df313c4",
+        "type": "sensor-measurement",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Humidity Sensor",
+        "variable": "humidity",
+        "sampleinterval": "",
+        "x": 720,
+        "y": 120,
+        "wires": [
+            [
+                "e5b848f06ac6a762",
+                "5bd21e17c7477ba7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e5b848f06ac6a762",
+        "type": "template",
+        "z": "8e2b0ca1e84570fa",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.humidity}}",
+        "output": "str",
+        "x": 1040,
+        "y": 80,
+        "wires": [
+            [
+                "80a6fee06bad3a98",
+                "adfbd547841167e4"
+            ]
+        ]
+    },
+    {
+        "id": "1a2e480989bed771",
+        "type": "trigger",
+        "z": "8e2b0ca1e84570fa",
+        "name": "",
+        "op1": "{\"pump\":\"on\"}",
+        "op2": "{\"pump\":\"off\"}",
+        "op1type": "json",
+        "op2type": "json",
+        "duration": "5",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 400,
+        "y": 280,
+        "wires": [
+            [
+                "38417f951ba2e8cf"
+            ]
+        ]
+    },
+    {
+        "id": "2ac7767dcf65f9d4",
+        "type": "ui-button",
+        "z": "8e2b0ca1e84570fa",
+        "group": "f5e57c98baa75735",
+        "name": "Test",
+        "label": "Test",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 250,
+        "y": 280,
+        "wires": [
+            [
+                "1a2e480989bed771"
+            ]
+        ]
+    },
+    {
+        "id": "2aee6582bf4df2ff",
+        "type": "ui-number-input",
+        "z": "8e2b0ca1e84570fa",
+        "group": "f5e57c98baa75735",
+        "name": "Min Hum",
+        "label": "Minimum Humidity",
+        "order": 1,
+        "width": "1",
+        "height": "1",
+        "topic": "minimumHumidity",
+        "topicType": "str",
+        "min": "0",
+        "max": "100",
+        "step": "0.5",
+        "tooltip": "The absolute minimum Humidity",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 240,
+        "y": 180,
+        "wires": [
+            [
+                "359a7caf307c7fe3"
+            ]
+        ]
+    },
+    {
+        "id": "03e7c674cf6767aa",
+        "type": "ui-number-input",
+        "z": "8e2b0ca1e84570fa",
+        "group": "f5e57c98baa75735",
+        "name": "Max Hum",
+        "label": "Maximum Humidity",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "topic": "maximumHumidity",
+        "topicType": "str",
+        "min": "0",
+        "max": "100",
+        "step": "0.5",
+        "tooltip": "The absolute maximum humidity",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 240,
+        "y": 220,
+        "wires": [
+            [
+                "47ce135c94534feb"
+            ]
+        ]
+    },
+    {
+        "id": "80a6fee06bad3a98",
+        "type": "ui-chart",
+        "z": "8e2b0ca1e84570fa",
+        "group": "cd300b67147963fd",
+        "name": "Hum Chart",
+        "label": "",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": "36",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#cccccc",
+            "#a2ca6f",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#292b2d"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 7,
+        "height": 4,
+        "className": "",
+        "interpolation": "smooth",
+        "x": 1350,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "adfbd547841167e4",
+        "type": "ui-gauge",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Hum Gauge",
+        "group": "cd300b67147963fd",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "%",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#a2ca6f",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1350,
+        "y": 100,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "e7274d3a41f1f1fb",
         "type": "ui-text",
-        "z": "c0a854f2e62226f7",
+        "z": "8e2b0ca1e84570fa",
         "group": "cd300b67147963fd",
         "order": 3,
         "width": 2,
@@ -2040,19 +2115,1146 @@
         "className": "",
         "value": "payload",
         "valueType": "msg",
-        "x": 1520,
-        "y": 700,
+        "x": 1500,
+        "y": 280,
         "wires": []
+    },
+    {
+        "id": "15fb360ca76e8cb6",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.minimumHumidity\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "2aee6582bf4df2ff"
+            ]
+        ]
+    },
+    {
+        "id": "b6ae9fb9dc6d807f",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.maximumHumidity\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 90,
+        "y": 220,
+        "wires": [
+            [
+                "03e7c674cf6767aa"
+            ]
+        ]
+    },
+    {
+        "id": "359a7caf307c7fe3",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 180,
+        "wires": [
+            [
+                "49df631afc30df51"
+            ]
+        ]
+    },
+    {
+        "id": "47ce135c94534feb",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 220,
+        "wires": [
+            [
+                "cdf06cb3b65b9c1b"
+            ]
+        ]
+    },
+    {
+        "id": "49df631afc30df51",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Format",
+        "func": "msg.topic = \"absoluteMin\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 180,
+        "wires": [
+            [
+                "6f2821f6469e2e25"
+            ]
+        ]
+    },
+    {
+        "id": "cdf06cb3b65b9c1b",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Format",
+        "func": "msg.topic = \"absoluteMax\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 220,
+        "wires": [
+            [
+                "6f2821f6469e2e25"
+            ]
+        ]
+    },
+    {
+        "id": "5bd21e17c7477ba7",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Format",
+        "func": "msg.topic = \"sensor\";\nmsg.payload = msg.payload.humidity;\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 140,
+        "wires": [
+            [
+                "d44fa9863bcdba16"
+            ]
+        ]
+    },
+    {
+        "id": "5ea46a13affe3368",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Format",
+        "func": "msg.topic = \"target\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 180,
+        "wires": [
+            [
+                "d44fa9863bcdba16",
+                "80a6fee06bad3a98"
+            ]
+        ]
+    },
+    {
+        "id": "6cb5fa026c5c46a9",
+        "type": "ui-number-input",
+        "z": "8e2b0ca1e84570fa",
+        "group": "f5e57c98baa75735",
+        "name": "Interval",
+        "label": "Precipitation Interval",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "topic": "precipitationInterval",
+        "topicType": "str",
+        "min": "1",
+        "max": "400",
+        "step": "10",
+        "tooltip": "The interval, in minutes, between precipitation events",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 240,
+        "y": 320,
+        "wires": [
+            [
+                "6c0a892317ba0e35"
+            ]
+        ]
+    },
+    {
+        "id": "7a78e7c9bde33bf6",
+        "type": "ui-number-input",
+        "z": "8e2b0ca1e84570fa",
+        "group": "f5e57c98baa75735",
+        "name": "Duration",
+        "label": "Precipitation Duration",
+        "order": 5,
+        "width": "1",
+        "height": "1",
+        "topic": "precipitationDuration",
+        "topicType": "str",
+        "min": "0",
+        "max": "100",
+        "step": "1",
+        "tooltip": "The duration of a precipitation event, in seconds",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 240,
+        "y": 360,
+        "wires": [
+            [
+                "ec09f0bf4a95e8ad"
+            ]
+        ]
+    },
+    {
+        "id": "afcbff4fda809649",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.precipitationInterval\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 90,
+        "y": 320,
+        "wires": [
+            [
+                "6cb5fa026c5c46a9"
+            ]
+        ]
+    },
+    {
+        "id": "e50bd51a08c2b2ac",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.precipitationDuration\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 90,
+        "y": 360,
+        "wires": [
+            [
+                "7a78e7c9bde33bf6"
+            ]
+        ]
+    },
+    {
+        "id": "6c0a892317ba0e35",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 320,
+        "wires": [
+            [
+                "18c2b6fed2711d71"
+            ]
+        ]
+    },
+    {
+        "id": "ec09f0bf4a95e8ad",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "6d639e3afbed4c0a"
+            ]
+        ]
+    },
+    {
+        "id": "18c2b6fed2711d71",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Format",
+        "func": "msg.topic = \"interval\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 320,
+        "wires": [
+            [
+                "5c23dfdcc1dc077c"
+            ]
+        ]
+    },
+    {
+        "id": "6d639e3afbed4c0a",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Format",
+        "func": "msg.topic = \"duration\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 360,
+        "wires": [
+            [
+                "5c23dfdcc1dc077c"
+            ]
+        ]
+    },
+    {
+        "id": "584d7513dd9a750a",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Format",
+        "func": "msg.payload = msg.payload.state;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 280,
+        "wires": [
+            [
+                "e7274d3a41f1f1fb"
+            ]
+        ]
+    },
+    {
+        "id": "91ed6f698557540a",
+        "type": "ui-switch",
+        "z": "8e2b0ca1e84570fa",
+        "name": "NightDisable",
+        "label": "Nighttime Disable",
+        "group": "f5e57c98baa75735",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "precipitationNighttimeDisable",
+        "topicType": "str",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "line",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 250,
+        "y": 400,
+        "wires": [
+            [
+                "dc20db9541d7dab7"
+            ]
+        ]
+    },
+    {
+        "id": "29dd53e74382192d",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Recall",
+        "func": "const v = flow.get(\"vivarium.precipitationNighttimeDisable\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 90,
+        "y": 400,
+        "wires": [
+            [
+                "91ed6f698557540a"
+            ]
+        ]
+    },
+    {
+        "id": "dc20db9541d7dab7",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 400,
+        "wires": [
+            [
+                "e9c1cd1888e1f5aa"
+            ]
+        ]
+    },
+    {
+        "id": "e9c1cd1888e1f5aa",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Format",
+        "func": "msg.topic = \"nightDisable\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "5c23dfdcc1dc077c"
+            ]
+        ]
+    },
+    {
+        "id": "c5318758f471ddba",
+        "type": "function",
+        "z": "8e2b0ca1e84570fa",
+        "name": "isNight",
+        "func": "msg.topic = \"night\";\nif( msg.payload === 'off'){\n    msg.payload = true;\n}\nelse{\n    msg.payload = false;\n}\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 440,
+        "wires": [
+            [
+                "5c23dfdcc1dc077c"
+            ]
+        ]
+    },
+    {
+        "id": "3fc323cadadde296",
+        "type": "comment",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Humidity",
+        "info": "",
+        "x": 100,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3df9d260c463203e",
+        "type": "comment",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Lorem Ipsum humidiae si amet splashii et mistii",
+        "info": "",
+        "x": 220,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "a76901e62a7d8d50",
+        "type": "inject",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Init pulse",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "15fb360ca76e8cb6",
+                "b6ae9fb9dc6d807f",
+                "afcbff4fda809649",
+                "e50bd51a08c2b2ac",
+                "29dd53e74382192d"
+            ]
+        ]
+    },
+    {
+        "id": "65ec410c37b483e8",
+        "type": "status aggregator",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Humidity Status",
+        "x": 1300,
+        "y": 380,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "edff2574530c85bb",
+        "type": "status aggregator",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Precipitation Status",
+        "x": 1250,
+        "y": 440,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "eac6b1e0a11d0689",
+        "type": "lighting controller",
+        "z": "88c6b96e78cf833d",
+        "name": "Main Lighting Controller",
+        "gain": "1",
+        "bottomCutOff": "43",
+        "mode": "digital",
+        "scheduleTime1": "",
+        "scheduleTime2": "",
+        "x": 970,
+        "y": 260,
+        "wires": [
+            [
+                "a030ee2f8804a863"
+            ],
+            [
+                "c3a6edc58d29db0d"
+            ]
+        ]
+    },
+    {
+        "id": "16f818035533a75f",
+        "type": "circadian core",
+        "z": "88c6b96e78cf833d",
+        "name": "",
+        "locationConfig": "5af9fc4d33e3d5ba",
+        "phaseShift": "0",
+        "diurnalSwing": 1,
+        "seasonalSwing": 1,
+        "tickInterval": "20",
+        "decimals": "1",
+        "x": 560,
+        "y": 300,
+        "wires": [
+            [
+                "f4a3582e9b3726be"
+            ],
+            [
+                "2f6bd800c9979c6c"
+            ]
+        ]
+    },
+    {
+        "id": "a030ee2f8804a863",
+        "type": "digital-output",
+        "z": "88c6b96e78cf833d",
+        "name": "Main Lights",
+        "actuator": "lighting",
+        "channel": "1",
+        "mode": "digital",
+        "x": 1190,
+        "y": 260,
+        "wires": [
+            [
+                "2f6bd800c9979c6c"
+            ]
+        ]
+    },
+    {
+        "id": "a5ee427c8f782dfc",
+        "type": "digital-output",
+        "z": "88c6b96e78cf833d",
+        "name": "Auxilary Lights",
+        "actuator": "lighting",
+        "channel": "6",
+        "mode": "digital",
+        "x": 1200,
+        "y": 320,
+        "wires": [
+            [
+                "2f6bd800c9979c6c"
+            ]
+        ]
+    },
+    {
+        "id": "f5bca2f1b7480420",
+        "type": "sensor-measurement",
+        "z": "88c6b96e78cf833d",
+        "name": "Light Sensor",
+        "variable": "light",
+        "x": 570,
+        "y": 220,
+        "wires": [
+            [
+                "19459d7ed75c5df5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2f6bd800c9979c6c",
+        "type": "status aggregator",
+        "z": "88c6b96e78cf833d",
+        "name": "Lighting Status",
+        "x": 1480,
+        "y": 320,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "19459d7ed75c5df5",
+        "type": "template",
+        "z": "88c6b96e78cf833d",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.light}}",
+        "output": "str",
+        "x": 900,
+        "y": 180,
+        "wires": [
+            [
+                "d56b71c2375d7c0b",
+                "c1382f268f08be54"
+            ]
+        ]
+    },
+    {
+        "id": "4c6b2e8277ea7a30",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Toggle aux lights",
+        "func": "// Toggle output each time a message arrives\nlet auxLights = context.get('auxLights') || false;  // get previous state, default false\n\nauxLights = !auxLights;              // flip the state\ncontext.set('auxLights', auxLights); // remember it\n\nreturn { payload:{auxLighting: auxLights?\"on\":\"off\"} };   // send true/false (on/off)",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 440,
+        "wires": [
+            [
+                "a5ee427c8f782dfc"
+            ]
+        ]
+    },
+    {
+        "id": "7c33142b8ae8c86b",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Toggle main lights",
+        "func": "if( msg.payload.test ){\n    let mainLights = context.get('mainLights');\n    mainLights = !mainLights;\n    context.set('mainLights', mainLights);\n    return { payload:{lighting: mainLights?\"on\":\"off\"} }; \n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "a030ee2f8804a863"
+            ]
+        ]
+    },
+    {
+        "id": "cbcca632970ed674",
+        "type": "ui-button",
+        "z": "88c6b96e78cf833d",
+        "group": "02b81bca1b8536a8",
+        "name": "Test Main",
+        "label": "Test Main",
+        "order": 5,
+        "width": 1,
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 500,
+        "y": 400,
+        "wires": [
+            [
+                "7c33142b8ae8c86b"
+            ]
+        ]
+    },
+    {
+        "id": "b83642dbe2726d61",
+        "type": "ui-button",
+        "z": "88c6b96e78cf833d",
+        "group": "02b81bca1b8536a8",
+        "name": "Test Aux",
+        "label": "Test Aux",
+        "order": 4,
+        "width": 1,
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 500,
+        "y": 440,
+        "wires": [
+            [
+                "4c6b2e8277ea7a30"
+            ]
+        ]
+    },
+    {
+        "id": "d56b71c2375d7c0b",
+        "type": "ui-gauge",
+        "z": "88c6b96e78cf833d",
+        "name": "Light Gauge",
+        "group": "a9908ab557174656",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "Lux",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#a2ca6f",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "12000",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1190,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6e2483b21fb8a7df",
+        "type": "ui-template",
+        "z": "88c6b96e78cf833d",
+        "group": "02b81bca1b8536a8",
+        "page": "",
+        "ui": "",
+        "name": "Sunrise",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n<!-- Lighting Settings -->\n<div style=\"display:flex;flex-direction:column;gap:6px;\">\n    <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <label for=\"sunrise\">Sunrise</label>\n        <input id=\"sunrise\" type=\"time\" lang=\"en-GB\" step=\"60\"\n           style=\"border:none;background:transparent;text-align:right;\"\n           oninput=\"sendTime('sunrise', this.value)\">\n    </div>\n</div>\n\n<script>\n    (function(scope) {\n    scope.sendTime = function(label, value) {\n        scope.send({ topic: label, payload: value });\n        localStorage.setItem(`lighting_${label}`, value);\n    };\n\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n        ['sunrise', 'sunset'].forEach(id => {\n            const el = document.getElementById(id);\n            if (!el) return;\n            const stored = localStorage.getItem(`lighting_${id}`);\n            if (msg.topic === id && /^([01]\\d|2[0-3]):([0-5]\\d)$/.test(msg.payload)) {\n                el.value = msg.payload;\n                localStorage.setItem(`lighting_${id}`, msg.payload);\n            } else if (!msg.topic && stored) {\n                el.value = stored;\n            }\n        });\n    });\n})(scope);\n</script>\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 140,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d1f3dc1aa92c6035",
+        "type": "ui-template",
+        "z": "88c6b96e78cf833d",
+        "group": "02b81bca1b8536a8",
+        "page": "",
+        "ui": "",
+        "name": "Sunset",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n<!-- Lighting Settings -->\n<div style=\"display:flex;flex-direction:column;gap:6px;\">\n    <div style=\"display:flex;justify-content:space-between;align-items:center;\">\n        <label for=\"sunrise\">Sunrise</label>\n        <input id=\"sunrise\" type=\"time\" lang=\"en-GB\" step=\"60\"\n           style=\"border:none;background:transparent;text-align:right;\"\n           oninput=\"sendTime('sunrise', this.value)\">\n    </div>\n</div>\n\n<script>\n    (function(scope) {\n    scope.sendTime = function(label, value) {\n        scope.send({ topic: label, payload: value });\n        localStorage.setItem(`lighting_${label}`, value);\n    };\n\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n        ['sunrise', 'sunset'].forEach(id => {\n            const el = document.getElementById(id);\n            if (!el) return;\n            const stored = localStorage.getItem(`lighting_${id}`);\n            if (msg.topic === id && /^([01]\\d|2[0-3]):([0-5]\\d)$/.test(msg.payload)) {\n                el.value = msg.payload;\n                localStorage.setItem(`lighting_${id}`, msg.payload);\n            } else if (!msg.topic && stored) {\n                el.value = stored;\n            }\n        });\n    });\n})(scope);\n</script>\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 140,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "849cd6ed49a1fdb6",
+        "type": "ui-text",
+        "z": "88c6b96e78cf833d",
+        "group": "a9908ab557174656",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "Status: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 1340,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1c325d7f10082f8a",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Set 0% minimum",
+        "func": "msg.topic = \"absoluteMin\";\nmsg.payload = 0;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "16f818035533a75f"
+            ]
+        ]
+    },
+    {
+        "id": "1c4a1b844e807b1c",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Set 100% maximum",
+        "func": "msg.topic = \"absoluteMax\";\nmsg.payload = 100;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 320,
+        "wires": [
+            [
+                "16f818035533a75f"
+            ]
+        ]
+    },
+    {
+        "id": "f4a3582e9b3726be",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Format",
+        "func": "msg.topic = \"target\";\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 280,
+        "wires": [
+            [
+                "eac6b1e0a11d0689",
+                "c18a646be40c5a38",
+                "3a2b821aedbab5c3"
+            ]
+        ]
+    },
+    {
+        "id": "c18a646be40c5a38",
+        "type": "lighting controller",
+        "z": "88c6b96e78cf833d",
+        "name": "Auxiliary Lighting Controller",
+        "gain": "1",
+        "bottomCutOff": "38",
+        "mode": "digital",
+        "scheduleTime1": "",
+        "scheduleTime2": "",
+        "x": 980,
+        "y": 320,
+        "wires": [
+            [
+                "a5ee427c8f782dfc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3a2b821aedbab5c3",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Format",
+        "func": "const multiplier = 200;\nmsg.payload = (msg.payload-50)>=0?(msg.payload-50)*multiplier:0\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3a6edc58d29db0d",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Format",
+        "func": "msg.payload = msg.payload.state;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 400,
+        "wires": [
+            [
+                "849cd6ed49a1fdb6"
+            ]
+        ]
+    },
+    {
+        "id": "c1382f268f08be54",
+        "type": "ui-chart",
+        "z": "88c6b96e78cf833d",
+        "group": "a9908ab557174656",
+        "name": "Light Chart",
+        "label": "",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": "36",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#cccccc",
+            "#a2ca6f",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#292b2d"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 7,
+        "height": 4,
+        "className": "",
+        "interpolation": "smooth",
+        "x": 1190,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "095b18ad281a729b",
+        "type": "inject",
+        "z": "88c6b96e78cf833d",
+        "name": "Init pulse",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "1c325d7f10082f8a",
+                "1c4a1b844e807b1c"
+            ]
+        ]
     },
     {
         "id": "205b6bce-522f-46f9-9654-61feec61417c",
         "type": "sensor-measurement",
-        "z": "c0a854f2e62226f7",
+        "z": "88c6b96e78cf833d",
         "name": "UVB Sensor",
         "variable": "uvb",
         "sampleinterval": "",
-        "x": 450,
-        "y": 1440,
+        "x": 570,
+        "y": 760,
         "wires": [
             [
                 "0ebfdcaa4c731f9c"
@@ -2063,7 +3265,7 @@
     {
         "id": "159b6245-40d7-4ec7-b176-125a42997e9b",
         "type": "ui-gauge",
-        "z": "c0a854f2e62226f7",
+        "z": "88c6b96e78cf833d",
         "name": "UVB Gauge",
         "group": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
         "order": 1,
@@ -2117,49 +3319,16 @@
         "sizeGap": "4",
         "sizeKeyThickness": "8",
         "className": "",
-        "x": 870,
-        "y": 1440,
+        "x": 990,
+        "y": 760,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "4842d55fc547be75",
-        "type": "sensor-measurement",
-        "z": "c0a854f2e62226f7",
-        "name": "All sensor values",
-        "variable": "all",
-        "sampleinterval": "",
-        "x": 440,
-        "y": 40,
-        "wires": [
-            [
-                "4f6c381ea45deb9b"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "4f6c381ea45deb9b",
-        "type": "debug",
-        "z": "c0a854f2e62226f7",
-        "name": "Sensor values",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 640,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2",
         "type": "ui-chart",
-        "z": "c0a854f2e62226f7",
+        "z": "88c6b96e78cf833d",
         "group": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
         "name": "UV Chart",
         "label": "",
@@ -2212,16 +3381,149 @@
         "height": "4",
         "className": "",
         "interpolation": "smooth",
-        "x": 860,
-        "y": 1400,
+        "x": 980,
+        "y": 720,
         "wires": [
             []
         ]
     },
     {
+        "id": "da5c2e729f533aa3",
+        "type": "sensor-measurement",
+        "z": "88c6b96e78cf833d",
+        "name": "UVA Sensor",
+        "variable": "uva",
+        "sampleinterval": "",
+        "x": 570,
+        "y": 700,
+        "wires": [
+            [
+                "2801fe322eba12c7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a516b9a21f089d68",
+        "type": "sensor-measurement",
+        "z": "88c6b96e78cf833d",
+        "name": "UVC Sensor",
+        "variable": "uvc",
+        "sampleinterval": "",
+        "x": 570,
+        "y": 820,
+        "wires": [
+            [
+                "a92c8452b5e58725"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2801fe322eba12c7",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Format",
+        "func": "msg.topic = \"uva\";\nmsg.payload = msg.payload.uva\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 700,
+        "wires": [
+            [
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+            ]
+        ]
+    },
+    {
+        "id": "0ebfdcaa4c731f9c",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Format",
+        "func": "msg.topic = \"uvb\";\nmsg.payload = msg.payload.uvb\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 760,
+        "wires": [
+            [
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2",
+                "159b6245-40d7-4ec7-b176-125a42997e9b"
+            ]
+        ]
+    },
+    {
+        "id": "a92c8452b5e58725",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Format",
+        "func": "msg.topic = \"uvc\";\nmsg.payload = msg.payload.uvc\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 820,
+        "wires": [
+            [
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+            ]
+        ]
+    },
+    {
+        "id": "77808179689e653f",
+        "type": "comment",
+        "z": "88c6b96e78cf833d",
+        "name": "Visible spectrum light",
+        "info": "",
+        "x": 120,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0f092ba17de15a51",
+        "type": "comment",
+        "z": "88c6b96e78cf833d",
+        "name": "Light",
+        "info": "",
+        "x": 70,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "bada769d5682194a",
+        "type": "comment",
+        "z": "88c6b96e78cf833d",
+        "name": "UV spectrum light",
+        "info": "",
+        "x": 100,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "7a28b3139f61a0da",
+        "type": "comment",
+        "z": "88c6b96e78cf833d",
+        "name": "UV Light",
+        "info": "",
+        "x": 80,
+        "y": 520,
+        "wires": []
+    },
+    {
         "id": "fbb67b3f83f961e6",
         "type": "ui-switch",
-        "z": "c0a854f2e62226f7",
+        "z": "88c6b96e78cf833d",
         "name": "UVB required",
         "label": "UVB required",
         "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
@@ -2245,7 +3547,7 @@
         "officon": "",
         "offcolor": "",
         "x": 280,
-        "y": 1560,
+        "y": 900,
         "wires": [
             [
                 "fcbac3a4d9a38f65"
@@ -2255,7 +3557,7 @@
     {
         "id": "076c8671d746485a",
         "type": "ui-switch",
-        "z": "c0a854f2e62226f7",
+        "z": "88c6b96e78cf833d",
         "name": "UVC alarm",
         "label": "UVC alarm",
         "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
@@ -2279,7 +3581,7 @@
         "officon": "",
         "offcolor": "",
         "x": 270,
-        "y": 1620,
+        "y": 960,
         "wires": [
             [
                 "1a4e44df67a847c0"
@@ -2287,51 +3589,11 @@
         ]
     },
     {
-        "id": "b431b73c3aee3936",
+        "id": "7282fd7974418b81",
         "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Store",
-        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload, \"vivariumsettingsfile\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 240,
-        "wires": [
-            [
-                "b6d24c61bf7ca039"
-            ]
-        ]
-    },
-    {
-        "id": "30e986713b9cf221",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Store",
-        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,   \"vivariumsettingsfile\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 280,
-        "wires": [
-            [
-                "1cb314d3fad0b56a"
-            ]
-        ]
-    },
-    {
-        "id": "f85a613746667628",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
+        "z": "88c6b96e78cf833d",
         "name": "Recall",
-        "func": "const v = flow.get(\"vivarium.minimumTemperature\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "func": "const v = flow.get(\"vivarium.uvbRequired\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2339,19 +3601,19 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 240,
+        "y": 900,
         "wires": [
             [
-                "5117121a42594b22"
+                "fbb67b3f83f961e6"
             ]
         ]
     },
     {
-        "id": "fe0ef62128b9cfcc",
+        "id": "ef2db5cf91e3c7f6",
         "type": "function",
-        "z": "c0a854f2e62226f7",
+        "z": "88c6b96e78cf833d",
         "name": "Recall",
-        "func": "const v = flow.get(\"vivarium.maximumTemperature\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
+        "func": "const v = flow.get(\"vivarium.uvcAlarm\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2359,17 +3621,53 @@
         "finalize": "",
         "libs": [],
         "x": 110,
-        "y": 280,
+        "y": 960,
         "wires": [
             [
-                "0881a22599596138"
+                "076c8671d746485a"
             ]
         ]
     },
     {
-        "id": "492ace2f55cef324",
+        "id": "fcbac3a4d9a38f65",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1a4e44df67a847c0",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Store",
+        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5ff2776e6217eca9",
         "type": "inject",
-        "z": "c0a854f2e62226f7",
+        "z": "88c6b96e78cf833d",
         "name": "Init pulse",
         "props": [
             {
@@ -2387,1157 +3685,12 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 80,
-        "y": 80,
+        "x": 120,
+        "y": 760,
         "wires": [
             [
-                "f85a613746667628",
-                "fe0ef62128b9cfcc",
-                "15fb360ca76e8cb6",
-                "b6ae9fb9dc6d807f",
                 "7282fd7974418b81",
-                "ef2db5cf91e3c7f6",
-                "1c325d7f10082f8a",
-                "1c4a1b844e807b1c",
-                "afcbff4fda809649",
-                "e50bd51a08c2b2ac"
-            ]
-        ]
-    },
-    {
-        "id": "15fb360ca76e8cb6",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Recall",
-        "func": "const v = flow.get(\"vivarium.minimumHumidity\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 110,
-        "y": 600,
-        "wires": [
-            [
-                "2aee6582bf4df2ff"
-            ]
-        ]
-    },
-    {
-        "id": "b6ae9fb9dc6d807f",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Recall",
-        "func": "const v = flow.get(\"vivarium.maximumHumidity\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 110,
-        "y": 640,
-        "wires": [
-            [
-                "03e7c674cf6767aa"
-            ]
-        ]
-    },
-    {
-        "id": "359a7caf307c7fe3",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Store",
-        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 600,
-        "wires": [
-            [
-                "49df631afc30df51"
-            ]
-        ]
-    },
-    {
-        "id": "47ce135c94534feb",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Store",
-        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 640,
-        "wires": [
-            [
-                "cdf06cb3b65b9c1b"
-            ]
-        ]
-    },
-    {
-        "id": "7282fd7974418b81",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Recall",
-        "func": "const v = flow.get(\"vivarium.uvbRequired\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 110,
-        "y": 1560,
-        "wires": [
-            [
-                "fbb67b3f83f961e6"
-            ]
-        ]
-    },
-    {
-        "id": "ef2db5cf91e3c7f6",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Recall",
-        "func": "const v = flow.get(\"vivarium.uvcAlarm\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 110,
-        "y": 1620,
-        "wires": [
-            [
-                "076c8671d746485a"
-            ]
-        ]
-    },
-    {
-        "id": "fcbac3a4d9a38f65",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Store",
-        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 1560,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1a4e44df67a847c0",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Store",
-        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 1620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b6d24c61bf7ca039",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"absoluteMin\";\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 240,
-        "wires": [
-            [
-                "1589282f12a5c631"
-            ]
-        ]
-    },
-    {
-        "id": "1cb314d3fad0b56a",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"absoluteMax\";\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 580,
-        "y": 280,
-        "wires": [
-            [
-                "1589282f12a5c631"
-            ]
-        ]
-    },
-    {
-        "id": "49df631afc30df51",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"absoluteMin\";\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 600,
-        "wires": [
-            [
-                "6f2821f6469e2e25"
-            ]
-        ]
-    },
-    {
-        "id": "cdf06cb3b65b9c1b",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"absoluteMax\";\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 640,
-        "wires": [
-            [
-                "6f2821f6469e2e25"
-            ]
-        ]
-    },
-    {
-        "id": "3236fd72cef32005",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"sensor\";\nmsg.payload = msg.payload.temperature;\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 940,
-        "y": 220,
-        "wires": [
-            [
-                "144a01e7f0dd298d"
-            ]
-        ]
-    },
-    {
-        "id": "7af7491042c2835c",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"target\";\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 940,
-        "y": 260,
-        "wires": [
-            [
-                "144a01e7f0dd298d",
-                "673deaaa902483da"
-            ]
-        ]
-    },
-    {
-        "id": "5bd21e17c7477ba7",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"sensor\";\nmsg.payload = msg.payload.humidity;\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 940,
-        "y": 560,
-        "wires": [
-            [
-                "d44fa9863bcdba16"
-            ]
-        ]
-    },
-    {
-        "id": "5ea46a13affe3368",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"target\";\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 940,
-        "y": 600,
-        "wires": [
-            [
-                "d44fa9863bcdba16",
-                "80a6fee06bad3a98"
-            ]
-        ]
-    },
-    {
-        "id": "1c325d7f10082f8a",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Set 0% minimum",
-        "func": "msg.topic = \"absoluteMin\";\nmsg.payload = 0;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 980,
-        "wires": [
-            [
-                "16f818035533a75f"
-            ]
-        ]
-    },
-    {
-        "id": "1c4a1b844e807b1c",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Set 100% maximum",
-        "func": "msg.topic = \"absoluteMax\";\nmsg.payload = 100;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 520,
-        "y": 1020,
-        "wires": [
-            [
-                "16f818035533a75f"
-            ]
-        ]
-    },
-    {
-        "id": "f4a3582e9b3726be",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"target\";\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 920,
-        "y": 980,
-        "wires": [
-            [
-                "eac6b1e0a11d0689",
-                "c18a646be40c5a38",
-                "3a2b821aedbab5c3"
-            ]
-        ]
-    },
-    {
-        "id": "c18a646be40c5a38",
-        "type": "lighting controller",
-        "z": "c0a854f2e62226f7",
-        "name": "Auxiliary Lighting Controller",
-        "gain": "1",
-        "bottomCutOff": "38",
-        "mode": "digital",
-        "scheduleTime1": "",
-        "scheduleTime2": "",
-        "x": 1160,
-        "y": 1020,
-        "wires": [
-            [
-                "a5ee427c8f782dfc"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "3a2b821aedbab5c3",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "const multiplier = 200;\nmsg.payload = (msg.payload-50)>=0?(msg.payload-50)*multiplier:0\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1100,
-        "y": 920,
-        "wires": [
-            [
-                "c1382f268f08be54"
-            ]
-        ]
-    },
-    {
-        "id": "b953255c7a8b8342",
-        "type": "ui-control",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "ui": "686c46360e79bd75",
-        "events": "all",
-        "x": 440,
-        "y": 1800,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e79bbef708ea3dd7",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "name": "Editor",
-        "label": "Editor",
-        "order": 2,
-        "width": 1,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "pencil",
-        "iconPosition": "left",
-        "payload": "{\"url\":\"/editor\",\"target\":\"_blank\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 270,
-        "y": 1780,
-        "wires": [
-            [
-                "b953255c7a8b8342"
-            ]
-        ]
-    },
-    {
-        "id": "692d3b4d1c830151",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "name": "GitHub",
-        "label": "GitHub",
-        "order": 3,
-        "width": 1,
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "mdi-github",
-        "iconPosition": "left",
-        "payload": "{\"url\":\"https://github.com/Freya-Vivariums\",\"target\":\"_blank\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 280,
-        "y": 1820,
-        "wires": [
-            [
-                "b953255c7a8b8342"
-            ]
-        ]
-    },
-    {
-        "id": "6cb5fa026c5c46a9",
-        "type": "ui-number-input",
-        "z": "c0a854f2e62226f7",
-        "group": "f5e57c98baa75735",
-        "name": "Interval",
-        "label": "Precipitation Interval",
-        "order": 4,
-        "width": "1",
-        "height": "1",
-        "topic": "precipitationInterval",
-        "topicType": "str",
-        "min": "1",
-        "max": "400",
-        "step": "10",
-        "tooltip": "The interval, in minutes, between precipitation events",
-        "delay": "0",
-        "passthru": true,
-        "sendOnDelay": false,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "spinner": "default",
-        "x": 260,
-        "y": 740,
-        "wires": [
-            [
-                "6c0a892317ba0e35"
-            ]
-        ]
-    },
-    {
-        "id": "7a78e7c9bde33bf6",
-        "type": "ui-number-input",
-        "z": "c0a854f2e62226f7",
-        "group": "f5e57c98baa75735",
-        "name": "Duration",
-        "label": "Precipitation Duration",
-        "order": 5,
-        "width": "1",
-        "height": "1",
-        "topic": "precipitationDuration",
-        "topicType": "str",
-        "min": "0",
-        "max": "100",
-        "step": "1",
-        "tooltip": "The duration of a precipitation event, in seconds",
-        "delay": "0",
-        "passthru": true,
-        "sendOnDelay": false,
-        "sendOnBlur": true,
-        "sendOnEnter": true,
-        "className": "",
-        "clearable": false,
-        "icon": "",
-        "iconPosition": "left",
-        "iconInnerPosition": "inside",
-        "spinner": "default",
-        "x": 260,
-        "y": 780,
-        "wires": [
-            [
-                "ec09f0bf4a95e8ad"
-            ]
-        ]
-    },
-    {
-        "id": "afcbff4fda809649",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Recall",
-        "func": "const v = flow.get(\"vivarium.precipitationInterval\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 110,
-        "y": 740,
-        "wires": [
-            [
-                "6cb5fa026c5c46a9"
-            ]
-        ]
-    },
-    {
-        "id": "e50bd51a08c2b2ac",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Recall",
-        "func": "const v = flow.get(\"vivarium.precipitationDuration\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 110,
-        "y": 780,
-        "wires": [
-            [
-                "7a78e7c9bde33bf6"
-            ]
-        ]
-    },
-    {
-        "id": "6c0a892317ba0e35",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Store",
-        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 740,
-        "wires": [
-            [
-                "18c2b6fed2711d71"
-            ]
-        ]
-    },
-    {
-        "id": "ec09f0bf4a95e8ad",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Store",
-        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 780,
-        "wires": [
-            [
-                "6d639e3afbed4c0a"
-            ]
-        ]
-    },
-    {
-        "id": "18c2b6fed2711d71",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"interval\";\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 740,
-        "wires": [
-            [
-                "5c23dfdcc1dc077c"
-            ]
-        ]
-    },
-    {
-        "id": "6d639e3afbed4c0a",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"duration\";\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 780,
-        "wires": [
-            [
-                "5c23dfdcc1dc077c"
-            ]
-        ]
-    },
-    {
-        "id": "584d7513dd9a750a",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.payload = msg.payload.state;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1360,
-        "y": 700,
-        "wires": [
-            [
-                "e7274d3a41f1f1fb"
-            ]
-        ]
-    },
-    {
-        "id": "a04884562093142c",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.payload = msg.payload.state;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1360,
-        "y": 340,
-        "wires": [
-            [
-                "1ae273e6283c9109"
-            ]
-        ]
-    },
-    {
-        "id": "1ae273e6283c9109",
-        "type": "ui-text",
-        "z": "c0a854f2e62226f7",
-        "group": "58721ee298d6b49c",
-        "order": 3,
-        "width": 2,
-        "height": "1",
-        "name": "",
-        "label": "Status: ",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 1520,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "c3a6edc58d29db0d",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.payload = msg.payload.state;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1360,
-        "y": 1100,
-        "wires": [
-            [
-                "849cd6ed49a1fdb6"
-            ]
-        ]
-    },
-    {
-        "id": "91ed6f698557540a",
-        "type": "ui-switch",
-        "z": "c0a854f2e62226f7",
-        "name": "NightDisable",
-        "label": "Nighttime Disable",
-        "group": "f5e57c98baa75735",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": false,
-        "topic": "precipitationNighttimeDisable",
-        "topicType": "str",
-        "style": "",
-        "className": "",
-        "layout": "row-spread",
-        "clickableArea": "line",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 270,
-        "y": 820,
-        "wires": [
-            [
-                "dc20db9541d7dab7"
-            ]
-        ]
-    },
-    {
-        "id": "29dd53e74382192d",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Recall",
-        "func": "const v = flow.get(\"vivarium.precipitationNighttimeDisable\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 110,
-        "y": 820,
-        "wires": [
-            [
-                "91ed6f698557540a"
-            ]
-        ]
-    },
-    {
-        "id": "dc20db9541d7dab7",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Store",
-        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 820,
-        "wires": [
-            [
-                "e9c1cd1888e1f5aa"
-            ]
-        ]
-    },
-    {
-        "id": "e9c1cd1888e1f5aa",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"nightDisable\";\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 560,
-        "y": 820,
-        "wires": [
-            [
-                "5c23dfdcc1dc077c"
-            ]
-        ]
-    },
-    {
-        "id": "c5318758f471ddba",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "isNight",
-        "func": "msg.topic = \"night\";\nif( msg.payload === 'off'){\n    msg.payload = true;\n}\nelse{\n    msg.payload = false;\n}\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 570,
-        "y": 860,
-        "wires": [
-            [
-                "5c23dfdcc1dc077c"
-            ]
-        ]
-    },
-    {
-        "id": "da5c2e729f533aa3",
-        "type": "sensor-measurement",
-        "z": "c0a854f2e62226f7",
-        "name": "UVA Sensor",
-        "variable": "uva",
-        "sampleinterval": "",
-        "x": 450,
-        "y": 1380,
-        "wires": [
-            [
-                "2801fe322eba12c7"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "a516b9a21f089d68",
-        "type": "sensor-measurement",
-        "z": "c0a854f2e62226f7",
-        "name": "UVC Sensor",
-        "variable": "uvc",
-        "sampleinterval": "",
-        "x": 450,
-        "y": 1500,
-        "wires": [
-            [
-                "a92c8452b5e58725"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "2801fe322eba12c7",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"uva\";\nmsg.payload = msg.payload.uva\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 1380,
-        "wires": [
-            [
-                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
-            ]
-        ]
-    },
-    {
-        "id": "0ebfdcaa4c731f9c",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"uvb\";\nmsg.payload = msg.payload.uvb\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 1440,
-        "wires": [
-            [
-                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2",
-                "159b6245-40d7-4ec7-b176-125a42997e9b"
-            ]
-        ]
-    },
-    {
-        "id": "a92c8452b5e58725",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Format",
-        "func": "msg.topic = \"uvc\";\nmsg.payload = msg.payload.uvc\nreturn msg",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 620,
-        "y": 1500,
-        "wires": [
-            [
-                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
-            ]
-        ]
-    },
-    {
-        "id": "60951ad0a144e0bd",
-        "type": "ui-template",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "page": "",
-        "ui": "",
-        "name": "Power Menu",
-        "order": 0,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n  <v-dialog v-model=\"showDialog\" max-width=\"320\">\n    <v-card>\n      <v-card-title class=\"text-h6\">System Power</v-card-title>\n      <v-card-text>Active control will be interrupted.</v-card-text>\n      <v-card-actions>\n        <v-btn @click=\"doAction('reboot')\" color=\"warning\" variant=\"tonal\" prepend-icon=\"mdi-restart\">\n          Reboot\n        </v-btn>\n        <v-btn @click=\"doAction('shutdown')\" color=\"error\" variant=\"tonal\" prepend-icon=\"mdi-power\">\n          Shutdown\n        </v-btn>\n        <v-spacer />\n        <v-btn @click=\"showDialog = false\" variant=\"text\">Cancel</v-btn>\n      </v-card-actions>\n    </v-card>\n  </v-dialog>\n</template>\n\n<script>\n  export default {\n    data() {\n      return { showDialog: false }\n    },\n    mounted() {\n      // collapse the widget wrapper so it takes no grid space\n      const wrapper = this.$el.parentElement\n      if (wrapper) {\n        wrapper.style.display = 'contents'\n      }\n    },\n    watch: {\n      msg() {\n        this.showDialog = true\n      }\n    },\n    methods: {\n      doAction(action) {\n        this.showDialog = false\n        this.send({ payload: action })\n      }\n    }\n  }\n</script>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 450,
-        "y": 1720,
-        "wires": [
-            [
-                "07916f0eb5ec6586",
-                "5f9ace766f71365f"
-            ]
-        ]
-    },
-    {
-        "id": "0f148524871c217a",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "name": "Power",
-        "label": "Power",
-        "order": 2,
-        "width": 1,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "mdi-power",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 270,
-        "y": 1720,
-        "wires": [
-            [
-                "60951ad0a144e0bd"
-            ]
-        ]
-    },
-    {
-        "id": "82a1ec9ad78a9cac",
-        "type": "exec",
-        "z": "c0a854f2e62226f7",
-        "command": "shutdown -r now",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Shutdown",
-        "x": 740,
-        "y": 1680,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "79c623a0c7a6e1b0",
-        "type": "exec",
-        "z": "c0a854f2e62226f7",
-        "command": "reboot",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Reboot",
-        "x": 740,
-        "y": 1760,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "07916f0eb5ec6586",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Filter",
-        "func": "if (msg.payload === 'shutdown') return msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 1700,
-        "wires": [
-            [
-                "82a1ec9ad78a9cac"
-            ]
-        ]
-    },
-    {
-        "id": "5f9ace766f71365f",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Filter",
-        "func": "if (msg.payload === 'reboot') return msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 610,
-        "y": 1740,
-        "wires": [
-            [
-                "79c623a0c7a6e1b0"
+                "ef2db5cf91e3c7f6"
             ]
         ]
     }
