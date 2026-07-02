@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-System-v0.3.1",
+        "label": "Freya-System-v0.3.2",
         "disabled": false,
         "info": "",
         "env": []
@@ -29,6 +29,14 @@
         "label": "Freya-Light-v0.3.2",
         "disabled": false,
         "info": "",
+        "env": []
+    },
+    {
+        "id": "1d33f87b44f5861e",
+        "type": "tab",
+        "label": "Misc-v0.3.1",
+        "disabled": false,
+        "info": "Other measurements and dashboard components",
         "env": []
     },
     {
@@ -253,7 +261,7 @@
         "page": "4dd404b8d16154d5",
         "width": 12,
         "height": 1,
-        "order": 11,
+        "order": 13,
         "showTitle": false,
         "className": "",
         "visible": "true",
@@ -347,6 +355,45 @@
         "order": 3,
         "width": 1,
         "height": 1,
+        "className": ""
+    },
+    {
+        "id": "7719a25965bb0415",
+        "type": "ui-group",
+        "name": "Air VOC Monitor",
+        "page": "4dd404b8d16154d5",
+        "width": "9",
+        "height": 1,
+        "order": 12,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "d307dc08f128d6b2",
+        "type": "ui-group",
+        "name": "Air Quality Settings",
+        "page": "4dd404b8d16154d5",
+        "width": "3",
+        "height": 1,
+        "order": 11,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "295d35946b6c3672",
+        "type": "ui-spacer",
+        "group": "d307dc08f128d6b2",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 1,
+        "width": "3",
+        "height": "3",
         "className": ""
     },
     {
@@ -553,39 +600,6 @@
                 "c1cdcfccad7409d6"
             ]
         ]
-    },
-    {
-        "id": "4842d55fc547be75",
-        "type": "sensor-measurement",
-        "z": "c0a854f2e62226f7",
-        "name": "All sensor values",
-        "variable": "all",
-        "sampleinterval": "",
-        "x": 120,
-        "y": 780,
-        "wires": [
-            [
-                "4f6c381ea45deb9b"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "4f6c381ea45deb9b",
-        "type": "debug",
-        "z": "c0a854f2e62226f7",
-        "name": "Sensor values",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 320,
-        "y": 780,
-        "wires": []
     },
     {
         "id": "b953255c7a8b8342",
@@ -862,26 +876,6 @@
         "info": "",
         "x": 270,
         "y": 380,
-        "wires": []
-    },
-    {
-        "id": "7be8679a704e82d4",
-        "type": "comment",
-        "z": "c0a854f2e62226f7",
-        "name": "System debugging",
-        "info": "",
-        "x": 110,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "265b0237a1bdce88",
-        "type": "comment",
-        "z": "c0a854f2e62226f7",
-        "name": "Nodes related to developing and debugging the system",
-        "info": "",
-        "x": 220,
-        "y": 720,
         "wires": []
     },
     {
@@ -1481,226 +1475,18 @@
         ]
     },
     {
-        "id": "68778245ec10f3ab",
-        "type": "sensor-measurement",
+        "id": "4c8c39f71bf9fea6",
+        "type": "link in",
         "z": "e0de5f1a89be7055",
-        "name": "Pressure",
-        "variable": "pressure",
-        "sampleinterval": "",
-        "x": 740,
-        "y": 560,
-        "wires": [
-            [
-                "c6e680047593b7a6"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "c6e680047593b7a6",
-        "type": "template",
-        "z": "e0de5f1a89be7055",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.pressure}}",
-        "output": "str",
-        "x": 900,
-        "y": 560,
-        "wires": [
-            [
-                "706121d25167f537",
-                "d53e4abac86221b8",
-                "a30bb48351e7d448"
-            ]
-        ]
-    },
-    {
-        "id": "d53e4abac86221b8",
-        "type": "ui-gauge",
-        "z": "e0de5f1a89be7055",
-        "name": "Pressure Gauge",
-        "group": "8ff445038f0d559b",
-        "order": 1,
-        "value": "payload",
-        "valueType": "msg",
-        "width": 2,
-        "height": 3,
-        "gtype": "gauge-34",
-        "gstyle": "rounded",
-        "title": "",
-        "alwaysShowTitle": false,
-        "floatingTitlePosition": "top-left",
-        "units": "",
-        "icon": "",
-        "prefix": "",
-        "suffix": "hPa",
-        "segments": [
-            {
-                "from": "0",
-                "color": "#a2ca6f",
-                "text": "",
-                "textType": "label"
-            }
+        "name": "Toggle Fans Link",
+        "links": [
+            "af8be32a093a3a95"
         ],
-        "min": "750",
-        "max": "1040",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
-        "styleRounded": true,
-        "styleGlow": false,
-        "className": "",
-        "x": 1160,
-        "y": 580,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "706121d25167f537",
-        "type": "ui-chart",
-        "z": "e0de5f1a89be7055",
-        "group": "8ff445038f0d559b",
-        "name": "Pressure Chart",
-        "label": "",
-        "order": 2,
-        "chartType": "line",
-        "category": "topic",
-        "categoryType": "msg",
-        "xAxisLabel": "",
-        "xAxisProperty": "",
-        "xAxisPropertyType": "timestamp",
-        "xAxisType": "time",
-        "xAxisFormat": "",
-        "xAxisFormatType": "auto",
-        "xmin": "",
-        "xmax": "",
-        "yAxisLabel": "",
-        "yAxisProperty": "payload",
-        "yAxisPropertyType": "msg",
-        "ymin": "",
-        "ymax": "",
-        "bins": 10,
-        "action": "append",
-        "stackSeries": false,
-        "pointShape": "false",
-        "pointRadius": 4,
-        "showLegend": false,
-        "removeOlder": "36",
-        "removeOlderUnit": "3600",
-        "removeOlderPoints": "",
-        "colors": [
-            "#a2ca6f",
-            "#ff0000",
-            "#ff7f0e",
-            "#2ca02c",
-            "#a347e1",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "textColor": [
-            "#292b2d"
-        ],
-        "textColorDefault": false,
-        "gridColor": [
-            "#e5e5e5"
-        ],
-        "gridColorDefault": true,
-        "width": 7,
-        "height": 4,
-        "className": "",
-        "interpolation": "smooth",
-        "x": 1160,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a30bb48351e7d448",
-        "type": "ui-text",
-        "z": "e0de5f1a89be7055",
-        "group": "8ff445038f0d559b",
-        "order": 3,
-        "width": 2,
-        "height": "1",
-        "name": "",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 1130,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "54fe9e766a5c5396",
-        "type": "function",
-        "z": "e0de5f1a89be7055",
-        "name": "Toggle fans",
-        "func": "// Toggle output each time a message arrives\nlet fans = context.get('fans') || false;  // get previous state, default false\n\nfans = !fans;              // flip the state\ncontext.set('fans', fans); // remember it\n\nreturn { payload:{cooler: fans?\"on\":\"off\"} };   // send true/false (on/off)",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1150,
-        "y": 420,
+        "x": 1155,
+        "y": 380,
         "wires": [
             [
                 "0c6df0b11131a8c9"
-            ]
-        ]
-    },
-    {
-        "id": "1ee1b80395c36f00",
-        "type": "ui-button",
-        "z": "e0de5f1a89be7055",
-        "group": "70e72a51ea68dfb2",
-        "name": "Test",
-        "label": "Test",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "iconPosition": "left",
-        "payload": "{\"test\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 770,
-        "y": 420,
-        "wires": [
-            [
-                "54fe9e766a5c5396"
             ]
         ]
     },
@@ -3248,7 +3034,7 @@
         "units": "",
         "icon": "",
         "prefix": "",
-        "suffix": "W/m2",
+        "suffix": "μW/cm²",
         "segments": [
             {
                 "from": "0",
@@ -3784,5 +3570,539 @@
                 "fdbe34ac80d292f8"
             ]
         ]
+    },
+    {
+        "id": "68778245ec10f3ab",
+        "type": "sensor-measurement",
+        "z": "1d33f87b44f5861e",
+        "name": "Pressure",
+        "variable": "pressure",
+        "sampleinterval": "",
+        "x": 140,
+        "y": 340,
+        "wires": [
+            [
+                "c6e680047593b7a6"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c6e680047593b7a6",
+        "type": "template",
+        "z": "1d33f87b44f5861e",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.pressure}}",
+        "output": "str",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "706121d25167f537",
+                "d53e4abac86221b8",
+                "a30bb48351e7d448"
+            ]
+        ]
+    },
+    {
+        "id": "d53e4abac86221b8",
+        "type": "ui-gauge",
+        "z": "1d33f87b44f5861e",
+        "name": "Pressure Gauge",
+        "group": "8ff445038f0d559b",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "hPa",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#a2ca6f",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "750",
+        "max": "1040",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 560,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "706121d25167f537",
+        "type": "ui-chart",
+        "z": "1d33f87b44f5861e",
+        "group": "8ff445038f0d559b",
+        "name": "Pressure Chart",
+        "label": "",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": "36",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#a2ca6f",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#292b2d"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 7,
+        "height": 4,
+        "className": "",
+        "interpolation": "smooth",
+        "x": 560,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a30bb48351e7d448",
+        "type": "ui-text",
+        "z": "1d33f87b44f5861e",
+        "group": "8ff445038f0d559b",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "Status: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 540,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "17417b54b8fc755e",
+        "type": "sensor-measurement",
+        "z": "1d33f87b44f5861e",
+        "name": "VOC resistance",
+        "variable": "all",
+        "sampleinterval": "",
+        "x": 120,
+        "y": 700,
+        "wires": [
+            [
+                "057945aa7e7e7814"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "057945aa7e7e7814",
+        "type": "template",
+        "z": "1d33f87b44f5861e",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.resistance}}",
+        "output": "str",
+        "x": 300,
+        "y": 700,
+        "wires": [
+            [
+                "7179bee98bf6f429",
+                "1146660e7e497f04",
+                "8d623690b389f0ea"
+            ]
+        ]
+    },
+    {
+        "id": "1146660e7e497f04",
+        "type": "ui-gauge",
+        "z": "1d33f87b44f5861e",
+        "name": "Air VOC Gauge",
+        "group": "7719a25965bb0415",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "",
+        "prefix": "",
+        "suffix": "Ohm",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#a2ca6f",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "6000",
+        "max": "14000",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 560,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7179bee98bf6f429",
+        "type": "ui-chart",
+        "z": "1d33f87b44f5861e",
+        "group": "7719a25965bb0415",
+        "name": "Air VOC Chart",
+        "label": "",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": false,
+        "removeOlder": "36",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#a2ca6f",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#292b2d"
+        ],
+        "textColorDefault": false,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 7,
+        "height": 4,
+        "className": "",
+        "interpolation": "smooth",
+        "x": 560,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d623690b389f0ea",
+        "type": "ui-text",
+        "z": "1d33f87b44f5861e",
+        "group": "7719a25965bb0415",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "Status: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 540,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "43873262dcb3500e",
+        "type": "comment",
+        "z": "1d33f87b44f5861e",
+        "name": "Barometric pressure",
+        "info": "",
+        "x": 110,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "31caab1352756910",
+        "type": "comment",
+        "z": "1d33f87b44f5861e",
+        "name": "Air Pressure",
+        "info": "",
+        "x": 90,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "fd8817281a2b7c15",
+        "type": "comment",
+        "z": "1d33f87b44f5861e",
+        "name": "Air resistivity because of VOCs",
+        "info": "",
+        "x": 150,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "cd75fc16e5affd65",
+        "type": "comment",
+        "z": "1d33f87b44f5861e",
+        "name": "Air Quality",
+        "info": "",
+        "x": 80,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f23f519861584441",
+        "type": "function",
+        "z": "1d33f87b44f5861e",
+        "name": "Toggle fans",
+        "func": "// Toggle output each time a message arrives\nlet fans = context.get('fans') || false;  // get previous state, default false\n\nfans = !fans;              // flip the state\ncontext.set('fans', fans); // remember it\n\nreturn { payload:{cooler: fans?\"on\":\"off\"} };   // send true/false (on/off)",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 500,
+        "wires": [
+            [
+                "af8be32a093a3a95"
+            ]
+        ]
+    },
+    {
+        "id": "da2707db286fa2e6",
+        "type": "ui-button",
+        "z": "1d33f87b44f5861e",
+        "group": "d307dc08f128d6b2",
+        "name": "Test",
+        "label": "Test",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 310,
+        "y": 620,
+        "wires": [
+            [
+                "f23f519861584441"
+            ]
+        ]
+    },
+    {
+        "id": "af8be32a093a3a95",
+        "type": "link out",
+        "z": "1d33f87b44f5861e",
+        "name": "Toggle Fans Link",
+        "mode": "link",
+        "links": [
+            "4c8c39f71bf9fea6"
+        ],
+        "x": 745,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "9a0cccfe34f117aa",
+        "type": "ui-button",
+        "z": "1d33f87b44f5861e",
+        "group": "70e72a51ea68dfb2",
+        "name": "Test",
+        "label": "Test",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 310,
+        "y": 420,
+        "wires": [
+            [
+                "f23f519861584441"
+            ]
+        ]
+    },
+    {
+        "id": "4842d55fc547be75",
+        "type": "sensor-measurement",
+        "z": "1d33f87b44f5861e",
+        "name": "All sensor values",
+        "variable": "all",
+        "sampleinterval": "",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "4f6c381ea45deb9b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "4f6c381ea45deb9b",
+        "type": "debug",
+        "z": "1d33f87b44f5861e",
+        "name": "Sensor values",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "7be8679a704e82d4",
+        "type": "comment",
+        "z": "1d33f87b44f5861e",
+        "name": "Sensor Measurements",
+        "info": "",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "265b0237a1bdce88",
+        "type": "comment",
+        "z": "1d33f87b44f5861e",
+        "name": "All sensor measurements in debug console",
+        "info": "",
+        "x": 180,
+        "y": 80,
+        "wires": []
     }
 ]
