@@ -26,7 +26,7 @@
     {
         "id": "88c6b96e78cf833d",
         "type": "tab",
-        "label": "Freya-Light-v0.3.1",
+        "label": "Freya-Light-v0.3.2",
         "disabled": false,
         "info": "",
         "env": []
@@ -294,24 +294,13 @@
         "className": ""
     },
     {
-        "id": "c0e2700bc5258b28",
-        "type": "ui-spacer",
-        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
-        "name": "spacer",
-        "tooltip": "",
-        "order": 3,
-        "width": 1,
-        "height": 1,
-        "className": ""
-    },
-    {
         "id": "5ff8494f6a16f03e",
         "type": "ui-spacer",
         "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
         "name": "spacer",
         "tooltip": "",
-        "order": 4,
-        "width": 1,
+        "order": 2,
+        "width": "3",
         "height": 1,
         "className": ""
     },
@@ -321,30 +310,8 @@
         "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
         "name": "spacer",
         "tooltip": "",
-        "order": 5,
-        "width": 1,
-        "height": 1,
-        "className": ""
-    },
-    {
-        "id": "5a3046c954fe3883",
-        "type": "ui-spacer",
-        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
-        "name": "spacer",
-        "tooltip": "",
-        "order": 6,
-        "width": 1,
-        "height": 1,
-        "className": ""
-    },
-    {
-        "id": "ca75d6cdb912a6b5",
-        "type": "ui-spacer",
-        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
-        "name": "spacer",
-        "tooltip": "",
-        "order": 7,
-        "width": 1,
+        "order": 3,
+        "width": "3",
         "height": 1,
         "className": ""
     },
@@ -354,7 +321,7 @@
         "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
         "name": "spacer",
         "tooltip": "",
-        "order": 8,
+        "order": 6,
         "width": 1,
         "height": 1,
         "className": ""
@@ -555,7 +522,7 @@
         "group": "2ca1bfb3a45d421a",
         "name": "Identify",
         "label": "Identify",
-        "order": 1,
+        "order": 2,
         "width": "1",
         "height": "1",
         "emulateClick": false,
@@ -640,7 +607,7 @@
         "group": "2ca1bfb3a45d421a",
         "name": "Editor",
         "label": "Editor",
-        "order": 2,
+        "order": 5,
         "width": 1,
         "height": 0,
         "emulateClick": false,
@@ -679,7 +646,7 @@
         "group": "2ca1bfb3a45d421a",
         "name": "GitHub",
         "label": "GitHub",
-        "order": 3,
+        "order": 4,
         "width": 1,
         "height": "1",
         "emulateClick": false,
@@ -719,7 +686,7 @@
         "page": "",
         "ui": "",
         "name": "Power Menu",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "head": "",
@@ -745,7 +712,7 @@
         "group": "2ca1bfb3a45d421a",
         "name": "Power",
         "label": "Power",
-        "order": 2,
+        "order": 3,
         "width": 1,
         "height": 0,
         "emulateClick": false,
@@ -2687,7 +2654,7 @@
         "z": "88c6b96e78cf833d",
         "name": "Main Lighting Controller",
         "gain": "1",
-        "bottomCutOff": "43",
+        "bottomCutOff": "60",
         "mode": "digital",
         "scheduleTime1": "",
         "scheduleTime2": "",
@@ -3093,7 +3060,8 @@
             [
                 "eac6b1e0a11d0689",
                 "c18a646be40c5a38",
-                "3a2b821aedbab5c3"
+                "3a2b821aedbab5c3",
+                "ebef7877adda952a"
             ]
         ]
     },
@@ -3103,7 +3071,7 @@
         "z": "88c6b96e78cf833d",
         "name": "Auxiliary Lighting Controller",
         "gain": "1",
-        "bottomCutOff": "38",
+        "bottomCutOff": "52",
         "mode": "digital",
         "scheduleTime1": "",
         "scheduleTime2": "",
@@ -3476,7 +3444,8 @@
         "y": 820,
         "wires": [
             [
-                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2",
+                "fdbe34ac80d292f8"
             ]
         ]
     },
@@ -3555,40 +3524,6 @@
         ]
     },
     {
-        "id": "076c8671d746485a",
-        "type": "ui-switch",
-        "z": "88c6b96e78cf833d",
-        "name": "UVC alarm",
-        "label": "UVC alarm",
-        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "decouple": false,
-        "topic": "uvcAlarm",
-        "topicType": "str",
-        "style": "",
-        "className": "",
-        "layout": "row-spread",
-        "clickableArea": "line",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "x": 270,
-        "y": 960,
-        "wires": [
-            [
-                "1a4e44df67a847c0"
-            ]
-        ]
-    },
-    {
         "id": "7282fd7974418b81",
         "type": "function",
         "z": "88c6b96e78cf833d",
@@ -3609,26 +3544,6 @@
         ]
     },
     {
-        "id": "ef2db5cf91e3c7f6",
-        "type": "function",
-        "z": "88c6b96e78cf833d",
-        "name": "Recall",
-        "func": "const v = flow.get(\"vivarium.uvcAlarm\",  \"vivariumsettingsfile\");\nif (v !== undefined) return { payload: v };\nreturn null;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 110,
-        "y": 960,
-        "wires": [
-            [
-                "076c8671d746485a"
-            ]
-        ]
-    },
-    {
         "id": "fcbac3a4d9a38f65",
         "type": "function",
         "z": "88c6b96e78cf833d",
@@ -3642,24 +3557,6 @@
         "libs": [],
         "x": 450,
         "y": 900,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1a4e44df67a847c0",
-        "type": "function",
-        "z": "88c6b96e78cf833d",
-        "name": "Store",
-        "func": "flow.set(\"vivarium.\" + msg.topic, msg.payload,  \"vivariumsettingsfile\");\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 450,
-        "y": 960,
         "wires": [
             []
         ]
@@ -3689,8 +3586,202 @@
         "y": 760,
         "wires": [
             [
-                "7282fd7974418b81",
-                "ef2db5cf91e3c7f6"
+                "7282fd7974418b81"
+            ]
+        ]
+    },
+    {
+        "id": "0f7ecbd0c82aedd9",
+        "type": "digital-output",
+        "z": "88c6b96e78cf833d",
+        "name": "UVB Lights",
+        "actuator": "lighting",
+        "channel": "4",
+        "mode": "digital",
+        "x": 1190,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "80d49c93c8158e66",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Toggle UV lights",
+        "func": "// Toggle output each time a message arrives\nlet uvLights = context.get('uvLights') || false;  // get previous state, default false\n\nuvLights = !uvLights;              // flip the state\ncontext.set('uvLights', uvLights); // remember it\n\nreturn { payload:{lighting: uvLights?\"on\":\"off\"} };   // send true/false (on/off)",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 640,
+        "wires": [
+            [
+                "0f7ecbd0c82aedd9"
+            ]
+        ]
+    },
+    {
+        "id": "ebef7877adda952a",
+        "type": "lighting controller",
+        "z": "88c6b96e78cf833d",
+        "name": "UVB Lighting Controller",
+        "gain": "1",
+        "bottomCutOff": "95",
+        "mode": "digital",
+        "scheduleTime1": "",
+        "scheduleTime2": "",
+        "x": 970,
+        "y": 580,
+        "wires": [
+            [
+                "0f7ecbd0c82aedd9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "86655b11f3c78363",
+        "type": "ui-button",
+        "z": "88c6b96e78cf833d",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "Test UVB",
+        "label": "Test UVB",
+        "order": 4,
+        "width": 1,
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"test\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 500,
+        "y": 640,
+        "wires": [
+            [
+                "80d49c93c8158e66"
+            ]
+        ]
+    },
+    {
+        "id": "2d9baf8e6f0c7f2e",
+        "type": "ui-text",
+        "z": "88c6b96e78cf833d",
+        "group": "b10600a8-8aaa-4e86-b102-b361cd24ed96",
+        "order": 3,
+        "width": 2,
+        "height": "1",
+        "name": "",
+        "label": "Status: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 980,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "fdbe34ac80d292f8",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "UVC detection",
+        "func": "// UVC detection\nlet treshold = 1.5;     // Noise treshold\n\nif(msg.topic === \"uvc\"){\n    if(msg.payload >= treshold){\n        msg.payload = \"UVC alarm!\"\n    }\n    else {\n        msg.payload = \"OK\"\n    }\n    return msg\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 920,
+        "wires": [
+            [
+                "2d9baf8e6f0c7f2e"
+            ]
+        ]
+    },
+    {
+        "id": "28157d75a516f751",
+        "type": "ui-button",
+        "z": "88c6b96e78cf833d",
+        "group": "5e27b969-12d6-4c9c-a86c-f4d21af16395",
+        "name": "Test UVC alarm",
+        "label": "Test UVC alarm",
+        "order": 5,
+        "width": 1,
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"uvc\":30}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 480,
+        "y": 600,
+        "wires": [
+            [
+                "53342e142629dc70"
+            ]
+        ]
+    },
+    {
+        "id": "53342e142629dc70",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Format",
+        "func": "msg.topic = \"uvc\";\nmsg.payload = msg.payload.uvc\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 600,
+        "wires": [
+            [
+                "fdbe34ac80d292f8"
             ]
         ]
     }
