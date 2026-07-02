@@ -34,7 +34,7 @@
     {
         "id": "1d33f87b44f5861e",
         "type": "tab",
-        "label": "Misc-v0.3.1",
+        "label": "Freya-Misc-v0.3.2",
         "disabled": false,
         "info": "Other measurements and dashboard components",
         "env": []
@@ -149,7 +149,7 @@
         "page": "4dd404b8d16154d5",
         "width": 3,
         "height": 1,
-        "order": 9,
+        "order": 11,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -247,7 +247,7 @@
         "page": "4dd404b8d16154d5",
         "width": 9,
         "height": 1,
-        "order": 10,
+        "order": 12,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -360,11 +360,11 @@
     {
         "id": "7719a25965bb0415",
         "type": "ui-group",
-        "name": "Air VOC Monitor",
+        "name": "Air Quality Monitor",
         "page": "4dd404b8d16154d5",
         "width": "9",
         "height": 1,
-        "order": 12,
+        "order": 10,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -378,7 +378,7 @@
         "page": "4dd404b8d16154d5",
         "width": "3",
         "height": 1,
-        "order": 11,
+        "order": 9,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -3740,8 +3740,8 @@
         "id": "17417b54b8fc755e",
         "type": "sensor-measurement",
         "z": "1d33f87b44f5861e",
-        "name": "VOC resistance",
-        "variable": "all",
+        "name": "Gas resistance",
+        "variable": "gasresistance",
         "sampleinterval": "",
         "x": 120,
         "y": 700,
@@ -3761,14 +3761,13 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{{payload.resistance}}",
+        "template": "{{payload.gasresistance}}",
         "output": "str",
         "x": 300,
         "y": 700,
         "wires": [
             [
                 "7179bee98bf6f429",
-                "1146660e7e497f04",
                 "8d623690b389f0ea"
             ]
         ]
@@ -3777,7 +3776,7 @@
         "id": "1146660e7e497f04",
         "type": "ui-gauge",
         "z": "1d33f87b44f5861e",
-        "name": "Air VOC Gauge",
+        "name": "Air Quality Gauge",
         "group": "7719a25965bb0415",
         "order": 1,
         "value": "payload",
@@ -3792,25 +3791,49 @@
         "units": "",
         "icon": "",
         "prefix": "",
-        "suffix": "Ohm",
+        "suffix": "",
         "segments": [
             {
                 "from": "0",
+                "color": "#c96e6e",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "1",
+                "color": "#c99a6e",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "2",
+                "color": "#c9ba6e",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "3",
+                "color": "#bfc96e",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "4",
                 "color": "#a2ca6f",
                 "text": "",
                 "textType": "label"
             }
         ],
-        "min": "6000",
-        "max": "14000",
+        "min": "0",
+        "max": "5",
         "sizeThickness": 16,
         "sizeGap": 4,
         "sizeKeyThickness": 8,
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 560,
-        "y": 720,
+        "x": 570,
+        "y": 780,
         "wires": [
             []
         ]
@@ -3820,7 +3843,7 @@
         "type": "ui-chart",
         "z": "1d33f87b44f5861e",
         "group": "7719a25965bb0415",
-        "name": "Air VOC Chart",
+        "name": "Gas Resistance Chart",
         "label": "",
         "order": 2,
         "chartType": "line",
@@ -3871,8 +3894,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 560,
-        "y": 680,
+        "x": 580,
+        "y": 700,
         "wires": [
             []
         ]
@@ -3898,7 +3921,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 540,
-        "y": 640,
+        "y": 740,
         "wires": []
     },
     {
@@ -3925,9 +3948,9 @@
         "id": "fd8817281a2b7c15",
         "type": "comment",
         "z": "1d33f87b44f5861e",
-        "name": "Air resistivity because of VOCs",
+        "name": "Air resistivity related to the presence of VOCs",
         "info": "",
-        "x": 150,
+        "x": 190,
         "y": 560,
         "wires": []
     },
@@ -4073,7 +4096,7 @@
         "type": "debug",
         "z": "1d33f87b44f5861e",
         "name": "Sensor values",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4104,5 +4127,40 @@
         "x": 180,
         "y": 80,
         "wires": []
+    },
+    {
+        "id": "8c929a5192450dc0",
+        "type": "sensor-measurement",
+        "z": "1d33f87b44f5861e",
+        "name": "Relative Air Quality",
+        "variable": "airquality",
+        "sampleinterval": "",
+        "x": 110,
+        "y": 780,
+        "wires": [
+            [
+                "c33525c14de6ae03"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c33525c14de6ae03",
+        "type": "template",
+        "z": "1d33f87b44f5861e",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{payload.airquality}}",
+        "output": "str",
+        "x": 300,
+        "y": 780,
+        "wires": [
+            [
+                "1146660e7e497f04"
+            ]
+        ]
     }
 ]
