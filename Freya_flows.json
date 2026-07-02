@@ -10,7 +10,7 @@
     {
         "id": "e0de5f1a89be7055",
         "type": "tab",
-        "label": "Freya-Temperature-v0.3.1",
+        "label": "Freya-Temperature-v0.3.2",
         "disabled": false,
         "info": "",
         "env": []
@@ -34,7 +34,7 @@
     {
         "id": "1d33f87b44f5861e",
         "type": "tab",
-        "label": "Freya-Misc-v0.3.2",
+        "label": "Freya-Misc-v0.3.3",
         "disabled": false,
         "info": "Other measurements and dashboard components",
         "env": []
@@ -892,7 +892,6 @@
         "y": 200,
         "wires": [
             [
-                "0c6df0b11131a8c9",
                 "c33f1595ae47213c"
             ],
             [
@@ -3768,7 +3767,8 @@
         "wires": [
             [
                 "7179bee98bf6f429",
-                "8d623690b389f0ea"
+                "8d623690b389f0ea",
+                "121cfd843b6b0c92"
             ]
         ]
     },
@@ -4129,33 +4129,18 @@
         "wires": []
     },
     {
-        "id": "8c929a5192450dc0",
-        "type": "sensor-measurement",
+        "id": "121cfd843b6b0c92",
+        "type": "function",
         "z": "1d33f87b44f5861e",
-        "name": "Relative Air Quality",
-        "variable": "airquality",
-        "sampleinterval": "",
-        "x": 110,
-        "y": 780,
-        "wires": [
-            [
-                "c33525c14de6ae03"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "c33525c14de6ae03",
-        "type": "template",
-        "z": "1d33f87b44f5861e",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{{payload.airquality}}",
-        "output": "str",
-        "x": 300,
+        "name": "Air Quality scoring",
+        "func": "// ── Air Quality scoring (baseline-relative) ─────────────────────────────\n// BME680 gas resistance (Ω) → 0–5 air-quality score.\n// Higher resistance = cleaner air. No fixed thresholds: the node LEARNS this\n// sensor's clean-air baseline and scores how far it has dropped below it.\n//   5 = at/above baseline (clean)   0 = ~MAX_DROP× below baseline (bad)\n// State lives in context so the baseline persists between messages.\n// ─────────────────────────────────────────────────────────────────────────\n\n// ---- Tunables ----\nconst ALPHA_UP     = 0.1;    // baseline rises toward cleaner air fast (~1–2 min @10s)\nconst ALPHA_DOWN   = 0.001;  // baseline follows worsening air slowly (~hours)\nconst MAX_DROP     = 25;     // fold-drop below baseline scoring 0 (your ~20k→~800 span)\nconst WARMUP       = 12;     // samples to seed a baseline before scoring\nconst ROUND_TO_INT = false;  // true = integer bands, false = 1-decimal smooth\n\n// ---- Parse ----\nconst gas = parseFloat(msg.payload);\nif (!isFinite(gas) || gas <= 0) return null;   // guard; upstream already suppresses warm-up\n\n// ---- State ----\nlet baseline = context.get('baseline');\nlet count    = context.get('count') || 0;\nif (baseline === undefined) baseline = gas;\n\n// ---- Warm-up: seed baseline as the max seen, hold score at 5 ----\nif (count < WARMUP) {\n    baseline = Math.max(baseline, gas);\n    context.set('baseline', baseline);\n    context.set('count', count + 1);\n    msg.topic = \"air quality\";\n    msg.payload = 5;\n    return msg;\n}\n\n// ---- Adaptive baseline: rise fast, fall slow ----\nbaseline += ((gas > baseline) ? ALPHA_UP : ALPHA_DOWN) * (gas - baseline);\ncontext.set('baseline', baseline);\n\n// ---- Score from the log-scaled drop below baseline ----\nconst drop = baseline / gas;                       // 1 = clean, >1 = polluted\nlet norm = Math.log(Math.max(drop, 1)) / Math.log(MAX_DROP);\nnorm = Math.min(1, Math.max(0, norm));\nconst score = 5 * (1 - norm);\n\n// ---- Output ----\nmsg.topic = \"air quality\";\nmsg.payload = ROUND_TO_INT ? Math.round(score) : Math.round(score * 10) / 10;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
         "y": 780,
         "wires": [
             [
