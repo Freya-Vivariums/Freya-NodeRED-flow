@@ -397,93 +397,6 @@
         "className": ""
     },
     {
-        "id": "f012f8b348309bb5",
-        "type": "inject",
-        "z": "c0a854f2e62226f7",
-        "name": "App info",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"info\":{\"name\":\"Freya\",\"version\":\"v0.0.1\",\"description\":\"Freya wired up in Node-RED\"}}",
-        "payloadType": "json",
-        "x": 320,
-        "y": 480,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "df6740b34a9af942",
-        "type": "inject",
-        "z": "c0a854f2e62226f7",
-        "name": "App status",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "10",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"status\":{\"level\":\"ok\"}}",
-        "payloadType": "json",
-        "x": 310,
-        "y": 520,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "d4e7d495df8ea17c",
-        "type": "inject",
-        "z": "c0a854f2e62226f7",
-        "name": "App status",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"status\":{\"level\":\"warning\"}}",
-        "payloadType": "json",
-        "x": 320,
-        "y": 560,
-        "wires": [
-            [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
         "id": "52905bb10d745583",
         "type": "inject",
         "z": "c0a854f2e62226f7",
@@ -508,7 +421,7 @@
         "y": 440,
         "wires": [
             [
-                "b657230ce10b8863"
+                "4f6419c42455f2a7"
             ]
         ]
     },
@@ -525,23 +438,10 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
-                "b657230ce10b8863"
-            ]
-        ]
-    },
-    {
-        "id": "b657230ce10b8863",
-        "type": "edgeberry",
-        "z": "c0a854f2e62226f7",
-        "name": "",
-        "x": 530,
-        "y": 520,
-        "wires": [
-            [
-                "dae89fffad3b4d41"
+                "4f6419c42455f2a7"
             ]
         ]
     },
@@ -558,8 +458,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 520,
+        "x": 670,
+        "y": 460,
         "wires": []
     },
     {
@@ -594,7 +494,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 600,
+        "y": 480,
         "wires": [
             [
                 "c1cdcfccad7409d6"
@@ -877,6 +777,149 @@
         "x": 270,
         "y": 380,
         "wires": []
+    },
+    {
+        "id": "cf7ff6ee93097ba4",
+        "type": "debug",
+        "z": "c0a854f2e62226f7",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "8ab454430d248dd0",
+        "type": "edgeberry_device_button",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "events": "",
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "cf7ff6ee93097ba4"
+            ]
+        ]
+    },
+    {
+        "id": "674d0ac20fb4b6e8",
+        "type": "edgeberry_device_status",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "section": "all",
+        "onlyOnChange": true,
+        "x": 490,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f012f8b348309bb5",
+        "type": "inject",
+        "z": "c0a854f2e62226f7",
+        "name": "App info",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"info\":{\"name\":\"Freya\",\"version\":\"v0.3.2\",\"description\":\"Freya wired up in Node-RED\"}}",
+        "payloadType": "json",
+        "x": 320,
+        "y": 620,
+        "wires": [
+            [
+                "674d0ac20fb4b6e8"
+            ]
+        ]
+    },
+    {
+        "id": "df6740b34a9af942",
+        "type": "inject",
+        "z": "c0a854f2e62226f7",
+        "name": "App status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "status",
+        "payload": "{\"level\":\"ok\"}",
+        "payloadType": "json",
+        "x": 310,
+        "y": 660,
+        "wires": [
+            [
+                "674d0ac20fb4b6e8"
+            ]
+        ]
+    },
+    {
+        "id": "d4e7d495df8ea17c",
+        "type": "inject",
+        "z": "c0a854f2e62226f7",
+        "name": "Test Warning status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "status",
+        "payload": "{\"level\":\"warning\"}",
+        "payloadType": "json",
+        "x": 290,
+        "y": 700,
+        "wires": [
+            [
+                "674d0ac20fb4b6e8"
+            ]
+        ]
+    },
+    {
+        "id": "4f6419c42455f2a7",
+        "type": "edgeberry_device_device",
+        "z": "c0a854f2e62226f7",
+        "name": "",
+        "x": 490,
+        "y": 460,
+        "wires": [
+            [
+                "dae89fffad3b4d41"
+            ]
+        ]
     },
     {
         "id": "144a01e7f0dd298d",
@@ -4096,7 +4139,7 @@
         "type": "debug",
         "z": "1d33f87b44f5861e",
         "name": "Sensor values",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
