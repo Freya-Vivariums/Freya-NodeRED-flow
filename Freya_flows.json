@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-System-v0.3.2",
+        "label": "Freya-System-v0.3.3",
         "disabled": false,
         "info": "",
         "env": []
@@ -790,8 +790,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 320,
-        "y": 560,
+        "x": 260,
+        "y": 580,
         "wires": []
     },
     {
@@ -800,8 +800,8 @@
         "z": "c0a854f2e62226f7",
         "name": "",
         "events": "",
-        "x": 170,
-        "y": 560,
+        "x": 110,
+        "y": 580,
         "wires": [
             [
                 "cf7ff6ee93097ba4"
@@ -816,7 +816,7 @@
         "section": "all",
         "onlyOnChange": true,
         "x": 490,
-        "y": 660,
+        "y": 740,
         "wires": [
             []
         ]
@@ -842,8 +842,8 @@
         "topic": "",
         "payload": "{\"info\":{\"name\":\"Freya\",\"version\":\"v0.3.2\",\"description\":\"Freya wired up in Node-RED\"}}",
         "payloadType": "json",
-        "x": 320,
-        "y": 620,
+        "x": 280,
+        "y": 660,
         "wires": [
             [
                 "674d0ac20fb4b6e8"
@@ -864,15 +864,15 @@
                 "vt": "str"
             }
         ],
-        "repeat": "10",
+        "repeat": "30",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
         "topic": "status",
         "payload": "{\"level\":\"ok\"}",
         "payloadType": "json",
-        "x": 310,
-        "y": 660,
+        "x": 270,
+        "y": 700,
         "wires": [
             [
                 "674d0ac20fb4b6e8"
@@ -900,8 +900,8 @@
         "topic": "status",
         "payload": "{\"level\":\"warning\"}",
         "payloadType": "json",
-        "x": 290,
-        "y": 700,
+        "x": 250,
+        "y": 760,
         "wires": [
             [
                 "674d0ac20fb4b6e8"
@@ -918,6 +918,123 @@
         "wires": [
             [
                 "dae89fffad3b4d41"
+            ]
+        ]
+    },
+    {
+        "id": "2620b65671705d13",
+        "type": "inject",
+        "z": "c0a854f2e62226f7",
+        "name": "Test Critical status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "status",
+        "payload": "{\"level\":\"critical\"}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 800,
+        "wires": [
+            [
+                "674d0ac20fb4b6e8"
+            ]
+        ]
+    },
+    {
+        "id": "041fd2d335c5421c",
+        "type": "inject",
+        "z": "c0a854f2e62226f7",
+        "name": "Test Emergency status",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "status",
+        "payload": "{\"level\":\"emergency\"}",
+        "payloadType": "json",
+        "x": 240,
+        "y": 840,
+        "wires": [
+            [
+                "674d0ac20fb4b6e8"
+            ]
+        ]
+    },
+    {
+        "id": "d3d85ca36874ef36",
+        "type": "ui-button",
+        "z": "c0a854f2e62226f7",
+        "group": "2ca1bfb3a45d421a",
+        "name": "Test Alarm",
+        "label": "Alarm",
+        "order": 6,
+        "width": 1,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "alert",
+        "iconPosition": "left",
+        "payload": "{\"level\":\"emergency\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "#A2CA6F",
+        "textColor": "#292B2D",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 90,
+        "y": 520,
+        "wires": [
+            [
+                "4e1480cb143ca912"
+            ]
+        ]
+    },
+    {
+        "id": "4e1480cb143ca912",
+        "type": "function",
+        "z": "c0a854f2e62226f7",
+        "name": "emergency format",
+        "func": "msg.topic = \"status\"\nmsg.payload = {\"level\":\"emergency\"}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 520,
+        "wires": [
+            [
+                "674d0ac20fb4b6e8"
             ]
         ]
     },
