@@ -1054,9 +1054,10 @@
             [
                 "c33f1595ae47213c"
             ],
+            [],
             [
-                "00cfd341d4986698",
-                "a04884562093142c"
+                "a04884562093142c",
+                "00cfd341d4986698"
             ]
         ]
     },
@@ -1118,9 +1119,10 @@
         "type": "digital-output",
         "z": "e0de5f1a89be7055",
         "name": "Fans",
-        "actuator": "cooler",
         "channel": "5",
-        "mode": "digital",
+        "mode": "switch",
+        "frequency_hz": "",
+        "rampRate": "",
         "x": 1330,
         "y": 240,
         "wires": [
@@ -1134,9 +1136,10 @@
         "type": "digital-output",
         "z": "e0de5f1a89be7055",
         "name": "Heater",
-        "actuator": "heater",
         "channel": "2",
-        "mode": "digital",
+        "mode": "switch",
+        "frequency_hz": "",
+        "rampRate": "",
         "x": 1330,
         "y": 180,
         "wires": [
@@ -1665,6 +1668,7 @@
             [
                 "8a52bc9eba3c0ada"
             ],
+            [],
             []
         ]
     },
@@ -1712,6 +1716,10 @@
         "type": "digital-output",
         "z": "8e2b0ca1e84570fa",
         "name": "Humidifier",
+        "channel": "",
+        "mode": "switch",
+        "frequency_hz": "",
+        "rampRate": "",
         "x": 1340,
         "y": 160,
         "wires": [
@@ -1723,9 +1731,10 @@
         "type": "digital-output",
         "z": "8e2b0ca1e84570fa",
         "name": "Rain Pump",
-        "actuator": "pump",
         "channel": "3",
-        "mode": "digital",
+        "mode": "switch",
+        "frequency_hz": "",
+        "rampRate": "",
         "x": 1350,
         "y": 220,
         "wires": [
@@ -2641,9 +2650,10 @@
         "type": "digital-output",
         "z": "88c6b96e78cf833d",
         "name": "Main Lights",
-        "actuator": "lighting",
         "channel": "1",
-        "mode": "digital",
+        "mode": "switch",
+        "frequency_hz": "",
+        "rampRate": "",
         "x": 1190,
         "y": 260,
         "wires": [
@@ -2657,9 +2667,10 @@
         "type": "digital-output",
         "z": "88c6b96e78cf833d",
         "name": "Auxilary Lights",
-        "actuator": "lighting",
         "channel": "6",
-        "mode": "digital",
+        "mode": "switch",
+        "frequency_hz": "",
+        "rampRate": "",
         "x": 1200,
         "y": 320,
         "wires": [
@@ -2720,7 +2731,7 @@
         "type": "function",
         "z": "88c6b96e78cf833d",
         "name": "Toggle aux lights",
-        "func": "// Toggle output each time a message arrives\nlet auxLights = context.get('auxLights') || false;  // get previous state, default false\n\nauxLights = !auxLights;              // flip the state\ncontext.set('auxLights', auxLights); // remember it\n\nreturn { payload:{auxLighting: auxLights?\"on\":\"off\"} };   // send true/false (on/off)",
+        "func": "/*\n * Toggles output each time a message arrives. It remembers the previous state by storing it in\n * the context, and uses it by fetching it each time a message arrives. Defaults to false if none.\n * The variable name is the name of this node.\n */\nconst variableName = env.get(\"NR_NODE_NAME\").replace(/ /g, \"_\");    // get this node's name and replace spaces with underscores\nlet state = context.get(variableName) || false;                     // get previous state from the context, default false if none\nstate = !state;                                                     // invert the state\ncontext.set( variableName, state);                                  // remember it by storing to the context using this node's name as variable\nreturn { payload:state };                                           // send true/false (on/off)",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2732,26 +2743,6 @@
         "wires": [
             [
                 "a5ee427c8f782dfc"
-            ]
-        ]
-    },
-    {
-        "id": "7c33142b8ae8c86b",
-        "type": "function",
-        "z": "88c6b96e78cf833d",
-        "name": "Toggle main lights",
-        "func": "if( msg.payload.test ){\n    let mainLights = context.get('mainLights');\n    mainLights = !mainLights;\n    context.set('mainLights', mainLights);\n    return { payload:{lighting: mainLights?\"on\":\"off\"} }; \n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
-        "y": 400,
-        "wires": [
-            [
-                "a030ee2f8804a863"
             ]
         ]
     },
@@ -2790,7 +2781,7 @@
         "y": 400,
         "wires": [
             [
-                "7c33142b8ae8c86b"
+                "a5dc1b57e630c51a"
             ]
         ]
     },
@@ -3540,33 +3531,14 @@
         "type": "digital-output",
         "z": "88c6b96e78cf833d",
         "name": "UVB Lights",
-        "actuator": "lighting",
         "channel": "4",
-        "mode": "digital",
+        "mode": "switch",
+        "frequency_hz": "",
+        "rampRate": "",
         "x": 1190,
         "y": 640,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "80d49c93c8158e66",
-        "type": "function",
-        "z": "88c6b96e78cf833d",
-        "name": "Toggle UV lights",
-        "func": "// Toggle output each time a message arrives\nlet uvLights = context.get('uvLights') || false;  // get previous state, default false\n\nuvLights = !uvLights;              // flip the state\ncontext.set('uvLights', uvLights); // remember it\n\nreturn { payload:{lighting: uvLights?\"on\":\"off\"} };   // send true/false (on/off)",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 640,
-        "wires": [
-            [
-                "0f7ecbd0c82aedd9"
-            ]
         ]
     },
     {
@@ -3623,7 +3595,7 @@
         "y": 640,
         "wires": [
             [
-                "80d49c93c8158e66"
+                "e9cbceae90a577f3"
             ]
         ]
     },
@@ -3762,6 +3734,46 @@
         "y": 980,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "a5dc1b57e630c51a",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Toggle main lights",
+        "func": "/*\n * Toggles output each time a message arrives. It remembers the previous state by storing it in\n * the context, and uses it by fetching it each time a message arrives. Defaults to false if none.\n * The variable name is the name of this node.\n */\nconst variableName = env.get(\"NR_NODE_NAME\").replace(/ /g, \"_\");    // get this node's name and replace spaces with underscores\nlet state = context.get(variableName) || false;                     // get previous state from the context, default false if none\nstate = !state;                                                     // invert the state\ncontext.set( variableName, state);                                  // remember it by storing to the context using this node's name as variable\nreturn { payload:state };                                           // send true/false (on/off)",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "a030ee2f8804a863"
+            ]
+        ]
+    },
+    {
+        "id": "e9cbceae90a577f3",
+        "type": "function",
+        "z": "88c6b96e78cf833d",
+        "name": "Toggle UVB lights",
+        "func": "/*\n * Toggles output each time a message arrives. It remembers the previous state by storing it in\n * the context, and uses it by fetching it each time a message arrives. Defaults to false if none.\n * The variable name is the name of this node.\n */\nconst variableName = env.get(\"NR_NODE_NAME\").replace(/ /g, \"_\");    // get this node's name and replace spaces with underscores\nlet state = context.get(variableName) || false;                     // get previous state from the context, default false if none\nstate = !state;                                                     // invert the state\ncontext.set( variableName, state);                                  // remember it by storing to the context using this node's name as variable\nreturn { payload:state };                                           // send true/false (on/off)",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 640,
+        "wires": [
+            [
+                "0f7ecbd0c82aedd9"
+            ]
         ]
     },
     {
