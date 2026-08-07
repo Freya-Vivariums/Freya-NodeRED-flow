@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-System-v0.3.3",
+        "label": "Freya-System-v0.3.6",
         "disabled": false,
         "info": "",
         "env": []
@@ -10,7 +10,7 @@
     {
         "id": "e0de5f1a89be7055",
         "type": "tab",
-        "label": "Freya-Temperature-v0.3.2",
+        "label": "Freya-Temperature-v0.3.6",
         "disabled": false,
         "info": "",
         "env": []
@@ -18,7 +18,7 @@
     {
         "id": "8e2b0ca1e84570fa",
         "type": "tab",
-        "label": "Freya-Humidity-v0.3.1",
+        "label": "Freya-Humidity-v0.3.6",
         "disabled": false,
         "info": "",
         "env": []
@@ -26,7 +26,7 @@
     {
         "id": "88c6b96e78cf833d",
         "type": "tab",
-        "label": "Freya-Light-v0.3.3",
+        "label": "Freya-Light-v0.3.6",
         "disabled": false,
         "info": "",
         "env": []
@@ -34,7 +34,7 @@
     {
         "id": "1d33f87b44f5861e",
         "type": "tab",
-        "label": "Freya-Misc-v0.3.3",
+        "label": "Freya-Misc-v0.3.6",
         "disabled": false,
         "info": "Other measurements and dashboard components",
         "env": []
@@ -72,7 +72,7 @@
         "showPathInSidebar": false,
         "headerContent": "page",
         "navigationStyle": "default",
-        "titleBarStyle": "default",
+        "titleBarStyle": "hidden",
         "showReconnectNotification": true,
         "notificationDisplayTime": 1,
         "showDisconnectNotification": true,
@@ -391,9 +391,9 @@
         "group": "d307dc08f128d6b2",
         "name": "spacer",
         "tooltip": "",
-        "order": 1,
+        "order": 2,
         "width": "3",
-        "height": "3",
+        "height": "2",
         "className": ""
     },
     {
@@ -418,27 +418,7 @@
         "payload": "{\"blub\":\"zeemeermin\"}",
         "payloadType": "json",
         "x": 330,
-        "y": 440,
-        "wires": [
-            [
-                "4f6419c42455f2a7"
-            ]
-        ]
-    },
-    {
-        "id": "c1cdcfccad7409d6",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Signal formatting",
-        "func": "if(msg.payload.identify){\n    msg.topic = \"identify\"\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 290,
-        "y": 480,
+        "y": 460,
         "wires": [
             [
                 "4f6419c42455f2a7"
@@ -459,47 +439,8 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 670,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "df994372cb11191c",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "name": "Identify",
-        "label": "Identify",
-        "order": 2,
-        "width": "1",
-        "height": "1",
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "mdi-access-point",
-        "iconPosition": "left",
-        "payload": "{\"identify\":true}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 100,
         "y": 480,
-        "wires": [
-            [
-                "c1cdcfccad7409d6"
-            ]
-        ]
+        "wires": []
     },
     {
         "id": "b953255c7a8b8342",
@@ -509,7 +450,7 @@
         "ui": "686c46360e79bd75",
         "events": "all",
         "x": 270,
-        "y": 260,
+        "y": 200,
         "wires": [
             []
         ]
@@ -545,8 +486,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 90,
-        "y": 240,
+        "x": 110,
+        "y": 180,
         "wires": [
             [
                 "b953255c7a8b8342"
@@ -585,7 +526,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 100,
-        "y": 280,
+        "y": 220,
         "wires": [
             [
                 "b953255c7a8b8342"
@@ -593,158 +534,12 @@
         ]
     },
     {
-        "id": "60951ad0a144e0bd",
-        "type": "ui-template",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "page": "",
-        "ui": "",
-        "name": "Power Menu",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "head": "",
-        "format": "<template>\n  <v-dialog v-model=\"showDialog\" max-width=\"320\">\n    <v-card>\n      <v-card-title class=\"text-h6\">System Power</v-card-title>\n      <v-card-text>Active control will be interrupted.</v-card-text>\n      <v-card-actions>\n        <v-btn @click=\"doAction('reboot')\" color=\"warning\" variant=\"tonal\" prepend-icon=\"mdi-restart\">\n          Reboot\n        </v-btn>\n        <v-btn @click=\"doAction('shutdown')\" color=\"error\" variant=\"tonal\" prepend-icon=\"mdi-power\">\n          Shutdown\n        </v-btn>\n        <v-spacer />\n        <v-btn @click=\"showDialog = false\" variant=\"text\">Cancel</v-btn>\n      </v-card-actions>\n    </v-card>\n  </v-dialog>\n</template>\n\n<script>\n  export default {\n    data() {\n      return { showDialog: false }\n    },\n    mounted() {\n      // collapse the widget wrapper so it takes no grid space\n      const wrapper = this.$el.parentElement\n      if (wrapper) {\n        wrapper.style.display = 'contents'\n      }\n    },\n    watch: {\n      msg() {\n        this.showDialog = true\n      }\n    },\n    methods: {\n      doAction(action) {\n        this.showDialog = false\n        this.send({ payload: action })\n      }\n    }\n  }\n</script>",
-        "storeOutMessages": true,
-        "passthru": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 270,
-        "y": 180,
-        "wires": [
-            [
-                "07916f0eb5ec6586",
-                "5f9ace766f71365f"
-            ]
-        ]
-    },
-    {
-        "id": "0f148524871c217a",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "name": "Power",
-        "label": "Power",
-        "order": 3,
-        "width": 1,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "mdi-power",
-        "iconPosition": "left",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 90,
-        "y": 180,
-        "wires": [
-            [
-                "60951ad0a144e0bd"
-            ]
-        ]
-    },
-    {
-        "id": "82a1ec9ad78a9cac",
-        "type": "exec",
-        "z": "c0a854f2e62226f7",
-        "command": "shutdown -r now",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Shutdown",
-        "x": 560,
-        "y": 140,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "79c623a0c7a6e1b0",
-        "type": "exec",
-        "z": "c0a854f2e62226f7",
-        "command": "reboot",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "Reboot",
-        "x": 560,
-        "y": 220,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "07916f0eb5ec6586",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Filter",
-        "func": "if (msg.payload === 'shutdown') return msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 160,
-        "wires": [
-            [
-                "82a1ec9ad78a9cac"
-            ]
-        ]
-    },
-    {
-        "id": "5f9ace766f71365f",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "Filter",
-        "func": "if (msg.payload === 'reboot') return msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 430,
-        "y": 200,
-        "wires": [
-            [
-                "79c623a0c7a6e1b0"
-            ]
-        ]
-    },
-    {
         "id": "7e3b0e419f7cad55",
         "type": "comment",
         "z": "c0a854f2e62226f7",
-        "name": "Nodes related to interacting with the system from the user dashboard",
+        "name": "Interactions with other web components",
         "info": "",
-        "x": 260,
+        "x": 170,
         "y": 80,
         "wires": []
     },
@@ -752,9 +547,9 @@
         "id": "b96a1769e27db290",
         "type": "comment",
         "z": "c0a854f2e62226f7",
-        "name": "Dashboard's system interactions",
+        "name": "Hyperlinks",
         "info": "",
-        "x": 150,
+        "x": 80,
         "y": 40,
         "wires": []
     },
@@ -839,14 +634,14 @@
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"info\":{\"name\":\"Freya\",\"version\":\"v0.3.2\",\"description\":\"Freya wired up in Node-RED\"}}",
+        "topic": "info",
+        "payload": "{\"name\":\"Freya\",\"version\":\"v0.3.6\",\"description\":\"Freya wired up in Node-RED\"}",
         "payloadType": "json",
-        "x": 280,
-        "y": 660,
+        "x": 320,
+        "y": 500,
         "wires": [
             [
-                "674d0ac20fb4b6e8"
+                "4f6419c42455f2a7"
             ]
         ]
     },
@@ -914,7 +709,7 @@
         "z": "c0a854f2e62226f7",
         "name": "",
         "x": 490,
-        "y": 460,
+        "y": 480,
         "wires": [
             [
                 "dae89fffad3b4d41"
@@ -980,65 +775,6 @@
         ]
     },
     {
-        "id": "d3d85ca36874ef36",
-        "type": "ui-button",
-        "z": "c0a854f2e62226f7",
-        "group": "2ca1bfb3a45d421a",
-        "name": "Test Alarm",
-        "label": "Alarm",
-        "order": 6,
-        "width": 1,
-        "height": 0,
-        "emulateClick": false,
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "alert",
-        "iconPosition": "left",
-        "payload": "{\"level\":\"emergency\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "buttonColor": "#A2CA6F",
-        "textColor": "#292B2D",
-        "iconColor": "",
-        "enableClick": true,
-        "enablePointerdown": false,
-        "pointerdownPayload": "",
-        "pointerdownPayloadType": "str",
-        "enablePointerup": false,
-        "pointerupPayload": "",
-        "pointerupPayloadType": "str",
-        "x": 90,
-        "y": 520,
-        "wires": [
-            [
-                "4e1480cb143ca912"
-            ]
-        ]
-    },
-    {
-        "id": "4e1480cb143ca912",
-        "type": "function",
-        "z": "c0a854f2e62226f7",
-        "name": "emergency format",
-        "func": "msg.topic = \"status\"\nmsg.payload = {\"level\":\"emergency\"}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 290,
-        "y": 520,
-        "wires": [
-            [
-                "674d0ac20fb4b6e8"
-            ]
-        ]
-    },
-    {
         "id": "144a01e7f0dd298d",
         "type": "temperature controller",
         "z": "e0de5f1a89be7055",
@@ -1049,15 +785,14 @@
         "watchdogTimeout": "180",
         "watchdogSeverity": "warning",
         "x": 1120,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "c33f1595ae47213c"
             ],
             [],
             [
-                "a04884562093142c",
-                "00cfd341d4986698"
+                "a04884562093142c"
             ]
         ]
     },
@@ -1073,25 +808,11 @@
         "tickInterval": "20",
         "decimals": "1",
         "x": 740,
-        "y": 220,
+        "y": 280,
         "wires": [
             [
                 "7af7491042c2835c"
             ],
-            [
-                "00cfd341d4986698"
-            ]
-        ]
-    },
-    {
-        "id": "00cfd341d4986698",
-        "type": "status aggregator",
-        "z": "e0de5f1a89be7055",
-        "name": "Temperature Status",
-        "x": 1390,
-        "y": 340,
-        "wires": [
-            [],
             []
         ]
     },
@@ -1103,15 +824,13 @@
         "variable": "temperature",
         "sampleinterval": "",
         "x": 730,
-        "y": 140,
+        "y": 200,
         "wires": [
             [
                 "8315c5acdf23410d",
                 "3236fd72cef32005"
             ],
-            [
-                "00cfd341d4986698"
-            ]
+            []
         ]
     },
     {
@@ -1120,15 +839,13 @@
         "z": "e0de5f1a89be7055",
         "name": "Fans",
         "channel": "5",
-        "mode": "switch",
-        "frequency_hz": "",
-        "rampRate": "",
+        "mode": "pulse",
+        "frequency_hz": "60",
+        "rampRate": "0",
         "x": 1330,
-        "y": 240,
+        "y": 300,
         "wires": [
-            [
-                "00cfd341d4986698"
-            ]
+            []
         ]
     },
     {
@@ -1141,11 +858,9 @@
         "frequency_hz": "",
         "rampRate": "",
         "x": 1330,
-        "y": 180,
+        "y": 240,
         "wires": [
-            [
-                "00cfd341d4986698"
-            ]
+            []
         ]
     },
     {
@@ -1159,11 +874,11 @@
         "syntax": "mustache",
         "template": "{{payload.temperature}}",
         "output": "str",
-        "x": 920,
+        "x": 940,
         "y": 100,
         "wires": [
             [
-                "673deaaa902483da",
+                "6dc0bbf1036d72e0",
                 "d6fe66756f3e89f4"
             ]
         ]
@@ -1200,7 +915,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 770,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "144a01e7f0dd298d"
@@ -1235,7 +950,7 @@
         "iconInnerPosition": "inside",
         "spinner": "default",
         "x": 260,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "b431b73c3aee3936"
@@ -1270,7 +985,7 @@
         "iconInnerPosition": "inside",
         "spinner": "default",
         "x": 250,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "30e986713b9cf221"
@@ -1333,8 +1048,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 1350,
-        "y": 80,
+        "x": 1330,
+        "y": 140,
         "wires": [
             []
         ]
@@ -1375,8 +1090,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1350,
-        "y": 120,
+        "x": 1330,
+        "y": 100,
         "wires": [
             []
         ]
@@ -1394,7 +1109,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "b6d24c61bf7ca039"
@@ -1414,7 +1129,7 @@
         "finalize": "",
         "libs": [],
         "x": 410,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "1cb314d3fad0b56a"
@@ -1434,7 +1149,7 @@
         "finalize": "",
         "libs": [],
         "x": 90,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "5117121a42594b22"
@@ -1454,7 +1169,7 @@
         "finalize": "",
         "libs": [],
         "x": 90,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "0881a22599596138"
@@ -1474,7 +1189,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "1589282f12a5c631"
@@ -1494,7 +1209,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "1589282f12a5c631"
@@ -1514,7 +1229,7 @@
         "finalize": "",
         "libs": [],
         "x": 920,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "144a01e7f0dd298d"
@@ -1534,11 +1249,11 @@
         "finalize": "",
         "libs": [],
         "x": 920,
-        "y": 220,
+        "y": 280,
         "wires": [
             [
                 "144a01e7f0dd298d",
-                "673deaaa902483da"
+                "5c4587b0231d9f3a"
             ]
         ]
     },
@@ -1555,7 +1270,7 @@
         "finalize": "",
         "libs": [],
         "x": 1340,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "1ae273e6283c9109"
@@ -1583,7 +1298,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 1500,
-        "y": 300,
+        "y": 360,
         "wires": []
     },
     {
@@ -1593,7 +1308,7 @@
         "name": "Temperature",
         "info": "",
         "x": 110,
-        "y": 120,
+        "y": 40,
         "wires": []
     },
     {
@@ -1603,7 +1318,7 @@
         "name": "Lorem Ipsum Temperaturi et amet",
         "info": "",
         "x": 170,
-        "y": 160,
+        "y": 80,
         "wires": []
     },
     {
@@ -1628,7 +1343,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 60,
+        "y": 140,
         "wires": [
             [
                 "f85a613746667628",
@@ -1645,10 +1360,60 @@
             "af8be32a093a3a95"
         ],
         "x": 1155,
-        "y": 380,
+        "y": 440,
         "wires": [
             [
                 "0c6df0b11131a8c9"
+            ]
+        ]
+    },
+    {
+        "id": "6dc0bbf1036d72e0",
+        "type": "delay",
+        "z": "e0de5f1a89be7055",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 120,
+        "wires": [
+            [
+                "673deaaa902483da"
+            ]
+        ]
+    },
+    {
+        "id": "5c4587b0231d9f3a",
+        "type": "delay",
+        "z": "e0de5f1a89be7055",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 160,
+        "wires": [
+            [
+                "673deaaa902483da"
             ]
         ]
     },
@@ -1663,7 +1428,7 @@
         "watchdogTimeout": "180",
         "watchdogSeverity": "warning",
         "x": 1110,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
                 "8a52bc9eba3c0ada"
@@ -1681,7 +1446,7 @@
         "duration": "5",
         "tickInterval": "20",
         "x": 760,
-        "y": 380,
+        "y": 540,
         "wires": [
             [
                 "38417f951ba2e8cf"
@@ -1703,7 +1468,7 @@
         "tickInterval": "20",
         "decimals": "1",
         "x": 720,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "5ea46a13affe3368"
@@ -1721,7 +1486,7 @@
         "frequency_hz": "",
         "rampRate": "",
         "x": 1340,
-        "y": 160,
+        "y": 200,
         "wires": [
             []
         ]
@@ -1736,7 +1501,7 @@
         "frequency_hz": "",
         "rampRate": "",
         "x": 1350,
-        "y": 220,
+        "y": 260,
         "wires": [
             []
         ]
@@ -1749,7 +1514,7 @@
         "variable": "humidity",
         "sampleinterval": "",
         "x": 720,
-        "y": 120,
+        "y": 160,
         "wires": [
             [
                 "e5b848f06ac6a762",
@@ -1769,12 +1534,12 @@
         "syntax": "mustache",
         "template": "{{payload.humidity}}",
         "output": "str",
-        "x": 1040,
+        "x": 920,
         "y": 80,
         "wires": [
             [
-                "80a6fee06bad3a98",
-                "adfbd547841167e4"
+                "adfbd547841167e4",
+                "9224807af68be8b9"
             ]
         ]
     },
@@ -1783,10 +1548,10 @@
         "type": "trigger",
         "z": "8e2b0ca1e84570fa",
         "name": "",
-        "op1": "{\"pump\":\"on\"}",
-        "op2": "{\"pump\":\"off\"}",
-        "op1type": "json",
-        "op2type": "json",
+        "op1": "true",
+        "op2": "false",
+        "op1type": "bool",
+        "op2type": "bool",
         "duration": "5",
         "extend": false,
         "overrideDelay": false,
@@ -1796,7 +1561,7 @@
         "topic": "topic",
         "outputs": 1,
         "x": 400,
-        "y": 280,
+        "y": 440,
         "wires": [
             [
                 "38417f951ba2e8cf"
@@ -1835,7 +1600,7 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 250,
-        "y": 280,
+        "y": 440,
         "wires": [
             [
                 "1a2e480989bed771"
@@ -1870,7 +1635,7 @@
         "iconInnerPosition": "inside",
         "spinner": "default",
         "x": 240,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "359a7caf307c7fe3"
@@ -1905,7 +1670,7 @@
         "iconInnerPosition": "inside",
         "spinner": "default",
         "x": 240,
-        "y": 220,
+        "y": 260,
         "wires": [
             [
                 "47ce135c94534feb"
@@ -1969,7 +1734,7 @@
         "className": "",
         "interpolation": "smooth",
         "x": 1350,
-        "y": 60,
+        "y": 120,
         "wires": [
             []
         ]
@@ -2011,7 +1776,7 @@
         "styleGlow": false,
         "className": "",
         "x": 1350,
-        "y": 100,
+        "y": 80,
         "wires": [
             []
         ]
@@ -2037,7 +1802,7 @@
         "value": "payload",
         "valueType": "msg",
         "x": 1500,
-        "y": 280,
+        "y": 320,
         "wires": []
     },
     {
@@ -2053,7 +1818,7 @@
         "finalize": "",
         "libs": [],
         "x": 90,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "2aee6582bf4df2ff"
@@ -2073,7 +1838,7 @@
         "finalize": "",
         "libs": [],
         "x": 90,
-        "y": 220,
+        "y": 260,
         "wires": [
             [
                 "03e7c674cf6767aa"
@@ -2093,7 +1858,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "49df631afc30df51"
@@ -2113,7 +1878,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 220,
+        "y": 260,
         "wires": [
             [
                 "cdf06cb3b65b9c1b"
@@ -2133,7 +1898,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "6f2821f6469e2e25"
@@ -2153,7 +1918,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 220,
+        "y": 260,
         "wires": [
             [
                 "6f2821f6469e2e25"
@@ -2173,7 +1938,7 @@
         "finalize": "",
         "libs": [],
         "x": 920,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "d44fa9863bcdba16"
@@ -2193,11 +1958,11 @@
         "finalize": "",
         "libs": [],
         "x": 920,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "d44fa9863bcdba16",
-                "80a6fee06bad3a98"
+                "25ce99704fedefd7"
             ]
         ]
     },
@@ -2229,7 +1994,7 @@
         "iconInnerPosition": "inside",
         "spinner": "default",
         "x": 240,
-        "y": 320,
+        "y": 480,
         "wires": [
             [
                 "6c0a892317ba0e35"
@@ -2264,7 +2029,7 @@
         "iconInnerPosition": "inside",
         "spinner": "default",
         "x": 240,
-        "y": 360,
+        "y": 520,
         "wires": [
             [
                 "ec09f0bf4a95e8ad"
@@ -2284,7 +2049,7 @@
         "finalize": "",
         "libs": [],
         "x": 90,
-        "y": 320,
+        "y": 480,
         "wires": [
             [
                 "6cb5fa026c5c46a9"
@@ -2304,7 +2069,7 @@
         "finalize": "",
         "libs": [],
         "x": 90,
-        "y": 360,
+        "y": 520,
         "wires": [
             [
                 "7a78e7c9bde33bf6"
@@ -2324,7 +2089,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 320,
+        "y": 480,
         "wires": [
             [
                 "18c2b6fed2711d71"
@@ -2344,7 +2109,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 360,
+        "y": 520,
         "wires": [
             [
                 "6d639e3afbed4c0a"
@@ -2364,7 +2129,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 320,
+        "y": 480,
         "wires": [
             [
                 "5c23dfdcc1dc077c"
@@ -2384,7 +2149,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 360,
+        "y": 520,
         "wires": [
             [
                 "5c23dfdcc1dc077c"
@@ -2404,7 +2169,7 @@
         "finalize": "",
         "libs": [],
         "x": 1340,
-        "y": 280,
+        "y": 320,
         "wires": [
             [
                 "e7274d3a41f1f1fb"
@@ -2438,7 +2203,7 @@
         "officon": "",
         "offcolor": "",
         "x": 250,
-        "y": 400,
+        "y": 560,
         "wires": [
             [
                 "dc20db9541d7dab7"
@@ -2458,7 +2223,7 @@
         "finalize": "",
         "libs": [],
         "x": 90,
-        "y": 400,
+        "y": 560,
         "wires": [
             [
                 "91ed6f698557540a"
@@ -2478,7 +2243,7 @@
         "finalize": "",
         "libs": [],
         "x": 390,
-        "y": 400,
+        "y": 560,
         "wires": [
             [
                 "e9c1cd1888e1f5aa"
@@ -2498,7 +2263,7 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 400,
+        "y": 560,
         "wires": [
             [
                 "5c23dfdcc1dc077c"
@@ -2518,7 +2283,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 440,
+        "y": 600,
         "wires": [
             [
                 "5c23dfdcc1dc077c"
@@ -2529,10 +2294,10 @@
         "id": "3fc323cadadde296",
         "type": "comment",
         "z": "8e2b0ca1e84570fa",
-        "name": "Humidity",
+        "name": "Humidity Control",
         "info": "",
-        "x": 100,
-        "y": 80,
+        "x": 120,
+        "y": 40,
         "wires": []
     },
     {
@@ -2542,7 +2307,7 @@
         "name": "Lorem Ipsum humidiae si amet splashii et mistii",
         "info": "",
         "x": 220,
-        "y": 120,
+        "y": 80,
         "wires": []
     },
     {
@@ -2566,8 +2331,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 40,
+        "x": 100,
+        "y": 140,
         "wires": [
             [
                 "15fb360ca76e8cb6",
@@ -2579,28 +2344,74 @@
         ]
     },
     {
-        "id": "65ec410c37b483e8",
-        "type": "status aggregator",
+        "id": "9224807af68be8b9",
+        "type": "delay",
         "z": "8e2b0ca1e84570fa",
-        "name": "Humidity Status",
-        "x": 1300,
-        "y": 380,
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 100,
         "wires": [
-            [],
-            []
+            [
+                "80a6fee06bad3a98"
+            ]
         ]
     },
     {
-        "id": "edff2574530c85bb",
-        "type": "status aggregator",
+        "id": "25ce99704fedefd7",
+        "type": "delay",
         "z": "8e2b0ca1e84570fa",
-        "name": "Precipitation Status",
-        "x": 1250,
-        "y": 440,
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1140,
+        "y": 140,
         "wires": [
-            [],
-            []
+            [
+                "80a6fee06bad3a98"
+            ]
         ]
+    },
+    {
+        "id": "edd7521df1c8f7d1",
+        "type": "comment",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Precipitation Control",
+        "info": "",
+        "x": 130,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "1a99906581e853a2",
+        "type": "comment",
+        "z": "8e2b0ca1e84570fa",
+        "name": "Lorem Ipsum humidiae si amet splashii et mistii",
+        "info": "",
+        "x": 220,
+        "y": 380,
+        "wires": []
     },
     {
         "id": "eac6b1e0a11d0689",
@@ -2640,9 +2451,7 @@
             [
                 "f4a3582e9b3726be"
             ],
-            [
-                "2f6bd800c9979c6c"
-            ]
+            []
         ]
     },
     {
@@ -2657,9 +2466,7 @@
         "x": 1190,
         "y": 260,
         "wires": [
-            [
-                "2f6bd800c9979c6c"
-            ]
+            []
         ]
     },
     {
@@ -2669,14 +2476,12 @@
         "name": "Auxilary Lights",
         "channel": "6",
         "mode": "switch",
-        "frequency_hz": "",
-        "rampRate": "",
+        "frequency_hz": "60",
+        "rampRate": "0",
         "x": 1200,
         "y": 320,
         "wires": [
-            [
-                "2f6bd800c9979c6c"
-            ]
+            []
         ]
     },
     {
@@ -2695,18 +2500,6 @@
         ]
     },
     {
-        "id": "2f6bd800c9979c6c",
-        "type": "status aggregator",
-        "z": "88c6b96e78cf833d",
-        "name": "Lighting Status",
-        "x": 1480,
-        "y": 320,
-        "wires": [
-            [],
-            []
-        ]
-    },
-    {
         "id": "19459d7ed75c5df5",
         "type": "template",
         "z": "88c6b96e78cf833d",
@@ -2717,12 +2510,12 @@
         "syntax": "mustache",
         "template": "{{payload.light}}",
         "output": "str",
-        "x": 900,
-        "y": 180,
+        "x": 920,
+        "y": 100,
         "wires": [
             [
                 "d56b71c2375d7c0b",
-                "c1382f268f08be54"
+                "ac9e51b7238911ce"
             ]
         ]
     },
@@ -2860,8 +2653,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1190,
-        "y": 200,
+        "x": 1310,
+        "y": 100,
         "wires": [
             []
         ]
@@ -3008,7 +2801,7 @@
         "name": "Auxiliary Lighting Controller",
         "gain": "1",
         "bottomCutOff": "52",
-        "mode": "digital",
+        "mode": "analog",
         "scheduleTime1": "",
         "scheduleTime2": "",
         "x": 980,
@@ -3035,7 +2828,9 @@
         "x": 920,
         "y": 220,
         "wires": [
-            []
+            [
+                "3a7fddf5ae901a99"
+            ]
         ]
     },
     {
@@ -3114,8 +2909,8 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 1190,
-        "y": 160,
+        "x": 1310,
+        "y": 140,
         "wires": [
             []
         ]
@@ -3223,8 +3018,8 @@
         "sizeGap": "4",
         "sizeKeyThickness": "8",
         "className": "",
-        "x": 990,
-        "y": 760,
+        "x": 1130,
+        "y": 860,
         "wires": [
             []
         ]
@@ -3285,8 +3080,8 @@
         "height": "4",
         "className": "",
         "interpolation": "smooth",
-        "x": 980,
-        "y": 720,
+        "x": 1120,
+        "y": 760,
         "wires": [
             []
         ]
@@ -3339,7 +3134,7 @@
         "y": 700,
         "wires": [
             [
-                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+                "323fd6b92ce624cb"
             ]
         ]
     },
@@ -3359,8 +3154,8 @@
         "y": 760,
         "wires": [
             [
-                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2",
-                "159b6245-40d7-4ec7-b176-125a42997e9b"
+                "159b6245-40d7-4ec7-b176-125a42997e9b",
+                "8c4d35a5ef2d4317"
             ]
         ]
     },
@@ -3380,8 +3175,8 @@
         "y": 820,
         "wires": [
             [
-                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2",
-                "fdbe34ac80d292f8"
+                "fdbe34ac80d292f8",
+                "9cc94deb0403f61f"
             ]
         ]
     },
@@ -3777,6 +3572,131 @@
         ]
     },
     {
+        "id": "ac9e51b7238911ce",
+        "type": "delay",
+        "z": "88c6b96e78cf833d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1100,
+        "y": 120,
+        "wires": [
+            [
+                "c1382f268f08be54"
+            ]
+        ]
+    },
+    {
+        "id": "3a7fddf5ae901a99",
+        "type": "delay",
+        "z": "88c6b96e78cf833d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1100,
+        "y": 160,
+        "wires": [
+            [
+                "c1382f268f08be54"
+            ]
+        ]
+    },
+    {
+        "id": "323fd6b92ce624cb",
+        "type": "delay",
+        "z": "88c6b96e78cf833d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 700,
+        "wires": [
+            [
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+            ]
+        ]
+    },
+    {
+        "id": "8c4d35a5ef2d4317",
+        "type": "delay",
+        "z": "88c6b96e78cf833d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 760,
+        "wires": [
+            [
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+            ]
+        ]
+    },
+    {
+        "id": "9cc94deb0403f61f",
+        "type": "delay",
+        "z": "88c6b96e78cf833d",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 920,
+        "y": 820,
+        "wires": [
+            [
+                "75ed6d0c-6626-44ae-af6a-9dae91f5d9c2"
+            ]
+        ]
+    },
+    {
         "id": "68778245ec10f3ab",
         "type": "sensor-measurement",
         "z": "1d33f87b44f5861e",
@@ -3807,9 +3727,9 @@
         "y": 340,
         "wires": [
             [
-                "706121d25167f537",
                 "d53e4abac86221b8",
-                "a30bb48351e7d448"
+                "a30bb48351e7d448",
+                "0b71023153fa2325"
             ]
         ]
     },
@@ -3911,7 +3831,7 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 560,
+        "x": 760,
         "y": 320,
         "wires": [
             []
@@ -3972,9 +3892,9 @@
         "y": 700,
         "wires": [
             [
-                "7179bee98bf6f429",
                 "8d623690b389f0ea",
-                "121cfd843b6b0c92"
+                "121cfd843b6b0c92",
+                "368f5bdc140a11ad"
             ]
         ]
     },
@@ -4100,7 +4020,7 @@
         "height": 4,
         "className": "",
         "interpolation": "smooth",
-        "x": 580,
+        "x": 780,
         "y": 700,
         "wires": [
             []
@@ -4197,7 +4117,7 @@
         "group": "d307dc08f128d6b2",
         "name": "Test",
         "label": "Test",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "emulateClick": false,
@@ -4351,6 +4271,91 @@
         "wires": [
             [
                 "1146660e7e497f04"
+            ]
+        ]
+    },
+    {
+        "id": "b131c4436edb0662",
+        "type": "ui-slider",
+        "z": "1d33f87b44f5861e",
+        "group": "d307dc08f128d6b2",
+        "name": "Minimum fan speed",
+        "label": "Default Fan Speed",
+        "tooltip": "",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "thumbLabel": "true",
+        "showTicks": "false",
+        "min": 0,
+        "max": "1.0",
+        "step": "0.1",
+        "className": "",
+        "iconPrepend": "",
+        "iconAppend": "",
+        "color": "",
+        "colorTrack": "",
+        "colorThumb": "",
+        "showTextField": false,
+        "x": 570,
+        "y": 620,
+        "wires": [
+            [
+                "af8be32a093a3a95"
+            ]
+        ]
+    },
+    {
+        "id": "0b71023153fa2325",
+        "type": "delay",
+        "z": "1d33f87b44f5861e",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 320,
+        "wires": [
+            [
+                "706121d25167f537"
+            ]
+        ]
+    },
+    {
+        "id": "368f5bdc140a11ad",
+        "type": "delay",
+        "z": "1d33f87b44f5861e",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "60",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 700,
+        "wires": [
+            [
+                "7179bee98bf6f429"
             ]
         ]
     }
