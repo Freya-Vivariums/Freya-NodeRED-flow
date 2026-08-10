@@ -2,7 +2,7 @@
     {
         "id": "c0a854f2e62226f7",
         "type": "tab",
-        "label": "Freya-System-v0.3.6",
+        "label": "Freya-System-v0.4.0",
         "disabled": false,
         "info": "",
         "env": []
@@ -10,7 +10,7 @@
     {
         "id": "e0de5f1a89be7055",
         "type": "tab",
-        "label": "Freya-Temperature-v0.3.6",
+        "label": "Freya-Temperature-v0.4.0",
         "disabled": false,
         "info": "",
         "env": []
@@ -18,7 +18,7 @@
     {
         "id": "8e2b0ca1e84570fa",
         "type": "tab",
-        "label": "Freya-Humidity-v0.3.6",
+        "label": "Freya-Humidity-v0.4.0",
         "disabled": false,
         "info": "",
         "env": []
@@ -26,7 +26,7 @@
     {
         "id": "88c6b96e78cf833d",
         "type": "tab",
-        "label": "Freya-Light-v0.3.6",
+        "label": "Freya-Light-v0.4.0",
         "disabled": false,
         "info": "",
         "env": []
@@ -34,7 +34,7 @@
     {
         "id": "1d33f87b44f5861e",
         "type": "tab",
-        "label": "Freya-Misc-v0.3.6",
+        "label": "Freya-Misc-v0.4.0",
         "disabled": false,
         "info": "Other measurements and dashboard components",
         "env": []
@@ -249,20 +249,6 @@
         "height": 1,
         "order": 12,
         "showTitle": true,
-        "className": "",
-        "visible": "true",
-        "disabled": "false",
-        "groupType": "default"
-    },
-    {
-        "id": "2ca1bfb3a45d421a",
-        "type": "ui-group",
-        "name": "Other Features",
-        "page": "4dd404b8d16154d5",
-        "width": 12,
-        "height": 1,
-        "order": 13,
-        "showTitle": false,
         "className": "",
         "visible": "true",
         "disabled": "false",
@@ -534,7 +520,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "info",
-        "payload": "{\"name\":\"Freya\",\"version\":\"v0.3.6\",\"description\":\"Freya wired up in Node-RED\",\"routes\":[{\"label\":\"Dashboard\",\"path\":\"/dashboard\",\"default\":true},{\"label\":\"Editor\",\"path\":\"/editor\"},{\"label\":\"Repository\",\"path\":\"https://github.com/Freya-Vivariums\",\"target\":\"tab\"},{\"label\":\"Support\",\"path\":\"https://reddit.com/r/FreyaVivariums\",\"target\":\"tab\"}]}",
+        "payload": "{\"name\":\"Freya\",\"version\":\"v0.4.0\",\"description\":\"Freya wired up in Node-RED\",\"routes\":[{\"label\":\"Dashboard\",\"path\":\"/dashboard\",\"icon\":\"fa-chart-line\",\"default\":true},{\"label\":\"Editor\",\"icon\":\"fa-pencil\",\"path\":\"/editor\"},{\"label\":\"Repository\",\"path\":\"https://github.com/Freya-Vivariums\",\"icon\":\"fa-brands fa-github\",\"target\":\"tab\"},{\"label\":\"Community\",\"path\":\"https://reddit.com/r/FreyaVivariums\",\"icon\":\"fa-comments\",\"target\":\"tab\"}]}",
         "payloadType": "json",
         "x": 320,
         "y": 240,
