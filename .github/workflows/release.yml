@@ -1,0 +1,42 @@
+name: Attach the flow to the release
+
+# 'published' rather than 'created': a release that is prepared as a draft and
+# published later does not fire the 'created' event.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  attach-flow:
+    name: Check and attach the flow
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # A Node-RED flow file is an array of node objects. Anything else - a
+      # truncated file, a stray editor export wrapped in an object - stops
+      # Node-RED from starting, and this asset is what devices download. Better
+      # to fail the release than to publish a flow that cannot be loaded.
+      - name: Check the flow file
+        run: |
+          if ! jq -e 'type == "array" and length > 0' Freya_flows.json > /dev/null; then
+            echo "Freya_flows.json is not a non-empty JSON array" >&2
+            exit 1
+          fi
+          echo "Flow contains $(jq 'length' Freya_flows.json) nodes across the following tabs:"
+          jq -r '.[] | select(.type == "tab") | "  " + .label' Freya_flows.json
+
+      # Attached under its own name rather than a versioned one, so that
+      # releases/latest/download/Freya_flows.json is a stable URL an installer
+      # can fetch. The release tag is what identifies the version.
+      - name: Upload the release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: Freya_flows.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
