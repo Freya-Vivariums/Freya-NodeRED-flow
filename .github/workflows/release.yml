@@ -24,7 +24,9 @@ jobs:
       # to fail the release than to publish a flow that cannot be loaded.
       - name: Check the flow file
         run: |
-          if ! jq -e 'type == "array" and length > 0' Freya_flows.json > /dev/null; then
+          # The -s test is not redundant: jq reads an empty file as "no input"
+          # and exits 0, so an empty flow file would otherwise pass.
+          if [ ! -s Freya_flows.json ] || ! jq -e 'type == "array" and length > 0' Freya_flows.json > /dev/null; then
             echo "Freya_flows.json is not a non-empty JSON array" >&2
             exit 1
           fi
